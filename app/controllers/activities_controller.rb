@@ -11,6 +11,16 @@ class ActivitiesController < ApplicationController
     end
   end
 
+  def create
+    activity_params = params.require(:activity).permit(:title, :body)
+    @activity = Activity.create(activity_params)
+
+    respond_to do |format|
+      format.html
+      format.json { render :json => @activity }
+    end
+  end
+
   def show
     @activity = Activity.find(params[:id])
   end
