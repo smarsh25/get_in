@@ -10,4 +10,8 @@ class ActivitiesController < ApplicationController
       format.json { render :json => @activities }
     end
   end
+
+  def show
+    @activity = Activity.find(params[:id])
+  end
 end
