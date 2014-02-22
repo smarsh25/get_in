@@ -1,3 +1,3 @@
 class Content < ActiveRecord::Base
-  belongs_to :activity
+  belongs_to :activity, dependent: :destroy
 end
