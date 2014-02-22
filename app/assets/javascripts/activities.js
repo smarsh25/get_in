@@ -8,12 +8,17 @@ $(function() {
 
   Activities.displayActivities = function(responseData) {
     $(responseData).each(function(index, activity) {
-      $("#activities").append();
+      $("#activities").append("<a href='/'>" + activity.title + "</a>");
     });
   };
 
   Activities.getItems = function() {
-    $.get(this.index.path).done(this.displayActivities(responseData));
+    //$.get(this.urls.index.path).done(this.displayActivities(responseData));
+    $.get(this.urls.index.path).done(function(responseData) {
+      $(responseData).each(function(index, activity) {
+        $("#activities").append("<a href='/'>" + activity.title + "</a><br>");
+      });
+    });
   };
 
   Activities.getItems();
