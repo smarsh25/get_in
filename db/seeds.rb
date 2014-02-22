@@ -5,3 +5,17 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+c1 = Category.create!(:name => "Sports");
+c2 = Category.create!(:name => "Academics");
+c3 = Category.create!(:name => "Clubs");
+c4 = Category.create!(:name => "Volunteer Work");
+c5 = Category.create!(:name => "Scholarships");
+
+
+a1 = c2.activities.create!(:title => "SAT", :body => "Math 620, Reading/Verbal 600")
+a1.contents.create(:title => "SAT results doc", :body => "link to scores online.")
+
+a2 = c3.activities.create!(:title => "Chess Club", :body => "Club president and class champion.")
+a2.contents.create(:title => "Chess club website", :body => "link to chess club website.")
+
+c4.activities.create!(:title => "Hands on Atlanta", :body => "Residential yard cleaning.")

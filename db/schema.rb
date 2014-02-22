@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140222021141) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "activities", force: true do |t|
     t.string   "title"
     t.text     "body"
@@ -22,8 +25,8 @@ ActiveRecord::Schema.define(version: 20140222021141) do
     t.datetime "updated_at"
   end
 
-  add_index "activities", ["category_id"], name: "index_activities_on_category_id"
-  add_index "activities", ["user_id"], name: "index_activities_on_user_id"
+  add_index "activities", ["category_id"], name: "index_activities_on_category_id", using: :btree
+  add_index "activities", ["user_id"], name: "index_activities_on_user_id", using: :btree
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -39,6 +42,6 @@ ActiveRecord::Schema.define(version: 20140222021141) do
     t.datetime "updated_at"
   end
 
-  add_index "contents", ["activity_id"], name: "index_contents_on_activity_id"
+  add_index "contents", ["activity_id"], name: "index_contents_on_activity_id", using: :btree
 
 end
