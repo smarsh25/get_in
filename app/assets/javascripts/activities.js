@@ -16,7 +16,8 @@ $(function() {
     //$.get(this.urls.index.path).done(this.displayActivities(responseData));
     $.get(this.urls.index.path).done(function(responseData) {
       $(responseData).each(function(index, activity) {
-        $("#activities").append("<a href='/'>" + activity.title + "</a><br>");
+        var activityHTML = HandlebarsTemplates.activities(activity);
+        $("#activities").append(activityHTML);
       });
     });
   };
