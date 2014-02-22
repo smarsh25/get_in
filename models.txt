@@ -1,0 +1,29 @@
+
+Categories  # Clubs, Academics, Sports, etc
+  id
+  name
+
+Activity    # The Robotics Competition
+  id
+  user_id
+  title
+  summary
+  start
+  end
+
+Content     # Things that are in your activity text, links, *embeded images or video
+  id
+  activity_id
+  title
+  body
+
+User
+  id
+  name
+  email
+  password
+
+
+Categories ---< Activities
+Activity   ---< Content
+User       ---< Activities
