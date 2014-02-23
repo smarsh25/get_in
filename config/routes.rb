@@ -1,7 +1,15 @@
 GetIn::Application.routes.draw do
 
+  get "profiles/new"
+  get "profiles/edit"
+  get "profiles/update"
+  get "profiles/destroy"
+  get "profiles/show"
   resources :activities do
     resources :content
+  end
+  resources :users do
+    resources :profiles
   end
 
   devise_for :users
