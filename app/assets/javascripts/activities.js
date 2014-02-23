@@ -20,10 +20,6 @@ $(function() {
   };
 
   Activities.displayActivities = function(responseData) {
-      // clear out the data entry text fields
-      $("#activity_title").val("");
-      $("#activity_body").val("");
-
       // list the saved activities
       $(responseData).each(function(index, activity) {
         var activityHTML = HandlebarsTemplates.activities(activity);
@@ -36,7 +32,7 @@ $(function() {
       $("#activity_title").val("");
       $("#activity_body").val("");
 
-      // append/dispaly new saved activity
+      // append/display new saved activity
       var activityHTML = HandlebarsTemplates.activities(responseData);
       $("#activities").append(activityHTML);
   };
@@ -45,8 +41,11 @@ $(function() {
     $.get(this.urls.index.path).done(this.displayActivities);
   };
 
-  $('#add_activity').on('submit', function(event){Activities.saveActivity(event);});
+  Activities.setEventHandlers = function() {
+    $('#add_activity').on('submit', function(event){Activities.saveActivity(event);});
+  };
 
+  Activities.setEventHandlers();
   Activities.getItems();
 
 });

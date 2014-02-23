@@ -3,8 +3,7 @@
 # I didn't think through that model name.
 class ContentController < ApplicationController
   def index
-    Activity.find(activity_id).contents.all
-    @contents = Content.all
+    @contents = Activity.find(activity_id).contents
     respond_to do |f|
       f.html
       f.json { render json: { contents: @contents } }
@@ -12,8 +11,7 @@ class ContentController < ApplicationController
   end
 
   def show
-    Activity.find(activity_id).contents.find(id)
-    @content = Content.find(id)
+    @content = Activity.find(activity_id).contents.find(id)
     respond_to do |f|
       f.html
       f.json { render json: { content: @content } }

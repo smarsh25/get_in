@@ -1,16 +1,19 @@
 <div>
   <div>
-    <%= @activity.title %>
+    Title: <%= @activity.title %>
   </div>
   <div>
-    <%= @activity.body %>
+    Body: <%= @activity.body %>
   </div>
+  <div id="content" activity-id="<%= @activity.id %>">
+  </div>    
   <div>
     <form id='add_activity_content' activity-id="<%= @activity.id %>">
       <input id='content_title'type='text' name='content[title]'/>
     </form>
   </div>
-  <div id="content" activity-id="<%= @activity.id %>">
-    
+  <br>
+  <%= link_to("Edit", edit_activity_path(@activity), class: "btn btn-warning") %>
+  <%= link_to("Delete", @activity, method: :delete, class: "btn btn-danger", data: {confirm: "Delete this activity: Are you sure?"}) %>
   </div>
-</div>
+<%= javascript_include_tag "content"%>
