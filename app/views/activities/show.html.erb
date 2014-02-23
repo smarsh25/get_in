@@ -1,8 +1,18 @@
 <div>
   <div>
-    <%= @activity.title %>
+    Title: <%= @activity.title %>
   </div>
   <div>
-    <%= @activity.body %>
+    Body: <%= @activity.body %>
   </div>
+  <div>
+    <% unless @activity.contents.empty? %>
+      <% @activity.contents.each do |content| %>
+        Content: <%= content.title %> - <%= content.body %><br>
+      <% end %>
+    <% end %>
+  </div>
+  <br>
+  <%= link_to("Edit", edit_activity_path(@activity), class: "btn btn-warning") %>
+  <%= link_to("Delete", @activity, method: :delete, class: "btn btn-danger", data: {confirm: "Delete this activity: Are you sure?"}) %>
 </div>

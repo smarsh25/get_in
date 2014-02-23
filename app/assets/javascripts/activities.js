@@ -36,7 +36,7 @@ $(function() {
       $("#activity_title").val("");
       $("#activity_body").val("");
 
-      // append/dispaly new saved activity
+      // append/display new saved activity
       var activityHTML = HandlebarsTemplates.activities(responseData);
       $("#activities").append(activityHTML);
   };

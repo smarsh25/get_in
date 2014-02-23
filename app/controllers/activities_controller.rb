@@ -7,7 +7,7 @@ class ActivitiesController < ApplicationController
     @activities = Activity.all
     respond_to do |format|
       format.html
-      format.json { render :json => @activities }
+      format.json { render json: @activities }
     end
   end
 
@@ -17,11 +17,17 @@ class ActivitiesController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.json { render :json => @activity }
+      format.json { render json: @activity }
     end
   end
 
   def show
     @activity = Activity.find(params[:id])
+  end
+
+  def destroy
+    activity = Activity.find(params[:id])
+    activity.destroy
+    redirect_to root_url
   end
 end
