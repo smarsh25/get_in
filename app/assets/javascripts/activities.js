@@ -20,10 +20,6 @@ $(function() {
   };
 
   Activities.displayActivities = function(responseData) {
-      // clear out the data entry text fields
-      //$("#activity_title").val("");
-      //$("#activity_body").val("");
-
       // list the saved activities
       $(responseData).each(function(index, activity) {
         var activityHTML = HandlebarsTemplates.activities(activity);
