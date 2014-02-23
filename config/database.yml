@@ -1,7 +1,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: get_in_dev
+  database: get_in_development
   pool: 5
 
 # Warning: The database defined as "test" will be erased and
@@ -16,5 +16,5 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: get_in
+  database: get_in_production
   pool: 5
