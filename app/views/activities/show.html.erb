@@ -1,0 +1,16 @@
+<div>
+  <div>
+    <%= @activity.title %>
+  </div>
+  <div>
+    <%= @activity.body %>
+  </div>
+  <div>
+    <form id='add_activity_content' activity-id="<%= @activity.id %>">
+      <input id='content_title'type='text' name='content[title]'/>
+    </form>
+  </div>
+  <div id="content" activity-id="<%= @activity.id %>">
+    
+  </div>
+</div>

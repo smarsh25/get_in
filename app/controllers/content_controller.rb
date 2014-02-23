@@ -21,7 +21,11 @@ class ContentController < ApplicationController
   end
 
   def create
-    @content = Activity.find(activity_id).contents.new
+    content = Activity.find(activity_id).contents.create(content_params)
+    respond_to do |f|
+      f.json { render json: { content: content } }
+    end
+
   end
 
   def update
