@@ -9,9 +9,8 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    binding.pry
     updated_profile = params.require(:profile).permit(:first_name, :last_name, :school, :expected_graduation, :city, :state)
-    profile = Profile.find(id)
+    profile = current_user.profile
     profile.update_attributes(updated_profile)
     redirect_to profile_path
   end
