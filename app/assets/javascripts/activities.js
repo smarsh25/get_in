@@ -37,6 +37,26 @@ $(function() {
       $("#activities").append(activityHTML);
   };
 
+  Activities.show = function(activity) {
+      // load the activity represented by the clicked button
+      // toggle the active class to be the clicked tab
+      // make all other tabs de-activated
+
+      $('#activities_index_select').on("click", function(event){
+        if (event.target.id != "Add_Activity"){
+          $("#activities_index_select").children().each(function(index, button){
+            if (button.classList.contains("active")) {
+              button.removeClass("active");
+            }
+          });
+          event.target.toggleClass("active");
+        }
+
+
+      });
+
+  };
+
   Activities.getItems = function() {
     $.get(this.urls.index.path).done(this.displayActivities);
   };
