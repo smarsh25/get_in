@@ -2,14 +2,17 @@ GetIn::Application.routes.draw do
   resources :activities do
     resources :content
   end
+
   resources :profiles, only: [:show, :edit, :update]
   
+  resources :site
+
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # set the root route to hit the activities index (for now)
-  root to: 'activities#index'
+  root to: 'site#index'
 
 end
 
