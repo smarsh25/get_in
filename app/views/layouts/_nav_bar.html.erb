@@ -1,10 +1,31 @@
 <nav class="navbar navbar-inverse" role="navigation">
   <!-- Brand and toggle get grouped for better mobile display -->
-  <div class="navbar-header">
+  <div class="navbar-header pull-left">
     </button><a class="navbar-brand" href="/">Get In!</a>
-    <ul class="nav navbar-nav navbar-right">
-      <li> <a href="#"><i class="glyphicon glyphicon-asterisk"></i></a></li>
-    </ul>
+  </div>
+  <div class="navbar_header pull_right"></div>
+      <!-- This checks to see if the user is signed in
+      I found this method here https://github.com/plataformatec/devise#controller-filters-and-helpers 
+      by googling "devise helper methods" -->
+      <% if user_signed_in? %>
+        <!-- user is signed in display logout button 
+          devise logout link found here https://github.com/plataformatec/devise/wiki/How-To:-Add-sign_in,-sign_out,-and-sign_up-links-to-your-layout-template googled 'devise logout button'-->
+        <%= link_to('Logout', destroy_user_session_path, :method => :delete, class: 'pull-right') %>
+      <% else %>
+        <!-- User is not signed in then allow them to. This uses the devise sign_in helper form found here 
+        https://github.com/plataformatec/devise/wiki/How-To:-Display-a-custom-sign_in-form-anywhere-in-your-app 
+        I found this by 'googling devise custom sign in page' -->
+          <%= form_for(:user, url: session_path(:user), html:{ class: 'navbar-form navbar-right navbar-input-group nav_bar_login' }) do |f| %>
+            <%= f.text_field :email, placeholder: 'email', class: "form-control log_in_field" %>
+            <%= f.password_field :password, placeholder: 'password', class: "form-control log_in_field" %>
+            <div class="form_group" style='display: inline-block;'>
+            <%= f.check_box :remember_me, class: "log_in form-control" %>
+            <%= f.label :remember_me, class: "log_in" %>
+            </div>
+            <%= f.submit 'Sign in', class: "log_in form-control" %>
+            <%= link_to "Forgot your password?", new_password_path(:user) %>
+          <% end %>
+      <% end %>
   </div>
 </nav>
 
