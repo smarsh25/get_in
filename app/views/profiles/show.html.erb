@@ -8,10 +8,11 @@
     Graduation Date:<%= @profile.expected_graduation %>
     City: <%= @profile.city %>
     State: <%= @profile.state %>
+    Image: <%= image_tag @profile.image, width: '50px', height: '50px' %>
   <div>
 <div>
 
 
 
-<%= link_to("Edit", edit_profile_path(@profile),
-  class: "btn btn-warning") %>
+<%= link_to('Edit', edit_profile_path(@profile),
+  class: 'btn btn-warning') %>
