@@ -8,6 +8,8 @@ $(function() {
   };
 
   Activities.saveActivity = function(event) {
+    var _this = Activities;
+
     event.preventDefault();
 
     // collect the activity text fields entered by user
@@ -15,8 +17,12 @@ $(function() {
     newActivity.title = $("#activity_title").val();
     newActivity.body = $("#activity_body").val();
 
+    // collect checked categories to save
+    var checkedCategories = $(".categoryCheckboxes").filter(":checked");
+    console.log(checkedCategories);
+
     // save the new activity on the back end, and on success display
-    $.post(this.urls.create.path, {activity: newActivity}).done(this.displayNewActivity);
+    $.post(_this.urls.create.path, {activity: newActivity}).done(_this.displayNewActivity);
   };
 
   Activities.displayActivities = function(responseData) {
@@ -42,7 +48,7 @@ $(function() {
   };
 
   Activities.setEventHandlers = function() {
-    $('#add_activity').on('submit', function(event){Activities.saveActivity(event);});
+    $('#add_activity').on('submit', Activities.saveActivity);
   };
 
   Activities.setEventHandlers();
