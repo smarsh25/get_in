@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-sm-12 col-md-12 col-lg-12">
+        <div class="jumbotron" id="profile">
+            
+
+              <!--   <img id="profile_pic" src="http://placehold.it/200x200"> -->
+
+                <div class="profile_text">
+                    <h1><%= @profile.first_name %> <%= @profile.last_name %></h1>
+                    <h3><%= @profile.school%></h3>
+                    <h3>Class of  <%= @profile.expected_graduation%></h3>
+                    <h3><%= @profile.city %>, <%= @profile.state %></h3>
+                    <%= link_to("Edit", edit_profile_path(@profile),
+                  class: "btn btn-warning") %>
+                </div>
+            
+        </div>
+  </div>
+</div>

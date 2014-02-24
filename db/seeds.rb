@@ -29,3 +29,13 @@ a2.contents.create(title: 'Chess club website',
 
 c4.activities.create!(title: 'Hands on Atlanta',
                       body: 'Residential yard cleaning.')
+
+
+
+
+
+
+
+
+Profile.create!(first_name: "Bob", last_name: "Jackson", school: "Jacque Fresco High School", expected_graduation: 2017, city: "Venus, Earth", state: "Humanity")
+

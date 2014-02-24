@@ -27,17 +27,15 @@ form {
     text-align: center;
 }
 
-h2 {
-    text-align: center;
-}
+
 
 #content_form {
     background-color: grey;
 }
 
 body {
-
-    background-color: rgba(92,213,235,.2);
+/*
+    background-color: rgba(92,213,235,.2);*/
 }
 
 input {
@@ -61,10 +59,38 @@ input {
     max-width: 90%;
 }
 
-.log_in {
+.log_in {8
     font-size: 12px;
     max-height: 40px;
 }
+
+
+.profile_text {
+    display: inline-block;
+    font-size: 100%;
+    word-wrap: break-word;
+    
+
+}
+
+#profile_pic {
+    padding-bottom: 300px;
+    margin-right: 21px;
+    max-width: 30%;
+
+
+}
+
+#profile {
+    max-height: 300px;
+    /*margin-bottom: 30px;*/
+}
+
+.profile_content {
+    padding-bottom: 300px;
+
+}
+
 
 
 

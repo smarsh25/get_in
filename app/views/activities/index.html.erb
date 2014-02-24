@@ -1,31 +1,34 @@
-<%= render partial: "/layouts/nav_bar" %>
-
 
 <div class="container">
 
-    <ul class="nav nav-pills" id="activities_index_select">
-      <li class="active" id="Add_Activity"><a>Add Activity</a></li>
-      <% Activity.all.each do |act| %>
-         <li id="<%= act.id %>"><a><%= act.title %></a></li>
-     <% end %>
-    </ul>
 
 
 
 
 
 
+  <div class="container">
+    <%= render partial: "/profiles/show" %>
 
 
-
-
-
-
-
-    <h2>Activity List</h2>
     <div id="activities">
     </div>
+
+  </div>
 
 
 </div>
     <%= javascript_include_tag "activities"%>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+

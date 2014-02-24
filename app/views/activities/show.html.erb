@@ -1,5 +1,4 @@
-
-<%= render partial: "/layouts/nav_bar" %>
+<%= render partial: "/profiles/show" %>
 
 <div class="container">
 
@@ -33,6 +32,16 @@
 
        
       <%= javascript_include_tag "content"%>
+      <script>
+      $(document).ready(function(){
+    
+    var photo_width = $('#content_photo').css('width');
+    $('#content_tile').css('width', photo_width);
+    var content_width = $('#content_tile').css('width');
+    console.log(photo_width);
+    console.log(content_width);
+    
+});</script>
 
 
 

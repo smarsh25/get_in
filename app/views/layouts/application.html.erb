@@ -9,14 +9,12 @@
   <body>
 
 
-     
-      <div class="row">
-        <div class="col-md-12 col-sm-12">
-          <% flash.each do |key, value| %>
-            <div class="alert alert-<%=key%>"><%=value%></div>
-          <% end %>
-          <%= yield %>
-        </div>
-      </div>
+  
+          <%= render partial: "/layouts/nav_bar" %>
+            
+              <%= yield %>
+            
+       
+      
   </body>
 </html>

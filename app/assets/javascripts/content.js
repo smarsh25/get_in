@@ -18,6 +18,7 @@ $(function(){
       method : this.urls.index.method
     }).done(function(data){
       callback(data);
+
     });
   };
   //sends a post request to the server to add content to the activity
@@ -52,7 +53,15 @@ $(function(){
     $(data.contents).each(function(index, item){
         Content.render(item);
       });
+    var photo_width = $('#content_photo').css('width');
+    $('.content_tile').css('width', photo_width);
+    var content_width = $('#content_tile').css('width');
+    console.log(photo_width);
+    console.log(content_width);
     });
+
+    
+    
   });
 
 
