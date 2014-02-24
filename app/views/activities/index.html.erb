@@ -1,9 +1,17 @@
 <h2>Add an Activity</h2>
 <form id="add_activity">
-  Title<br>
-  <input id="activity_title" type="text" name="activity[title]"><br>
-  Body<br>
+  <div>Category:</div>
+    <div>
+      <select name="category_id" size=5>
+        <% @categories.each do |category| %>
+          <option value="<%= category["id"] %>"><%= category["name"] %></option>
+        <% end %>
+      </select>
+    </div>
+<div>Body</div>
   <textarea id="activity_body" name="activity[body]" rows="3" cols="60"></textarea><br>
+  <div>Title</div>
+  <input id="activity_title" type="text" name="activity[title]"><br>
 </form>
 <h2>Activity List</h2>
 <div id="activities">

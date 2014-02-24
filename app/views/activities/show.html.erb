@@ -5,6 +5,14 @@
   <div>
     Body: <%= @activity.body %>
   </div>
+    <% unless @activity.categories.empty? %>
+      Categories:<br>
+      <% @activity.categories.each do |category| %>
+        <%= category.name %><br>
+      <% end %>
+    <% end %>
+  <div>
+  </div>
   <div id="content" activity-id="<%= @activity.id %>">
   </div>    
   <div>

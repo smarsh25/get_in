@@ -5,6 +5,7 @@ class ActivitiesController < ApplicationController
   # GET - Provide list of activities, in either html or json
   def index
     @activities = Activity.all
+    @categories = Category.all
     respond_to do |format|
       format.html
       format.json { render json: @activities }
