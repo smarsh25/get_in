@@ -17,7 +17,7 @@ class ProfilesController < ApplicationController
     updated_profile = params.require(:profile).permit(:first_name, :last_name, :school, :expected_graduation, :city, :state)
     profile = Profile.find(id)
     profile.update_attributes(updated_profile)
-    redirect_to user_profile_path
+    redirect_to profile_path
   end
 
 

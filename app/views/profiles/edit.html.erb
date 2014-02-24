@@ -11,8 +11,28 @@
   </div>
   <div class="form-group">
       <%= label_tag(:last_name, "Last Name:") %>
-      <%= f.text_area(:last_name, value: @profile.last_name, class: "form-control") %>
+      <%= f.text_field(:last_name, value: @profile.last_name, class: "form-control") %>
   </div>
+
+  <div class="form-group">
+      <%= label_tag(:school, "School:") %>
+      <%= f.text_field(:school, value: @profile.school, class: "form-control") %>
+  </div>
+
+  <div class="form-group">
+      <%= label_tag(:expected_graduation, "Expected Graduation:") %>
+      <%= f.text_field(:expected_graduation, value: @profile.expected_graduation, class: "form-control") %>
+  </div>
+
+<div class="form-group">
+      <%= label_tag(:city, "City:") %>
+      <%= f.text_field(:city, value: @profile.city, class: "form-control") %>
+  </div>
+  <div class="form-group">
+      <%= label_tag(:state, "State:") %>
+      <%= f.text_field(:state, value: @profile.state, class: "form-control") %>
+  </div>
+
     <%= f.submit("Update", class: "btn btn-primary") %>
 <% end %>
 </div>
