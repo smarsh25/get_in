@@ -32,7 +32,35 @@
       <%= label_tag(:state, "State:") %>
       <%= f.text_field(:state, value: @profile.state, class: "form-control") %>
   </div>
-
     <%= f.submit("Update", class: "btn btn-primary") %>
 <% end %>
+  <div>
+    <%= s3_uploader_form callback_url: '/profiles/add_pic',
+             id: "s3_uploader",
+             callback_param: "profile[image]",
+             expiration: 2.hours.from_now.utc.iso8601,
+             callback_method: "POST",
+             max_file_size: 10.megabytes do %>
+              <div class="choose-file-text">Add Profile Picture</div>
+      <%= file_field_tag :file, multiple: false, class: "file-chooser-button" %>
+    <% end %>
+  </div>
+   <div id="uploads_container"></div>
+  </div>
 </div>
+<script>
+$(function() {
+  $('#s3_uploader').S3Uploader({
+    remove_completed_progress_bar: false,
+    progress_bar_target: $('#uploads_container')
+  });
+
+  $('#s3_uploader').bind('s3_upload_failed', function(e, content) {
+    return alert(content.filename + ' failed to upload. Error: ' + content.error_thrown);
+  });
+
+  $('#s3_uploader').bind('ajax:success', function(e, data) {
+    window.location = data["url"];
+  });
+
+});</script>

@@ -2,7 +2,7 @@ GetIn::Application.routes.draw do
   resources :activities do
     resources :content
   end
-
+  post '/profiles/add_pic', to: 'profiles#add_pic'
   resources :profiles, only: [:show, :edit, :update]
   
   resources :site

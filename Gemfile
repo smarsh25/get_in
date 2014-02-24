@@ -30,6 +30,7 @@ gem 'turbolinks'
 
 gem 'handlebars_assets'
 
+gem 's3_direct_upload'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 group :production do

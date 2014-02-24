@@ -1,10 +1,15 @@
 # manages profile editing
 class ProfilesController < ApplicationController
   def edit
-    @profile = Profile.find(id)
+    if user_signed_in?
+      @profile = current_user.profile
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def update
+    binding.pry
     updated_profile = params.require(:profile).permit(:first_name, :last_name, :school, :expected_graduation, :city, :state)
     profile = Profile.find(id)
     profile.update_attributes(updated_profile)
@@ -17,6 +22,12 @@ class ProfilesController < ApplicationController
       f.html
       f.json { render json: { content: @profile } }
     end
+  end
+
+  def add_pic
+    current_user.profile.image = params['url']
+    current_user.profile.save
+    render json:  {url: "/profiles/1"}
   end
 
   private
