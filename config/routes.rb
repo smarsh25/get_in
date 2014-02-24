@@ -8,10 +8,8 @@ GetIn::Application.routes.draw do
   resources :activities do
     resources :content
   end
-  resources :users do
-    resources :profiles
-  end
-
+  resources :profiles
+  
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
