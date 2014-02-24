@@ -16,7 +16,7 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    @profile = Profile.find(id)
+    @profile = current_user.profile
     respond_to do |f|
       f.html
       f.json { render json: { content: @profile } }
