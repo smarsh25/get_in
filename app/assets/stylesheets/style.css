@@ -1,10 +1,9 @@
-* {
+/** {
 
     border-radius(0) !important;
 
 }
-
-
+*/
 .btn {
     border-radius: 0;
 }
@@ -48,9 +47,7 @@ input {
         display: inline-block;
         text-align: left;
         background-color: rgba(245,245,245,.1);
-
-        border: 0;
-   
+        border: 0;  
 }
 
 #signup_form {
@@ -61,10 +58,15 @@ input {
     max-width: 90%;
 }
 
-.log_in {
+.log_in_field {
+    width: 25%;
     font-size: 12px;
     max-height: 40px;
 }
+.log_in {
+    width: 25%;
+}
+
 
 
 
