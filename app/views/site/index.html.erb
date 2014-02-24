@@ -11,15 +11,22 @@
 
          <img id="front_page" src="http://placehold.it/750x450">
         </div>
-
         <div class="col-sm-12 col-md-6 col-lg-4">
             <div class="panel-body" id="signup_form">
-                <form id='add_activity_content'>
-                <input class="signup" id='email'type='text' name='user[email]' placeholder="email"/>
-                <input class="signup" id='password'type='password' name='user[password]' placeholder="type a good password"/>
-                <input class="signup" id='password_conf'type='password' name='user[passwordconf]' placeholder="repeat that password"/>
-                <button type="button" class="btn btn-primary">Start Logging Your Accomplishments</button>
-                </form>
+                <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+                  <%= devise_error_messages! %>
+
+                  <div><%= f.label :email %><br />
+                  <%= f.email_field :email %></div>
+
+                  <div><%= f.label :password %><br />
+                  <%= f.password_field :password %></div>
+
+                  <div><%= f.label :password_confirmation %><br />
+                  <%= f.password_field :password_confirmation %></div>
+
+                  <div><%= f.submit "Start Loggin Your Accomplishments" %></div>
+                <% end %>
             </div>
         </div>
     </div>
