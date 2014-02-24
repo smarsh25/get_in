@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   after_create do
-    self.profile.create
+    self.create_profile
   end
 
 end

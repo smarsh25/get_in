@@ -1,14 +1,5 @@
+# manages profile editing
 class ProfilesController < ApplicationController
-
-  def create
-    profile_params = params.require(:profile).permit(:first_name, :last_name, :school, :expected_graduation, :city, :state)
-    @profile = Profile.create(profile_params)
-    respond_to do |format|
-      format.html
-      format.json { render json: @profile }
-    end
-  end
-
   def edit
     @profile = Profile.find(id)
   end
@@ -20,15 +11,6 @@ class ProfilesController < ApplicationController
     redirect_to profile_path
   end
 
-
-   def destroy
-    Profile.find(id).destroy
-    respond_to do |f|
-      f.html redirect_to user_profile_path
-      f.json { render json: {} }
-    end
-  end
-
   def show
     @profile = Profile.find(id)
     respond_to do |f|
@@ -37,13 +19,10 @@ class ProfilesController < ApplicationController
     end
   end
 
-private 
-  #simplifying how we call ids
+  private
 
-  def id 
+  # simplifying how we get id
+  def id
     params[:id]
   end
-
-
-
 end

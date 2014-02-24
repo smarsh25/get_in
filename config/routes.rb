@@ -1,14 +1,8 @@
 GetIn::Application.routes.draw do
-
-  get "profiles/new"
-  get "profiles/edit"
-  get "profiles/update"
-  get "profiles/destroy"
-  get "profiles/show"
   resources :activities do
     resources :content
   end
-  resources :profiles
+  resources :profiles, only: [:show, :edit, :update]
   
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
