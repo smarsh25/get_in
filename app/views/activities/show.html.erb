@@ -1,7 +1,9 @@
 
+<%= render partial: "/layouts/nav_bar" %>
+
+<div class="container">
 
 
-   
       <h2><%= @activity.title %>  <%= link_to("Delete", @activity, method: :delete, class: "btn btn-danger", data: {confirm: "Delete this activity: Are you sure?"}) %></h2>
 
 
@@ -26,7 +28,7 @@
       </div>
     </div>
 
-
+</div>
 
 
        

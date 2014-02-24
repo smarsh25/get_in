@@ -39,3 +39,33 @@ body {
 
     background-color: rgba(92,213,235,.2);
 }
+
+input {
+        font-size: 200%;
+        color: white;
+        height: 60px;
+        width: 100%;
+        display: inline-block;
+        text-align: left;
+        background-color: rgba(245,245,245,.1);
+
+        border: 0;
+   
+}
+
+#signup_form {
+    background-color: rgba(245,245,245,.1);
+}
+
+#front_page {
+    max-width: 90%;
+}
+
+.log_in {
+    font-size: 12px;
+    max-height: 40px;
+}
+
+
+
+
