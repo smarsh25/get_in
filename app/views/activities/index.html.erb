@@ -1,10 +1,22 @@
-<h2>Add an Activity</h2>
-<form id="add_activity">
-  Title<br>
-  <input id="activity_title" type="text" name="activity[title]"><br>
-  Body<br>
-  <textarea id="activity_body" name="activity[body]" rows="3" cols="60"></textarea><br>
-</form>
+<ul class="nav nav-pills" id="activities_index_select">
+  <li class="active" id="Add_Activity"><a>Add Activity</a></li>
+  <% Activity.all.each do |act| %>
+     <li id="<%= act.id %>"><a><%= act.title %></a></li>
+ <% end %>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
 <h2>Activity List</h2>
 <div id="activities">
 </div>

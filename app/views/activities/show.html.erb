@@ -1,19 +1,37 @@
-<div>
-  <div>
-    Title: <%= @activity.title %>
-  </div>
-  <div>
-    Body: <%= @activity.body %>
-  </div>
-  <div id="content" activity-id="<%= @activity.id %>">
-  </div>    
-  <div>
-    <form id='add_activity_content' activity-id="<%= @activity.id %>">
-      <input id='content_title'type='text' name='content[title]'/>
-    </form>
-  </div>
-  <br>
-  <%= link_to("Edit", edit_activity_path(@activity), class: "btn btn-warning") %>
-  <%= link_to("Delete", @activity, method: :delete, class: "btn btn-danger", data: {confirm: "Delete this activity: Are you sure?"}) %>
-  </div>
-<%= javascript_include_tag "content"%>
+
+
+
+   
+      <h2><%= @activity.title %>  <%= link_to("Delete", @activity, method: :delete, class: "btn btn-danger", data: {confirm: "Delete this activity: Are you sure?"}) %></h2>
+
+
+      <br>
+
+   
+      <div id="content" activity-id="<%= @activity.id %>">
+      </div>    
+
+
+
+
+    <div class="panel panel-default">
+      <div class="panel-body" id="content_form">
+        <form id='add_activity_content' activity-id="<%= @activity.id %>">
+          <input id='content_title'type='text' name='content[title]' placeholder="describe an accomplishment"/>
+          <br>
+          <button type="button" class="btn btn-primary">Add Photo</button>
+          <button type="button" class="btn btn-primary">Add Video</button>
+          <button type="button" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+
+
+
+
+       
+      <%= javascript_include_tag "content"%>
+
+
+
+

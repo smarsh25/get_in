@@ -1,0 +1,41 @@
+* {
+
+    border-radius(0) !important;
+
+}
+
+
+.btn {
+    border-radius: 0;
+}
+
+
+.navbar {
+    border-radius: 0;
+}
+
+
+.jumbotron {
+    border-radius: 0;
+}
+
+input {
+    width: 100%;
+}
+
+form {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+#content_form {
+    background-color: grey;
+}
+
+body {
+
+    background-color: rgba(92,213,235,.2);
+}
