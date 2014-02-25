@@ -5,9 +5,11 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+  <%= javascript_include_tag 'Chart.min'%>
 </head>
   <body>
   <%= render 'layouts/nav_bar' %>
+  
       <div class="row">
         <div class="col-md-12 col-sm-12">
           <% flash.each do |key, value| %>
@@ -16,6 +18,5 @@
           <%= yield %>
         </div>
       </div>
-
   </body>
 </html>

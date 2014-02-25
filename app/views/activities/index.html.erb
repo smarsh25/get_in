@@ -1,12 +1,59 @@
 <div class="container">
-  <div class="container">
     <%= render partial: "/profiles/show", profile: current_user.profile %>
     <div id="activities">
     </div>
 
   </div>
+<canvas id="foobar" width="600" height="400"></canvas>
+
+
+    <h2>Activity List</h2>
+    <div id="activities">
+    </div>
+
+
 </div>
+<script>
+  // calling /categories.json, it is returned as data, 
+  // then passing that get request into chartdata
+
+  $.ajax({
+    url: "/categories.json",
+    method: "GET"
+  }).done(function(data){
+    var chartdata = data;
+    var datalabels = [];
+    var activity_counts = [];
+    var content_counts =[];
+
+    $(chartdata).each(function(index, item) {
+      //  passing each item and collecting the item.name ('sports')
+      datalabels.push(item['name']);
+      // activity_counts.push(item['activity_count']);
+      content_counts.push(item['content_count']);
+    });
+
+    // adding jquery to loop through data
+    console.log(datalabels)
+     var barData = {
+        labels : datalabels,
+        datasets : [
+          {
+            fillColor : "rgba(73,188,170,0.4)",
+            strokeColor : "rgba(72,174,209,0.4)",
+            data : content_counts
+          }
+
+        ]
+      }
+
+      var category_graph = document.getElementById("foobar").getContext("2d");
+
+      new Chart(category_graph).Bar(barData);
+  });
+
+ 
+
+
+</script>
     <%= javascript_include_tag "activities"%>
-</div>
-
-

@@ -3,6 +3,9 @@ GetIn::Application.routes.draw do
     resources :content
   end
   post '/profiles/add_pic', to: 'profiles#add_pic'
+
+  resources :categories, only: [:index]
+
   resources :profiles, only: [:show, :edit, :update]
   
   resources :site
