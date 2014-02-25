@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-sm-12 col-md-12 col-lg-12">
-        <div class="jumbotron" id="profile">
+
             <%= image_tag((current_user.profile.image || "http://placehold.it/200x200"), width: "200px", height:"200px") %>
                 <div class="profile_text">
                     <h1><%= current_user.profile.first_name || "First Name" %> <%= current_user.profile.last_name || "Last Name" %></h1>
@@ -18,9 +18,24 @@
                     <% end %>
                       </h3>
 
-                    <%= link_to("Edit", edit_profile_path(current_user.profile),
-                  class: "btn btn-warning") %>
+                    
+
+                   <a href="#edit" data-toggle="modal">Edit</a>
                 </div>
-        </div>
+
+  </div>
+</div>
+
+
+<div class="modal fade" id="edit" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+          <%= render 'profiles/edit' %>
+      </div>
+      <div class="modal-footer">
+          <a class="btn btn-default" data-dismiss="modal">Close</a>
+      </div>
+    </div>
   </div>
 </div>

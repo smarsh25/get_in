@@ -1,12 +1,16 @@
-<%= render partial: "/profiles/show" %>
-
 <div class="container">
-
+      <%= render partial: "/profiles/show" %>
       <h2><%= @activity.title %>  <%= link_to("Delete", @activity, method: :delete, class: "btn btn-danger", data: {confirm: "Delete this activity: Are you sure?"}) %></h2>
 
       <br>
+
+<div id="container">
+
       <div id="content" activity-id="<%= @activity.id %>">
+
       </div>    
+
+</div>
     <div class="panel panel-default">
       <div class="panel-body" id="content_form">
         <form id='add_activity_content' activity-id="<%= @activity.id %>">
@@ -32,6 +36,7 @@ $(document).ready(function(){
   console.log(content_width);
     
 });</script>
+
 
 
 

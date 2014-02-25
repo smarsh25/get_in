@@ -91,6 +91,13 @@ input {
 
 }
 
+h1 {
+    font-weight: lighter;
+}
+
+.item { width: 25%; }
+.item.w2 { width: 50%; }
+
 
 
 
