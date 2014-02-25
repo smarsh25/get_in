@@ -43,6 +43,11 @@ class ContentController < ApplicationController
     end
   end
 
+  def add_pic
+    Activity.find(activity_id).contents.create(body: params['url'], kind:'image')
+    render json:  {url: "/activities/#{activity_id}"}
+  end
+
   private
 
   def activity_id

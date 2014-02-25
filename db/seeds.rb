@@ -18,14 +18,14 @@ c4 = Category.create!(name: 'Volunteer Work')
 Category.create!(name: 'Scholarships')
 
 a1 = c2.activities.create!(title: 'SAT', body: 'Math 620, Reading/Verbal 600')
-a1.contents.create(title: 'SAT results doc', body: 'link to scores online.')
+a1.contents.create(title: 'SAT results doc', body: 'link to scores online.', type: 'text')
 a1.contents.create(title: 'SAT results trophy',
-                   body: 'you get a trophy for such a good score.')
+                   body: 'you get a trophy for such a good score.', type: 'text')
 
 a2 = c3.activities.create!(title: 'Chess Club',
                            body: 'Club president and class champion.')
 a2.contents.create(title: 'Chess club website',
-                   body: 'link to chess club website.')
+                   body: 'link to chess club website.', type: 'text')
 
 c4.activities.create!(title: 'Hands on Atlanta',
                       body: 'Residential yard cleaning.')
