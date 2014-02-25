@@ -1,7 +1,8 @@
-<%= render partial: "/profiles/show" %>
+
 
 <div class="container">
 
+      <%= render partial: "/profiles/show" %>
       <h2><%= @activity.title %>  <%= link_to("Delete", @activity, method: :delete, class: "btn btn-danger", data: {confirm: "Delete this activity: Are you sure?"}) %></h2>
 
       <br>
