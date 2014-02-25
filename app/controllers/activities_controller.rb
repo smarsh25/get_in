@@ -41,7 +41,11 @@ class ActivitiesController < ApplicationController
     # first, clear any of the current activity's categories, then save
     Tag.where(activity_id: activity.id).destroy_all
     activity.update_attributes(updated_activity)
-    redirect_to activity
+
+    respond_to do |format|
+      format.html { redirect_to activity }
+      format.json { render json: @activity }
+    end
   end
 
   # GET - provide a form to display activity

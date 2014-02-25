@@ -29,6 +29,10 @@ $(function() {
     $.post(_this.urls.create.path, {activity: newActivity}).done(_this.displayNewActivity);
   };
 
+  Activities.redirect = function() {
+    window.location = "/activities";
+  };
+
   Activities.updateActivity = function(event) {
     var _this = Activities;
 
@@ -48,7 +52,7 @@ $(function() {
     // save the updated activity on the back end, and on success display
     $.ajax({url:  _this.urls.update.path + $("#update_activity").attr('activity-id') + '.json',
             type: _this.urls.update.method,
-            data: {activity: updatedActivity}}).done(function(){window.location.replace("/activites");});
+            data: {activity: updatedActivity}}).done(_this.redirect);
   };
 
   Activities.displayActivities = function(responseData) {
