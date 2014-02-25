@@ -56,7 +56,7 @@ class ContentController < ApplicationController
 
   def id
     params[:id]
-git checkout -b jajafish-mason master  end
+ end
 
   def content_params
     params.require(:content).permit(:title, :body)
