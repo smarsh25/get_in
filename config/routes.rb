@@ -3,6 +3,8 @@ GetIn::Application.routes.draw do
     resources :content
   end
 
+  resources :categories, only: [:index]
+
   resources :profiles, only: [:show, :edit, :update]
   
   resources :site
