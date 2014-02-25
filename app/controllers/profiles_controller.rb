@@ -1,5 +1,8 @@
 # manages profile editing
 class ProfilesController < ApplicationController
+  # AUTHORIZATION - make sure a user is logged in, when accessing this page
+  before_filter :authenticate_user!
+
   def edit
     if user_signed_in?
       @profile = current_user.profile
@@ -9,7 +12,10 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    updated_profile = params.require(:profile).permit(:first_name, :last_name, :school, :expected_graduation, :city, :state)
+    updated_profile = params.require(:profile).permit(:first_name, :last_name,
+                                                      :school,
+                                                      :expected_graduation,
+                                                      :city, :state)
     profile = current_user.profile
     profile.update_attributes(updated_profile)
     redirect_to profile_path
@@ -26,7 +32,7 @@ class ProfilesController < ApplicationController
   def add_pic
     current_user.profile.image = params['url']
     current_user.profile.save
-    render json:  {url: "/activities"}
+    render json: {url: "/activities"}
   end
 
   private
