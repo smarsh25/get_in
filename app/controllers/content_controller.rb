@@ -44,7 +44,7 @@ class ContentController < ApplicationController
   end
 
   def add_pic
-    Activity.find(activity_id).contents.create(body: params['url'], kind:'image')
+    Activity.find(activity_id).contents.create(body: params['url'], kind:'image', title: params['title'])
     render json:  {url: "/activities/#{activity_id}"}
   end
 
@@ -56,9 +56,9 @@ class ContentController < ApplicationController
 
   def id
     params[:id]
- end
+  end
 
   def content_params
-    params.require(:content).permit(:title, :body)
+    params.require(:content).permit(:title, :body, :kind)
   end
 end

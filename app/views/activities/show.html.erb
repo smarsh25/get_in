@@ -14,11 +14,7 @@
     <% end %>
   <div>
 <div id="container">
-
-      <div id="content" activity-id="<%= @activity.id %>">
-
-      </div>    
-
+      <div id="content" activity-id="<%= @activity.id %>"></div>    
 </div>
     <div class="panel panel-default">
       <div class="panel-body" id="content_form">
@@ -31,43 +27,38 @@
       <div class="panel-body" id="image_form">
       <h4>Or Add a image or video</h4>
         <div>
+          <input id='image_content_title'type="text" class="image_caption" name="content['title']"/>
           <%= s3_uploader_form callback_url: "/activities/#{@activity.id}/content/add_pic",
-             id: "s3_uploader",
-             callback_param: "profile[image]",
+             id: 'content_s3_uploader',
+             callback_param: 'profile[image]',
              expiration: 2.hours.from_now.utc.iso8601,
-             callback_method: "POST",
+             callback_method: 'POST',
              max_file_size: 10.megabytes do %>
-          <%= file_field_tag :file, multiple: false, class: "file-chooser-button" %>
+          <%= file_field_tag :file, multiple: false, class: 'file-chooser-button' %>
         <% end %>
       </div>
       </div>
-      <div id="uploads_container"></div>
+      <div id='uploads_container'></div>
     </div>
 </div>
-       
-<%= javascript_include_tag "content"%>
 <script>
-  $(document).ready(function(){
-
-    var photo_width = $('#content_photo').css('width');
-    $('#content_tile').css('width', photo_width);
-    var content_width = $('#content_tile').css('width');
-      
-  });
-
   $(function() {
-    $('#s3_uploader').S3Uploader({
+    var add_content_title = function(){
+      u.additional_data({title: $('#image_content_title').val()});
+      return true;
+    };
+
+    var u = $('#content_s3_uploader').S3Uploader({
       remove_completed_progress_bar: false,
-      progress_bar_target: $('#uploads_container')
+      before_add: add_content_title
     });
 
-    $('#s3_uploader').bind('s3_upload_failed', function(e, content) {
+    $('#content_s3_uploader').bind('s3_upload_failed', function(e, content) {
       return alert(content.filename + ' failed to upload. Error: ' + content.error_thrown);
     });
 
-    $('#s3_uploader').bind('ajax:success', function(e, data) {
+    $('#content_s3_uploader').bind('ajax:success', function(e, data) {
       window.location = data["url"];
     });
-
   });
 </script>

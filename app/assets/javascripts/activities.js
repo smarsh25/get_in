@@ -74,26 +74,6 @@ $(function() {
       $('#activities').append(activityHTML);
   };
 
-  Activities.show = function(activity) {
-      // load the activity represented by the clicked button
-      // toggle the active class to be the clicked tab
-      // make all other tabs de-activated
-
-      $('#activities_index_select').on("click", function(event){
-        if (event.target.id != "Add_Activity"){
-          $("#activities_index_select").children().each(function(index, button){
-            if (button.classList.contains("active")) {
-              button.removeClass("active");
-            }
-          });
-          event.target.toggleClass("active");
-        }
-
-
-      });
-
-  };
-
   Activities.getItems = function() {
     $.get(this.urls.index.path).done(this.displayActivities);
   };
@@ -102,24 +82,12 @@ $(function() {
     $('#add_activity').on('submit', Activities.saveActivity);
     $('#update_activity').on('submit', Activities.updateActivity);
   };
-
+  
   Activities.setEventHandlers();
-
   // if on the create activity page (index), then get items to display
   if ($('#add_activity').length !== 0) {
-    Activities.getItems();    
+    Activities.getItems();
   }
-
-});
-
-$(document).ready(function(){
-    
-    var photo_width = $('#content_photo').css('width');
-    $('#content_tile').css('width', photo_width);
-    var content_width = $('#content_tile').css('width');
-    console.log(photo_width);
-    console.log(content_width);
-    
 });
 
 
