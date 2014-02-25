@@ -1,7 +1,7 @@
 <h2>Edit Activity</h2>
 <div class='col-xs-6'>
   <form id="update_activity" activity-id="<%= @activity.id%>">
-    <div>Categories:</div>
+    <div>Categories:</div> <!-- checkboxes -->
     <div>
       <% @categories.each do |category| %>
         <input id="<%= category.id %>" class="categoryCheckboxes" type="checkbox"
