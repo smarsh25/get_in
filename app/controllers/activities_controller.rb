@@ -18,9 +18,8 @@ class ActivitiesController < ApplicationController
     activity_params = params.require(:activity).permit(:title, :body,
                                                        tags_attributes:
                                                        [:category_id])
-
     @activity = Activity.create(activity_params)
-
+    current_user.activities << @activity
     respond_to do |format|
       format.html
       format.json { render json: @activity }

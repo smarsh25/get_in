@@ -14,32 +14,32 @@
     <% end %>
   <div>
 <div id="container">
-      <div id="content" activity-id="<%= @activity.id %>"></div>    
+  <div id="content" activity-id="<%= @activity.id %>"></div>    
 </div>
-    <div class="panel panel-default">
-      <div class="panel-body" id="content_form">
-        <form id='add_activity_content' activity-id="<%= @activity.id %>">
-          <input id='content_title'type='text' name='content[title]' placeholder="describe an accomplishment"/>
-          <br>
-          <button type="button" class="btn btn-primary">Submit</button>
-        </form>
-      </div>
-      <div class="panel-body" id="image_form">
-      <h4>Or Add a image or video</h4>
-        <div>
-          <input id='image_content_title'type="text" class="image_caption" name="content['title']"/>
-          <%= s3_uploader_form callback_url: "/activities/#{@activity.id}/content/add_pic",
-             id: 'content_s3_uploader',
-             callback_param: 'profile[image]',
-             expiration: 2.hours.from_now.utc.iso8601,
-             callback_method: 'POST',
-             max_file_size: 10.megabytes do %>
+  <div class="panel panel-default">
+    <div class="panel-body" id="content_form">
+      <form id='add_activity_content' activity-id="<%= @activity.id %>">
+        <input id='content_title'type='text' name='content[title]' placeholder="describe an accomplishment"/>
+        <br>
+        <button type="button" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+    <div class="panel-body" id="image_form">
+    <h4>Or Add a image or video</h4>
+      <div>
+        <input id='image_content_title'type="text" class="image_caption" name="content['title']"/>
+        <%= s3_uploader_form callback_url: "/activities/#{@activity.id}/content/add_pic",
+           id: 'content_s3_uploader',
+           callback_param: 'profile[image]',
+           expiration: 2.hours.from_now.utc.iso8601,
+           callback_method: 'POST',
+           max_file_size: 10.megabytes do %>
           <%= file_field_tag :file, multiple: false, class: 'file-chooser-button' %>
         <% end %>
       </div>
-      </div>
-      <div id='uploads_container'></div>
     </div>
+    <div id='uploads_container'></div>
+  </div>
 </div>
 <script>
   $(function() {
