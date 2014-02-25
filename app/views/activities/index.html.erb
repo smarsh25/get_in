@@ -1,17 +1,11 @@
 <div class="container">
     <%= render partial: "/profiles/show", profile: current_user.profile %>
-    <div id="activities">
-    </div>
-
+    <canvas id="category_chart_canvas" width="600" height="400"></canvas>
+    <div id="activities"></div>
   </div>
-<canvas id="foobar" width="600" height="400"></canvas>
-
-
     <h2>Activity List</h2>
     <div id="activities">
     </div>
-
-
 </div>
 <script>
   // calling /categories.json, it is returned as data, 
@@ -46,8 +40,7 @@
 
         ]
       }
-
-      var category_graph = document.getElementById("foobar").getContext("2d");
+      var category_graph = document.getElementById("category_chart_canvas").getContext("2d");
 
       new Chart(category_graph).Bar(barData);
   });
