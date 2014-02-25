@@ -14,8 +14,7 @@ class ActivitiesController < ApplicationController
 
   # POST - create new activity
   def create
-    activity_params = params.require(:activity).permit(:title,
-                                                       :body,
+    activity_params = params.require(:activity).permit(:title, :body,
                                                        tags_attributes:
                                                        [:category_id])
 
@@ -30,12 +29,17 @@ class ActivitiesController < ApplicationController
   # GET - provide form to edit an activity
   def edit
     @activity = Activity.find(params[:id])
+    @categories = Category.all
   end
 
   # PATCH - save the updated activity attributes
   def update
-    updated_activity = params.require(:activity).permit(:title, :body)
+    updated_activity = params.require(:activity).permit(:title, :body,
+                                                        tags_attributes:
+                                                        [:category_id])
     activity = Activity.find(params[:id])
+    # first, clear any of the current activity's categories, then save
+    Tag.where(activity_id: activity.id).destroy_all
     activity.update_attributes(updated_activity)
     redirect_to activity
   end

@@ -4,7 +4,9 @@ $(function() {
 
   Activities.urls = {
     index: {path: '/activities.json', method: 'get'},
-    create: {path: '/activities.json', method: 'post'}
+    create: {path: '/activities.json', method: 'post'},
+    // An id must be added to the activities update path
+    update: {path: '/activities/', method: 'patch'}
   };
 
   Activities.saveActivity = function(event) {
@@ -25,6 +27,28 @@ $(function() {
 
     // save the new activity on the back end, and on success display
     $.post(_this.urls.create.path, {activity: newActivity}).done(_this.displayNewActivity);
+  };
+
+  Activities.updateActivity = function(event) {
+    var _this = Activities;
+
+    event.preventDefault();
+
+    // collect the activity text fields entered by user
+    var updatedActivity = {};
+    updatedActivity.title = $('#activity_title').val();
+    updatedActivity.body = $('#activity_body').val();
+
+    // collect checked categories to save (nested attributes of activity)
+    updatedActivity.tags_attributes = [];
+    $('.categoryCheckboxes').filter(':checked').each(function() {
+      updatedActivity.tags_attributes.push({category_id: this.id});
+    });
+
+    // save the updated activity on the back end, and on success display
+    $.ajax({url:  _this.urls.update.path + $("#update_activity").attr('activity-id') + '.json',
+            type: _this.urls.update.method,
+            data: {activity: updatedActivity}}).done(function(){window.location.replace("/activites");});
   };
 
   Activities.displayActivities = function(responseData) {
@@ -52,9 +76,14 @@ $(function() {
 
   Activities.setEventHandlers = function() {
     $('#add_activity').on('submit', Activities.saveActivity);
+    $('#update_activity').on('submit', Activities.updateActivity);
   };
 
   Activities.setEventHandlers();
-  Activities.getItems();
+
+  // if on the create activity page (index), then get items to display
+  if ($('#add_activity').length !== 0) {
+    Activities.getItems();    
+  }
 
 });
