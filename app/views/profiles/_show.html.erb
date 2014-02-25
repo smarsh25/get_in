@@ -10,13 +10,14 @@
                     <% if current_user.profile.expected_graduation %>
                       <h3>Class of  <%= current_user.profile.expected_graduation %></h3>
                     <% end %>
-                    <% unless current_user.profile.city.empty? %>
+                    <% unless current_user.profile.city %>
                       <h3><%= current_user.profile.city%>,
                     <% end %> 
-                    <% unless current_user.profile.state.empty? %>
+                    <% unless current_user.profile.state%>
                       <%= current_user.profile.state%>
                     <% end %>
                       </h3>
+
                     <%= link_to("Edit", edit_profile_path(current_user.profile),
                   class: "btn btn-warning") %>
                 </div>

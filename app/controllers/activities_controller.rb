@@ -5,7 +5,7 @@ class ActivitiesController < ApplicationController
   # GET - Provide list of activities, in either html or json
   def index
     @activities = Activity.all
-    @profile = Profile.find(1)
+    @profile = current_user.profile
     respond_to do |format|
       format.html
       format.json { render json: @activities }
@@ -39,7 +39,7 @@ class ActivitiesController < ApplicationController
   # GET - provide a form to display activity
   def show
     @activity = Activity.find(params[:id])
-    @profile = Profile.find(1)
+    @profile = current_user.profile
   end
 
   # DELETE - delete provided activity
