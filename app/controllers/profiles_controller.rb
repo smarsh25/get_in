@@ -26,7 +26,7 @@ class ProfilesController < ApplicationController
   def add_pic
     current_user.profile.image = params['url']
     current_user.profile.save
-    render json:  {url: "/profiles/1"}
+    render json:  {url: "/activities"}
   end
 
   private
