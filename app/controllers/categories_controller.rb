@@ -2,6 +2,9 @@ class CategoriesController < ApplicationController
   # This class is the controller for categories. Handling index,
   # create, update, and delete.
 
+  # AUTHORIZATION - make sure a user is logged in, when accessing this page
+  before_filter :authenticate_user!
+
   # GET - Provide list of categories, in either html or json
   def index
     data = []
@@ -19,12 +22,9 @@ class CategoriesController < ApplicationController
       d1['content_count'] = content_count
       data << d1
     end
-    
 
     respond_to do |format|
-      format.json { render json: data }  
-    end 
+      format.json { render json: data }
+    end
   end
-
-
 end
