@@ -10,32 +10,36 @@
 Category.delete_all
 Activity.delete_all
 Content.delete_all
+Tag.delete_all
 
-Category.create!(name: 'Sports')
-c2 = Category.create!(name: 'Academics')
-c3 = Category.create!(name: 'Clubs')
-c4 = Category.create!(name: 'Volunteer Work')
-Category.create!(name: 'Scholarships')
+# create a set of categories
+categories = []
+categories << Category.create!(name: 'Sports')
+categories << Category.create!(name: 'Academics')
+categories << Category.create!(name: 'Clubs')
+categories << Category.create!(name: 'Volunteer Work')
+categories << Category.create!(name: 'Scholarships')
 
-a1 = c2.activities.create!(title: 'SAT', body: 'Math 620, Reading/Verbal 600')
-a1.contents.create(title: 'SAT results doc', body: 'link to scores online.', type: 'text')
-a1.contents.create(title: 'SAT results trophy',
-                   body: 'you get a trophy for such a good score.', type: 'text')
+# create some activities
+activities = []
+activities << Activity.create!(title: 'SAT',
+                               body: 'Math 620, Reading/Verbal 600')
+activities << Activity.create!(title: 'Chess Club',
+                               body: 'Club president and class champion.')
+activities << Activity.create!(title: 'Hands on Atlanta',
+                               body: 'Residential yard cleaning.')
 
-a2 = c3.activities.create!(title: 'Chess Club',
-                           body: 'Club president and class champion.')
-a2.contents.create(title: 'Chess club website',
-                   body: 'link to chess club website.', type: 'text')
+# add content to some activities
+activities[0].contents.create(title: 'SAT results doc',
+                              body: 'link to scores online.', kind: 'text')
+activities[0].contents.create(title: 'SAT results trophy',
+                              body: 'you get a trophy for such a good score.', kind: 'text')
 
-c4.activities.create!(title: 'Hands on Atlanta',
-                      body: 'Residential yard cleaning.')
+activities[1].contents.create(title: 'Chess club website',
+                              body: 'link to chess club website.', kind: 'text')
 
-
-
-
-
-
-
-
-Profile.create!(first_name: "Bob", last_name: "Jackson", school: "Jacque Fresco High School", expected_graduation: 2017, city: "Venus, Earth", state: "Humanity")
-
+# assign activities to categories
+activities[0].categories << categories[1]  # sat is academics
+activities[1].categories << categories[2]  # chess club is clubs
+activities[2].categories << categories[2]  # hands on atlanta is club
+activities[2].categories << categories[3]  # hands on atlanta is volunteer work

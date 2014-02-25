@@ -9,6 +9,7 @@
 #
 
 class Category < ActiveRecord::Base
-  has_many :activities, dependent: :destroy
   has_many :users, through: :activities
+  has_many :tags, dependent: :destroy
+  has_many :activities, through: :tags, dependent: :destroy
 end
