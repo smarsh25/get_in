@@ -13,6 +13,7 @@
 class Activity < ActiveRecord::Base
   has_many :tags, dependent: :destroy
   has_many :categories, through: :tags
+  accepts_nested_attributes_for :tags
   belongs_to :user
   has_many :contents, dependent: :destroy
 end

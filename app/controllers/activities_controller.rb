@@ -14,7 +14,11 @@ class ActivitiesController < ApplicationController
 
   # POST - create new activity
   def create
-    activity_params = params.require(:activity).permit(:title, :body)
+    activity_params = params.require(:activity).permit(:title,
+                                                       :body,
+                                                       tags_attributes:
+                                                       [:category_id])
+
     @activity = Activity.create(activity_params)
 
     respond_to do |format|

@@ -14,12 +14,14 @@ $(function() {
 
     // collect the activity text fields entered by user
     var newActivity = {};
-    newActivity.title = $("#activity_title").val();
-    newActivity.body = $("#activity_body").val();
+    newActivity.title = $('#activity_title').val();
+    newActivity.body = $('#activity_body').val();
 
-    // collect checked categories to save
-    var checkedCategories = $(".categoryCheckboxes").filter(":checked");
-    console.log(checkedCategories);
+    // collect checked categories to save (nested attributes of activity)
+    newActivity.tags_attributes = [];
+    $('.categoryCheckboxes').filter(':checked').each(function() {
+      newActivity.tags_attributes.push({category_id: this.id});
+    });
 
     // save the new activity on the back end, and on success display
     $.post(_this.urls.create.path, {activity: newActivity}).done(_this.displayNewActivity);
@@ -29,18 +31,19 @@ $(function() {
       // list the saved activities
       $(responseData).each(function(index, activity) {
         var activityHTML = HandlebarsTemplates.activities(activity);
-        $("#activities").append(activityHTML);
+        $('#activities').append(activityHTML);
       });
   };
 
   Activities.displayNewActivity = function(responseData) {
-      // clear out the data entry text fields
-      $("#activity_title").val("");
-      $("#activity_body").val("");
+      // clear out stale data entry text fields
+      $('#activity_title').val('');
+      $('#activity_body').val('');
+      $('.categoryCheckboxes').each(function(){$(this).prop('checked',false);});
 
       // append/display new saved activity
       var activityHTML = HandlebarsTemplates.activities(responseData);
-      $("#activities").append(activityHTML);
+      $('#activities').append(activityHTML);
   };
 
   Activities.getItems = function() {
