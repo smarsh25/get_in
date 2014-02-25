@@ -3,7 +3,7 @@ GetIn::Application.routes.draw do
     resources :content
   end
   post '/profiles/add_pic', to: 'profiles#add_pic'
-
+  post '/activities/:activity_id/content/add_pic', to: 'content#add_pic'
   resources :categories, only: [:index]
 
   resources :profiles, only: [:show, :edit, :update]

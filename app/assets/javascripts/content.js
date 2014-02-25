@@ -6,9 +6,13 @@ $(function(){
   };
   //renders a givin content object
   Content.render = function(content) {
-    content = content;
-    html = HandlebarsTemplates.content(content);
-    $('#content').append(html);
+    if (content.kind === 'text') {
+      html = HandlebarsTemplates.content(content);
+      $('#content').append(html);
+    }else if (content.kind == 'image'){
+      html = HandlebarsTemplates.content_image(content);
+      $('#content').append(html);
+    }
   };
   //gets and arrary of content objects from the server
   Content.get = function(activity_id, callback){
