@@ -1,6 +1,7 @@
 <div class="container">
     <%= render partial: "/profiles/show", profile: current_user.profile %>
-    <canvas id="category_chart_canvas" width="600" height="400"></canvas>
+    <canvas id="category_chart_canvas" width="400" height="400"></canvas>
+    <canvas id="category_by_time_canvas" width="400" height="400"></canvas>
     <h2>Add an Activity</h2>
     <form id="add_activity">
       <div>Categories:</div> <!-- checkboxes -->
@@ -53,9 +54,12 @@
           }
         ]
       };
+      var category_line_graph = document.getElementById("category_by_time_canvas").getContext("2d");
       var category_graph = document.getElementById("category_chart_canvas").getContext("2d");
-
-      new Chart(category_graph).Bar(barData);
+      
+      new Chart(category_line_graph).Line(barData);
+      new Chart(category_graph).Bar(barData); //is currently only printing last chart
+  
   });
 </script>
 <%= javascript_include_tag "activities"%>
