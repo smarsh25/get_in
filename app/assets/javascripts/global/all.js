@@ -7,7 +7,3 @@ $(document).ready(function(){
     console.log(content_width);
     
 });
-
-
-
-

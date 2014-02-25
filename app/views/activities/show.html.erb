@@ -6,8 +6,28 @@
       <h2><%= @activity.title %>  <%= link_to("Delete", @activity, method: :delete, class: "btn btn-danger", data: {confirm: "Delete this activity: Are you sure?"}) %></h2>
 
       <br>
+
+
+
+
+<div id="container">
+
       <div id="content" activity-id="<%= @activity.id %>">
+
       </div>    
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
     <div class="panel panel-default">
       <div class="panel-body" id="content_form">
         <form id='add_activity_content' activity-id="<%= @activity.id %>">
@@ -33,6 +53,8 @@ console.log(photo_width);
 console.log(content_width);
     
 });</script>
+
+<script src="/path/to/masonry.pkgd.min.js"></script>
 
 
 
