@@ -5,8 +5,6 @@ class CategoriesController < ApplicationController
   # GET - Provide list of categories, in either html or json
   def index
     data = []
-    # this code needs to be changed to show only the correct pofile data
-    # categories = current_user.categories
     categories = current_user.categories.uniq
     categories.each do |category|
       d1 = {}
