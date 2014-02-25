@@ -2,6 +2,9 @@ class ActivitiesController < ApplicationController
   # This class is the controller for activities. Handling index,
   # create, update, and delete.
 
+  # AUTHORIZATION - make sure a user is logged in, when accessing this page
+  before_filter :authenticate_user!
+
   # GET - Provide list of activities, in either html or json
   def index
     @activities = Activity.all
