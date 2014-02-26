@@ -187,12 +187,10 @@ $.ajax({
     $category_graph.attr('height', height);
     width -= 50;
     height = width/2;
-    $category_line_graph.attr('width', width); //max width
-    $category_line_graph.attr('height', height ); //max height
+    $category_line_graph.attr('width', width);
+    $category_line_graph.attr('height', height ); 
     new Chart(category_line_graph).Line(lineData);
     new Chart(category_graph).Bar(barData);
   }
-
-  //Initial call 
   
 </script>
