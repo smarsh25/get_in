@@ -313,3 +313,29 @@ header, nav, a, img, li, h1 {
     color: red;
     display: none;
 }
+
+.responsive_image {
+    width: 100%;
+}
+
+
+
+.school_story.off {
+    display: none !important;
+}
+
+
+.show_padding {
+    height: 85px;
+}
+
+/*
+.users_name {
+    position: absolute;
+}
+
+.logout_button {
+    position: relative;
+}
+*/
+

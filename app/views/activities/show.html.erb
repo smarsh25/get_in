@@ -1,43 +1,64 @@
+<%= render "layouts/userprofile" %>
+
+
+<div class="show_padding">
+</div>
+
+
+<section class="act_show_section">
 <div class="container">
 
 <br>
-  <div class="holds_panels">
-        <div class="panel panel-default activity_show">
-          <div class="panel-body">
-            <center><h1><%= @activity.title %>  
-               <%= link_to("Delete", @activity, method: :delete, class: "btn btn-danger", data: {confirm: "Delete this activity: Are you sure?"}) %></h1>
-             </center>
-           </div>
-         </div>
+<div class="holds_panels">
+  <div class="panel panel-default activity_show">
+    <div class="panel-body">
+      <center><h1><%= @activity.title %></h1></center>
+        <div class="row activity_buttons">
+          <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+            <div id="edit_act_button" class="panel panel-default footer">
+                      <a href="#edit_activity_modal" data-toggle="modal">
+                        <div class="panel-body">
+                          <center><font size="34"><h2>Edit</h2></font></center>
+                        </div>
+                      </a>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                <div id="edit_act_button" class="panel panel-default footer">
+                      <a href="#edit_activity_modal" data-toggle="modal">
+                        <div class="panel-body">
+                          <center><font size="34"><h2>Delete</h2></font></center>
+                        </div>
+                      </a>
+                </div>
+          </div>
+        </div>
+     </div>
+   </div>
  </div>
 
 
-<div class="row buttons">
-  <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
-    <div id="edit_act_button" class="panel panel-default footer">
-              <a href="#edit_activity_modal" data-toggle="modal">
+
+
+
+<div class="holds_panels">
+  <div id="add_content_button" class="panel panel-default footer">
+              <a href="#add_content_modal" data-toggle="modal">
                 <div class="panel-body">
-                  <center><font size="34"><h2>Edit</h2></font></center>
+                  <center><font size="34"><h2>Add an accomplishment...</h2></font></center>
                 </div>
               </a>
     </div>
-  </div>
-  <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
-        <div id="edit_act_button" class="panel panel-default footer">
-              <a href="#edit_activity_modal" data-toggle="modal">
-                <div class="panel-body">
-                  <center><font size="34"><h2>Delete</h2></font></center>
-                </div>
-              </a>
-        </div>
-  </div>
-</div>
+ </div>
+
+
+
 
 <div class="row act_content">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 content_column">
       <center>
         <div id="content" activity-id="<%= @activity.id %>"></div>    
-              <img src='http://lorempixel.com/1000/700'>
+              <img class="responsive_image" src='http://lorempixel.com/1000/700'>
               <h3>Jared and Stephanie went to a concert once in Atlanta</h3>
 
               <img src='http://lorempixel.com/1000/700'>
@@ -114,6 +135,48 @@
     </div>
   </div>
 </div> 
+
+
+
+<div class="modal fade" id="add_content_modal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+
+
+        <div class="panel panel-default">
+          <div class="panel-body" id="content_form">
+            <form id='add_activity_content' activity-id="<%= @activity.id %>">
+              <input id='content_title'type='text' name='content[title]' placeholder="describe an accomplishment"/>
+              <br>
+              <button type="button" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+          <div class="panel-body" id="image_form">
+          <h4>Or Add a image or video</h4>
+              <div>
+                <input id='image_content_title'type="text" class="image_caption" name="content['title']"/>
+                <%= s3_uploader_form callback_url: "/activities/#{@activity.id}/content/add_pic",
+                   id: 'content_s3_uploader',
+                   callback_param: 'profile[image]',
+                   expiration: 2.hours.from_now.utc.iso8601,
+                   callback_method: 'POST',
+                   max_file_size: 10.megabytes do %>
+                  <%= file_field_tag :file, multiple: false, class: 'file-chooser-button' %>
+                <% end %>
+              </div>
+          </div>
+          <div id='uploads_container'>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</section>
 
 
 

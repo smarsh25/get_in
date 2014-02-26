@@ -1,33 +1,7 @@
-<header class="large">
-<!--  -->
-  <div class="container">  
-    <div class="row student">
-      <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 student_pic">
-        <center><%= image_tag((current_user.profile.image || "http://allthingseblog.com/wp-content/uploads/2013/06/circle-profile.jpg"), width: "250px", height:"250px", class: "profile_pic") %></center>
-      </div>
+<%= render "layouts/userprofile" %>
 
-      <div class="col-sm-8 col-md-8 col-lg-8 col-xl-8 student_info">
 
-        <div class="users_name">
-            <h1><%= current_user.profile.first_name || "First Name" %> <%= current_user.profile.last_name || "Last Name" %></h1>
-            <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-        </div>
-
-        <div class="school_story">
-          <h3>
-          <%= @profile.school%>
-          <br>
-          <%= @profile.expected_graduation %>
-          <%= @profile.city %>, <%= @profile.state %>
-          <br>
-          GPA: 4.0, SAT: 1600
-          <br>
-        </h3>
-        </div>
-      </div>
-  </div>
-</header>
-<section>
+<section class="act_index_section">
 
 
   <div class="container">
