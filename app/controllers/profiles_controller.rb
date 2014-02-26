@@ -18,7 +18,7 @@ class ProfilesController < ApplicationController
                                                       :city, :state)
     profile = current_user.profile
     profile.update_attributes(updated_profile)
-    redirect_to profile_path
+    redirect_to activities_path
   end
 
   def show
