@@ -15,7 +15,7 @@
         <!-- User is not signed in then allow them to. This uses the devise sign_in helper form found here 
         https://github.com/plataformatec/devise/wiki/How-To:-Display-a-custom-sign_in-form-anywhere-in-your-app 
         I found this by 'googling devise custom sign in page' -->
-          <%= form_for(:user, url: session_path(:user), html:{ class: 'navbar-form navbar-right' }) do |f| %>
+          <%= form_for(:user, url: session_path(:user), html:{ class: 'navbar-form navbar-right log_in' }) do |f| %>
             <%= f.text_field :email, placeholder: 'email', class: "form-control log_in_field email_text_field" %>
             <%= f.password_field :password, placeholder: 'password', class: "form-control log_in_field password_field" %>
             <%= f.submit 'Sign in', class: "sign_in_button form-control" %><br/>
@@ -23,7 +23,7 @@
               <%= f.check_box :remember_me, class: "remember_me form-control" %>
               <%= f.label :remember_me, class: "remember_me_label" %>
             </div>
-            <%= link_to "Forgot your password?", new_password_path(:user), html: {class: 'forgot_password'} %>
+            <%= link_to "Forgot your password?", new_password_path(:user), class: 'forgot_password' %>
           <% end %>
       <% end %>
   </div>

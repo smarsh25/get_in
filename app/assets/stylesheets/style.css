@@ -59,9 +59,6 @@ input {
     font-size: 12px;
     max-height: 30px;
 }
-.log_in {
-    width: 25%;
-}
 
 
 
@@ -126,31 +123,25 @@ h1 {
     margin-bottom: 4px;
 }
 .remember_me_group {
-    display: inline-block !important;
-}
-.break_div {
-    display: block;
-    height: 10px;
-    width: 10px;
+    display: inline !important;
     float: left;
 }
 .remember_me_group {
     display: block;
 }
+
 @media (max-width: 766px) {
+    .log_in {
+        width: 400px;
+    }
     .password_field {
         width: 200px;
         margin-bottom: 4px;
-        margin-left: 83px;
-    }
-    .sign_in_button {
-        /*float: left;
-        margin-left: 210px;
-        position:absolute;*/
+        margin-left: 84px;
     }
     .remember_me_group {
         display: inline-block;
-        margin-left: 83px;
+        margin-left: 84px;
     }
      .remember_me {
         display: inline;
