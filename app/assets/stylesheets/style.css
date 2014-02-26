@@ -95,7 +95,6 @@ h1 {
 .item { width: 25%; }
 .item.w2 { width: 50%; }
  .remember_me {
-    padding-top: 0 !important;
     width: 15px;
     height: 15px;
     display: block;
@@ -105,7 +104,21 @@ h1 {
     height: 30px;
     float: right;
     margin-right: 4px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 16px;
+    background: #f1f1f1;
+    color: #363636;
+    box-shadow: 0 1px #363636;
  }
+ .sign_in_button:hover {
+    border: 2px solid #999;
+    border-radius: 5px;
+}
+.sign_in_button:active {
+    border: 3px solid #999;
+    border-radius: 5px;
+}
  .remember_me_label {
     color: #f2f2f2;
     font-size: 12px;
@@ -123,11 +136,8 @@ h1 {
     margin-bottom: 4px;
 }
 .remember_me_group {
-    display: inline !important;
-    float: left;
-}
-.remember_me_group {
     display: block;
+    float: left;
 }
 
 @media (max-width: 766px) {
@@ -151,5 +161,24 @@ h1 {
         display: inline;
      }
 }
+input[type="text"]:focus{
+border: 2px solid #999;
+border-radius: 5px;
+}
 
+input[type="text"]:hover{
+border: 2px solid #999;
+border-radius: 5px;
+}
+
+
+input[type="password"]:focus{
+border: 2px solid #999;
+border-radius: 5px;
+}
+
+input[type="password"]:hover{
+border: 2px solid #999;
+border-radius: 5px;
+}
 
