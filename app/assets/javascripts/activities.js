@@ -151,6 +151,7 @@ $(document).on("scroll",function(){
         $('.school_story').css({display: 'inline'});
         $('.student_pic').css({display: 'inline'});
         $('.graphicals').removeClass('smallhead').addClass('largehead');
+        $('.student').removeClass('thin');
     }
 });
 

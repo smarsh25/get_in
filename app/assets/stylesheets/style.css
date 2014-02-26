@@ -162,10 +162,8 @@ h1 {
     text-align: left;
 }
 
-.student.thin {
-    padding-right: 900px;
-    margin-right: -15px;
-    margin-left: -105px;
+.student.thin h1 {
+    margin-left: -160px;
 }
 
 
