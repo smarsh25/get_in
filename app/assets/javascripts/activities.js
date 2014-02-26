@@ -92,12 +92,26 @@ $(function() {
 
 $(document).ready(function(){
     $('#add_activity').hide();
+    $('.main-content').addClass('smallhead');
     $('#add_act_button').click(function(){
       $('#add_activity').show();
       $('#activities').hide();
       $('#user_profile').hide();
       $('.profile_content').hide();
     });
+});
+
+// when the page scrolls
+$(document).on("scroll",function(){
+  // if the document's head is lower than 100px
+    if($(document).scrollTop()>140){
+        // change header to class small
+        $("header").removeClass("large").addClass("small");
+        // change main content div to smallhead
+        $('.main-content').addClass('smallhead');
+    } else{
+        $("header").removeClass("small").addClass("large");
+    }
 });
 
 

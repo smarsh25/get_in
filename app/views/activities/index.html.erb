@@ -1,29 +1,40 @@
-<%= render partial: "/profiles/show", profile: current_user.profile %>
-<div class="container">
+<header class="large">
+<!--  -->
+  <div class="users_name">
+      <h1><%= current_user.profile.first_name || "First Name" %> <%= current_user.profile.last_name || "Last Name" %></h1>
+  </div>
+  </div>
+</header>
 
-  <div class="main-content">
+<section>
 
-    <div class="list_of_activities">
-        <div id="activities">
-          <div id="add_act_button" class="panel panel-default footer">
-            <div class="panel-body">
-              <center><font size="34"><a><h2><i class="glyphicon glyphicon-plus"></i></h2><a></font></center>
+
+  <div class="container">
+
+    <div class="main-content">
+
+      <div class="list_of_activities">
+          <div id="activities">
+            <div id="add_act_button" class="panel panel-default footer">
+              <div class="panel-body">
+                <center><font size="34"><a><h2><i class="glyphicon glyphicon-plus"></i></h2><a></font></center>
+              </div>
             </div>
           </div>
-        </div>
 
-    </div>
+      </div>
 
-    <div class="graphicals">
-      <canvas id="category_chart_canvas" width="800" height="400"></canvas>
-      <br>
-      <canvas id="category_by_time_canvas" width="800" height="400"></canvas>
+      <div class="graphicals">
+        <canvas id="category_chart_canvas" width="800" height="400"></canvas>
+        <br>
+        <canvas id="category_by_time_canvas" width="800" height="400"></canvas>
+      </div>
+
     </div>
 
   </div>
 
-</div>
-
+</section>
 
 
 
