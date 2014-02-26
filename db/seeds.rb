@@ -53,41 +53,41 @@ activities << Activity.create!(title: 'Hands on Atlanta',
 # add content to the SAT Activity
 activities[0].contents.create(title: 'SAT results doc',
 														 	body: 'link to scores online.', kind: 'text',
-															created_at: '2012-02-27 00:00:00')
+															eventdate: '2012-02-27 00:00:00')
 activities[0].contents.create(title: 'SAT results trophy',
 															body: 'you get a trophy for such a good score.',
 															kind: 'text',
-															created_at: '2013-12-31 00:00:00')
+															eventdate: '2013-12-31 00:00:00')
 
 # add content to the Chess Club Activity
 activities[1].contents.create(title: 'Chess club website',
 															body: 'link to chess club website.',
 															kind: 'text',
-															created_at: '2014-01-27 00:00:00')
+															eventdate: '2014-01-27 00:00:00')
 activities[1].contents.create(title: 'Chess club certificate',
 															body: 'stuff about chess club.',
 															kind: 'text',
-															created_at: '2014-01-27 00:00:00')
+															eventdate: '2014-01-27 00:00:00')
 activities[1].contents.create(title: 'Regional Tournament',
 															body: 'Won Tournament',
 															kind: 'text',
-															created_at: '2014-01-27 00:00:00')
+															eventdate: '2014-01-27 00:00:00')
 activities[1].contents.create(title: 'Great Chess Challlenge',
 															body: 'Took 2nd',
 															kind: 'text',
-															created_at: '2013-12-02 00:00:00')
+															eventdate: '2013-12-02 00:00:00')
 activities[1].contents.create(title: 'International Competition',
 															body: "Didn't do so well, but showed up",
 															kind: 'text',
-															created_at: '2013-01-07 00:00:00')
+															eventdate: '2013-01-07 00:00:00')
 activities[1].contents.create(title: 'Chess training class',
 															body: 'held a intro class at school',
 															kind: 'text',
-															created_at: '2012-04-22 00:00:00')
+															eventdate: '2012-04-22 00:00:00')
 activities[1].contents.create(title: 'Chess day',
 															body: 'Sponsored, lead chess day at school.',
 															kind: 'text',
-															created_at: '2012-03-04 00:00:00')
+															eventdate: '2012-03-04 00:00:00')
 
 # assign activities to categories
 activities[0].categories << categories[1]  # sat is academics
