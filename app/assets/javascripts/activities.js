@@ -122,7 +122,7 @@ $(document).ready(function(){
 // when the page scrolls
 $(document).on("scroll",function(){
   // if the document's head is lower than 100px
-    if($(document).scrollTop()>140){
+    if($(document).scrollTop()>160){
         // change header to class small
         $("header").removeClass("large").addClass("small");
         // change main content div to smallhead

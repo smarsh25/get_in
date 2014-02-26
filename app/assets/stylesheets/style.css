@@ -64,19 +64,21 @@ input {
 }
 
 
+.student_pic {
+    padding-top: 10px;
+}
+
 
 .profile_text {
     display: inline-block;
     font-size: 100%;
     word-wrap: break-word;
     
-
 }
 
 .profile_pic {
     margin-right: 21px;
-    max-width: 30%;
-/*    border-radius: 150px;*/
+    border-radius: 150px;
 }
 
 #profile {
@@ -144,6 +146,20 @@ h1 {
     -webkit-order: 1;*/
 }
 
+
+.student_info {
+
+}
+
+.student_pic {
+
+    
+}
+
+
+
+
+
 .profile  {
     text-align: left;
 }
@@ -207,12 +223,12 @@ header a.active, header a:hover{ color: #3d3d3d; }
 header li{ margin-right: 30px; }
 
 /* Sizes for the bigger menu */
-header.large{ height: 390px; }
-header.large img{ width: 489px; height: 113px; }
+header.large{ height: 450px; }
 header.large li{ margin-top: 45px; }
 header.large h1 {
+    font-size: 50px;
     text-align: center;
-    font-weight: lighter;
+    font-weight: normal;
 }
 header.large h3 {
     font-size: 26px;
@@ -232,16 +248,22 @@ header.small h1 {
 
 }
 
-header,nav, a, img, li, h1{
-  transition: all 1s;
+nav, a, img, li, h1{
+  transition: all 1.2s;
 
+}
+
+header {
+    transition: all .45s;
 }
 
 
 
 
+
+
 .main-content.smallhead {
-    margin-top: 280px;
+    margin-top: 420px;
 
 }
 
