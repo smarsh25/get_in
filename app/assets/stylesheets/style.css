@@ -1,105 +1,78 @@
 * {
     border-radius: 0 !important;
 }
-
 .btn {
     border-radius: 0;
 }
-
-
 .navbar {
     border-radius: 0;
 }
-
-
 .jumbotron {
     border-radius: 0;
 }
-
 input {
     width: 100%;
 }
-
 form {
     text-align: center;
 }
-
-
-
 #content_form {
     background-color: grey;
 }
-
-body {
-/*
-    background-color: rgba(92,213,235,.2);*/
-}
-
 input {
-        font-size: 200%;
-        color: black;
-        height: 60px;
-        width: 100%;
-        display: inline-block;
-        text-align: left;
-        background-color: rgba(245,245,245,.1);
-        border: 0;  
+    font-size: 200%;
+    color: black;
+    height: 60px;
+    width: 100%;
+    display: inline-block;
+    text-align: left;
+    background-color: rgba(245, 245, 245, .1);
+    border: 0;
 }
-
 #signup_form {
-    background-color: rgba(245,245,245,.1);
+    background-color: rgba(245, 245, 245, .1);
 }
-
 #front_page {
     max-width: 90%;
 }
-
 .log_in_field {
     width: 25%;
     font-size: 12px;
     max-height: 30px;
 }
-
-
-
+.student_pic {
+    padding-top: 10px;
+}
 .profile_text {
     display: inline-block;
     font-size: 100%;
     word-wrap: break-word;
-    
-
 }
-
-#profile_pic {
-    padding-bottom: 300px;
+.profile_pic {
     margin-right: 21px;
-    max-width: 30%;
-
-
+    border-radius: 150px;
 }
-
 #profile {
     max-height: 300px;
-    /*margin-bottom: 30px;*/
 }
-
 .profile_content {
     padding-bottom: 300px;
-
 }
-
 h1 {
     font-weight: lighter;
 }
-
-.item { width: 25%; }
-.item.w2 { width: 50%; }
- .remember_me {
+.item {
+    width: 25%;
+}
+.item.w2 {
+    width: 50%;
+}
+.remember_me {
     width: 15px;
     height: 15px;
     display: block;
- }
- .sign_in_button {
+}
+.sign_in_button {
     width: 75px;
     height: 30px;
     float: right;
@@ -110,8 +83,8 @@ h1 {
     background: #f1f1f1;
     color: #363636;
     box-shadow: 0 1px #363636;
- }
- .sign_in_button:hover {
+}
+.sign_in_button:hover {
     border: 2px solid #999;
     border-radius: 5px;
 }
@@ -119,14 +92,14 @@ h1 {
     border: 3px solid #999;
     border-radius: 5px;
 }
- .remember_me_label {
+.remember_me_label {
     color: #f2f2f2;
     font-size: 12px;
- }
- .forgot_password{
+}
+.forgot_password {
     font-size: 12px;
     display: block;
- }
+}
 .email_text_field {
     width: 200px;
     margin-bottom: 4px;
@@ -139,7 +112,6 @@ h1 {
     display: block;
     float: left;
 }
-
 @media (max-width: 766px) {
     .log_in {
         width: 400px;
@@ -153,32 +125,191 @@ h1 {
         display: inline-block;
         margin-left: 84px;
     }
-     .remember_me {
+    .remember_me {
         display: inline;
-     }
-     .remember_me_label {
+    }
+    .remember_me_label {
         font-size: 10px;
         display: inline;
-     }
+    }
 }
-input[type="text"]:focus{
-border: 2px solid #999;
-border-radius: 5px;
+input[type="text"]:focus {
+    border: 2px solid #999;
+    border-radius: 5px;
 }
-
-input[type="text"]:hover{
-border: 2px solid #999;
-border-radius: 5px;
+input[type="text"]:hover {
+    border: 2px solid #999;
+    border-radius: 5px;
 }
-
-
-input[type="password"]:focus{
-border: 2px solid #999;
-border-radius: 5px;
+.main-content {
+    display: flex;
+    display: -webkit-flex;
+    display: -moz-flex;
+    flex-direction: row;
+    -webkit-flex-direction: row;
+    -moz-flex-direction: row;
+    margin: 0 auto;
 }
-
-input[type="password"]:hover{
-border: 2px solid #999;
-border-radius: 5px;
+.users_pic {
+    flex: 5;
 }
+.users_name {
+    flex: 5;
+}
+.list_of_activities {
+    width: 50%;
+    margin-left: -90px;
+}
+.graphicals {
+    width: 50%;
+}
+.student_info {
+    width:;
+}
+.school_story h3 {
+    padding-left: 3px;
+}
+.users_name.thin h1 {
+    text-align: left;
+}
+.student.thin h1 {
+    margin-left: -160px;
+}
+input[type="password"]:focus {
+    border: 2px solid #999;
+    border-radius: 5px;
+}
+.profile {
+    text-align: left;
+}
+.user {
+    margin: 0 auto;
+    width: 45%;
+    margin-bottom: 90px;
+}
+h1 {
+    font-size: 90px;
+}
+body {
+    background-color: #ebebeb;
+}
+ul {
+    float: right;
+}
+li {
+    display: inline;
+    float: left;
+}
+nav {
+    width: 960px;
+    margin: 0 auto;
+}
+.top_navbar {
+    width: 100%;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+input[type="password"]:hover {
+    border: 2px solid #999;
+    border-radius: 5px;
+}
+section.stretch {
+    float: left;
+    height: 1500px;
+    width: 100%;
+}
+section.stretch p {
+    font-size: 30px;
+    color: #969696;
+    text-align: center;
+    position: relative;
+    margin-top: 250px;
+}
+section.stretch p.bottom {
+    top: 100%;
+}
+header {
+    background: #C7C7C7;
+    border-bottom: 1px solid #aaaaaa;
+    float: left;
+    width: 100%;
+    position: fixed;
+    z-index: 10;
+}
+header a {
+    color: #969696;
+    text-decoration: none;
+    font-family:'Amaranth', sans-serif;
+    text-transform: uppercase;
+    font-size: 1em;
+}
+header a.active, header a:hover {
+    color: #3d3d3d;
+}
+header li {
+    margin-right: 30px;
+}
+/* Sizes for the bigger menu */
+ header.large {
+    height: 280px;
+}
+header.large li {
+    margin-top: 45px;
+}
+header.large h1 {
+    font-size: 50px;
+    text-align: left;
+    font-weight: normal;
+}
+header.large h3 {
+    font-size: 26px;
+    font-weight: lighter;
+}
+header.large .student_info {
+    padding-top: 35px;
+}
+header.small {
+    height: 70px;
+    background-color: rgba(199, 199, 199, .7);
+}
+header.small img {
+    width: 50px;
+    height: 50px;
+}
+header.small li {
+    margin-top: 17px;
+}
+header.small h1 {
+    font-weight: lighter;
+    font-size: 30px;
+    text-align: center;
+}
+header, nav, a, img, li, h1 {
+    transition: all .7s;
+    -moz-transition: all .7s;
+    -webkit-transition: all .7s;
+}
+.main-content.largehead {
+    margin-top: 620px;
+}
+.main-content.smallhead {
+    margin-top: 320px;
+}
+.panel-default {
+    border-radius: 0;
+    border: 0 solid black;
+    color: black;
+}
+.panel-default h2 {
+    font-weight: lighter;
+}
+.graphicals.smallhead {
 
+}
+.hover {
+    background-color: blue;
+}
+.gone {
+    color: red;
+    display: none;
+}
