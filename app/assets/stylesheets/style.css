@@ -73,12 +73,10 @@ input {
 
 }
 
-#profile_pic {
-    padding-bottom: 300px;
+.profile_pic {
     margin-right: 21px;
     max-width: 30%;
-
-
+    border-radius: 150px;
 }
 
 #profile {
@@ -99,6 +97,66 @@ h1 {
 .item.w2 { width: 50%; }
 
 
+.main-content {
+    display: flex;
+    display: -webkit-flex;
+    display: -moz-flex;
+    flex-direction: row;
+    -webkit-flex-direction: row;
+    -moz-flex-direction: row;
+    margin: 0 auto;
+}
+
+.main-content_profile {
+/*    display: flex;
+    display: -webkit-flex;
+    display: -moz-flex;
+    flex-direction: row;
+    -webkit-flex-direction: row;
+    -moz-flex-direction: row;
+    margin: 0 auto;*/
+    text-align: center;
+}
 
 
+.users_pic {
+    flex: 5;
+}
+
+.users_name {
+    flex: 5;
+}
+
+
+.list_of_activities {
+   width: 50%;
+/*    flex: 9;
+    order: 1;
+    -webkit-order: 1;*/
+
+}
+
+.graphicals {
+    width: 50%;
+/*    flex: 1;
+    order: 2;
+    -webkit-order: 1;*/
+}
+
+.profile  {
+    text-align: left;
+}
+
+.user {
+    margin: 0 auto;
+    width: 45%;
+/*    position: absolute;*/
+    margin-bottom: 90px;
+
+}
+
+
+h1 {
+    font-size: 90px;
+}
 

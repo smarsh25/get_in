@@ -90,4 +90,14 @@ $(function() {
   }
 });
 
+$(document).ready(function(){
+    $('#add_activity').hide();
+    $('#add_act_button').click(function(){
+      $('#add_activity').show();
+      $('#activities').hide();
+      $('#user_profile').hide();
+      $('.profile_content').hide();
+    });
+});
+
 
