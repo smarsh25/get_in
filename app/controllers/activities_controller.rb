@@ -7,7 +7,7 @@ class ActivitiesController < ApplicationController
 
   # GET - Provide list of activities, in either html or json
   def index
-    @activities = Activity.all
+    @activities = current_user.activities
     @profile = current_user.profile # Comeback too
     @categories = Category.all
     respond_to do |format|
