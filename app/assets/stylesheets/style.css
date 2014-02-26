@@ -1,5 +1,5 @@
 * {
-    border-radius(0) !important;
+    border-radius: 0 !important;
 }
 
 .btn {
@@ -57,10 +57,7 @@ input {
 .log_in_field {
     width: 25%;
     font-size: 12px;
-    max-height: 40px;
-}
-.log_in {
-    width: 25%;
+    max-height: 30px;
 }
 
 
@@ -97,8 +94,91 @@ h1 {
 
 .item { width: 25%; }
 .item.w2 { width: 50%; }
+ .remember_me {
+    width: 15px;
+    height: 15px;
+    display: block;
+ }
+ .sign_in_button {
+    width: 75px;
+    height: 30px;
+    float: right;
+    margin-right: 4px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 16px;
+    background: #f1f1f1;
+    color: #363636;
+    box-shadow: 0 1px #363636;
+ }
+ .sign_in_button:hover {
+    border: 2px solid #999;
+    border-radius: 5px;
+}
+.sign_in_button:active {
+    border: 3px solid #999;
+    border-radius: 5px;
+}
+ .remember_me_label {
+    color: #f2f2f2;
+    font-size: 12px;
+ }
+ .forgot_password{
+    font-size: 12px;
+    display: block;
+ }
+.email_text_field {
+    width: 200px;
+    margin-bottom: 4px;
+}
+.password_field {
+    width: 200px;
+    margin-bottom: 4px;
+}
+.remember_me_group {
+    display: block;
+    float: left;
+}
+
+@media (max-width: 766px) {
+    .log_in {
+        width: 400px;
+    }
+    .password_field {
+        width: 200px;
+        margin-bottom: 4px;
+        margin-left: 84px;
+    }
+    .remember_me_group {
+        display: inline-block;
+        margin-left: 84px;
+    }
+     .remember_me {
+        display: inline;
+     }
+     .remember_me_label {
+        font-size: 10px;
+        display: inline;
+     }
+}
+input[type="text"]:focus{
+border: 2px solid #999;
+border-radius: 5px;
+}
+
+input[type="text"]:hover{
+border: 2px solid #999;
+border-radius: 5px;
+}
 
 
+input[type="password"]:focus{
+border: 2px solid #999;
+border-radius: 5px;
+}
 
-
+input[type="password"]:hover{
+border: 2px solid #999;
+border-radius: 5px;
+}
 
