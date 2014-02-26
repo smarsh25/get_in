@@ -11,6 +11,12 @@ Category.delete_all
 Activity.delete_all
 Content.delete_all
 Tag.delete_all
+User.delete_all
+
+user1 = User.create!(email: 'steve@test.com', )
+user.email = 'test@example.com'
+user.encrypted_password = '#$taawktljasktlw4aaglj'
+user.save!
 
 # create a set of categories
 categories = []
@@ -31,12 +37,17 @@ activities << Activity.create!(title: 'Hands on Atlanta',
 
 # add content to some activities
 activities[0].contents.create(title: 'SAT results doc',
-                              body: 'link to scores online.', kind: 'text')
+                              body: 'link to scores online.', kind: 'text',
+                              created_at: '2012-02-27 00:00:00')
 activities[0].contents.create(title: 'SAT results trophy',
-                              body: 'you get a trophy for such a good score.', kind: 'text')
+                              body: 'you get a trophy for such a good score.',
+                              kind: 'text',
+                              created_at: '2013-12-31 00:00:00')
 
 activities[1].contents.create(title: 'Chess club website',
-                              body: 'link to chess club website.', kind: 'text')
+                              body: 'link to chess club website.',
+                              kind: 'text',
+                              created_at: '2014-01-27 00:00:00')
 
 # assign activities to categories
 activities[0].categories << categories[1]  # sat is academics
