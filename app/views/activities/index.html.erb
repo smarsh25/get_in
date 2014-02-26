@@ -166,5 +166,18 @@ $.ajax({
 
     var category_line_graph = document.getElementById("category_by_time_canvas").getContext("2d");
     new Chart(category_line_graph).Line(lineData);
+
+    $(window).resize( respondCanvas );
+
+    function respondCanvas(){ 
+        category_line_graph.attr('width', $(container).width() ); //max width
+        c.attr('height', $(container).height() ); //max height
+
+        //Call a function to redraw other content (texts, images etc)
+    }
+
+    //Initial call 
+    respondCanvas();
+
   });
 </script>
