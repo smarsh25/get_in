@@ -76,7 +76,7 @@ input {
 .profile_pic {
     margin-right: 21px;
     max-width: 30%;
-    border-radius: 150px;
+/*    border-radius: 150px;*/
 }
 
 #profile {
@@ -130,6 +130,7 @@ h1 {
 
 .list_of_activities {
    width: 50%;
+   margin-left: -90px;
 /*    flex: 9;
     order: 1;
     -webkit-order: 1;*/
@@ -206,19 +207,26 @@ header a.active, header a:hover{ color: #3d3d3d; }
 header li{ margin-right: 30px; }
 
 /* Sizes for the bigger menu */
-header.large{ height: 150px; }
+header.large{ height: 390px; }
 header.large img{ width: 489px; height: 113px; }
 header.large li{ margin-top: 45px; }
 header.large h1 {
     text-align: center;
-    font-weight: normal;
+    font-weight: lighter;
+}
+header.large h3 {
+    font-size: 26px;
+    font-weight: lighter;
 }
 
-header.small{ height: 70px; }
+header.small{ 
+    height: 70px; 
+    background-color: rgba(199, 199, 199, .7); 
+}
 header.small img{ width: 287px; height: 69px; margin-top: -10px; }
 header.small li{ margin-top: 17px; }
 header.small h1 {
-    font-weight: normal;
+    font-weight: lighter;
     font-size: 30px;
     text-align: center;
 
@@ -230,8 +238,11 @@ header,nav, a, img, li, h1{
 }
 
 
+
+
 .main-content.smallhead {
-    margin-top: 180px;
+    margin-top: 280px;
+
 }
 
 .panel-default {
@@ -252,6 +263,12 @@ header,nav, a, img, li, h1{
 
 
 
-.panel-default.hover {
+.hover {
     background-color: blue;
+}
+
+.gone {
+    color: red;
+    display: none;
+
 }
