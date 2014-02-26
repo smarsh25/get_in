@@ -47,9 +47,8 @@
             </div>
       </div>
       <div class="graphicals">
-        <canvas id="category_chart_canvas" width="800" height="400"></canvas>
-        <br>
-        <canvas id="category_by_time_canvas" width="800" height="400"></canvas>
+        <canvas id="category_chart_canvas" class='graphs' width="800" height="400"></canvas>
+        <canvas id="category_by_time_canvas" class='graphs line-graph' width="800" height="400"></canvas>
       </div>
     </div>
   </div>
@@ -75,6 +74,13 @@
 </div> 
 
 <script>
+$(function(){});
+  var $category_line_graph;
+  var category_line_graph;
+  var category_graph;
+  var $category_graph;
+  var barData;
+  var lineData;
   // calling /categories.json, it is returned as data, 
   // then passing that get request into chartdata
   $.ajax({
@@ -96,7 +102,7 @@
       content_counts.push(item['content_count']);
     });
     
-    var barData = {
+    barData = {
       labels : datalabels,
       datasets : [
         {
@@ -107,8 +113,11 @@
       ]
     };
 
-    var category_graph = document.getElementById("category_chart_canvas").getContext("2d");      
+    category_graph = document.getElementById("category_chart_canvas").getContext("2d");
+
     new Chart(category_graph).Bar(barData); //is currently only printing last chart
+    $category_graph = $('#category_chart_canvas');
+    respondCanvas();
   });
 
 $.ajax({
@@ -133,7 +142,7 @@ $.ajax({
       content_counts.push(item['content_count']);
     });
 
-    var lineData = {
+    lineData = {
       labels : ["09/12","10/12","11/12","12/12","1/13","2/13","3/13"],
 
       datasets : [
@@ -163,21 +172,27 @@ $.ajax({
         }
       ]
     }
+ 
+  category_line_graph = document.getElementById("category_by_time_canvas").getContext("2d");
+  $category_line_graph = $('#category_by_time_canvas');
+  new Chart(category_line_graph).Line(lineData);
+  respondCanvas();
+ });
+  $(window).resize( respondCanvas );
 
-    var category_line_graph = document.getElementById("category_by_time_canvas").getContext("2d");
+  function respondCanvas(){ 
+    var width = $( window ).width()* .58;
+    var height = width/2;
+    $category_graph.attr('width', width );
+    $category_graph.attr('height', height);
+    width -= 50;
+    height = width/2;
+    $category_line_graph.attr('width', width); //max width
+    $category_line_graph.attr('height', height ); //max height
     new Chart(category_line_graph).Line(lineData);
+    new Chart(category_graph).Bar(barData);
+  }
 
-    $(window).resize( respondCanvas );
-
-    function respondCanvas(){ 
-        category_line_graph.attr('width', $(container).width() ); //max width
-        c.attr('height', $(container).height() ); //max height
-
-        //Call a function to redraw other content (texts, images etc)
-    }
-
-    //Initial call 
-    respondCanvas();
-
-  });
+  //Initial call 
+  
 </script>

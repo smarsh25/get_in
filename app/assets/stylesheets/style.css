@@ -162,6 +162,7 @@ input[type="text"]:hover {
 }
 .graphicals {
     width: 50%;
+    float: right;
 }
 .student_info {
     width:;
@@ -313,3 +314,12 @@ header, nav, a, img, li, h1 {
     color: red;
     display: none;
 }
+.graphs {
+    margin-right: 0;
+    padding-right: 0;
+}
+.line-graph {
+    padding-right: 0;
+    margin-left: 24px;
+}
+
