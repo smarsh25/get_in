@@ -104,13 +104,14 @@
       }
     });
     max += 1;
+    step_width = Math.ceil(max / 25);
     bar_options = {
       scaleOverride : true,
       //** Required if scaleOverride is true **
       //Number - The number of steps in a hard coded scale
-      scaleSteps : max,
+      scaleSteps : Math.ceil(max/step_width),
       //Number - The value jump in the hard coded scale
-      scaleStepWidth : 1,
+      scaleStepWidth : step_width,
       //Number - The scale starting value
       scaleStartValue : 0
     }
@@ -166,13 +167,16 @@ $.ajax({
         }
       ]
     }
+
+    step_width = Math.ceil(max / 25);
+
     line_options = {
       scaleOverride : true,
       //** Required if scaleOverride is true **
       //Number - The number of steps in a hard coded scale
-      scaleSteps : max,
+      scaleSteps : Math.ceil(max/step_width),
       //Number - The value jump in the hard coded scale
-      scaleStepWidth : 1,
+      scaleStepWidth : step_width,
       //Number - The scale starting value
       scaleStartValue : 0
     }
