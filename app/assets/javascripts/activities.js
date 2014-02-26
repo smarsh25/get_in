@@ -73,15 +73,15 @@ $(function() {
       var activityHTML = HandlebarsTemplates.activities(responseData);
       $('#activities').append(activityHTML);
 
-      $('.panel-default').hover(
-        function(){
-          console.log("HOVERED!");
-        $(this).addClass('hover');
-        _hovered_element = this;
-        $('.panel-default').each(function(){
-          if (this!= _hovered_element) $(this).addClass('gone');
-          });
-      });
+      // $('.panel-default').hover(
+      //   function(){
+      //     console.log("HOVERED!");
+      //   $(this).addClass('hover');
+      //   _hovered_element = this;
+      //   $('.panel-default').each(function(){
+      //     if (this!= _hovered_element) $(this).addClass('gone');
+      //     });
+      // });
   };
 
   Activities.getItems = function() {
@@ -107,17 +107,30 @@ $(function() {
 
 });
 
-$(document).ready(function(){
-    $('#add_activity').hide();
-    $('.main-content').addClass('smallhead');
-    $('#add_act_button').click(function(){
-      $('#add_activity').show();
-      $('#activities').hide();
-      $('#user_profile').hide();
-      $('.profile_content').hide();
-    });
+// $(document).ready(function(){
+//     $('#add_activity').hide();
+//     $('.main-content').addClass('smallhead');
+//     $('#add_act_button').click(function(){
+//       $('#add_activity').show();
+//       $('#activities').hide();
+//       $('#user_profile').hide();
+//       $('.profile_content').hide();
+//     });
 
-});
+// });
+
+// $(document).ready(function(){
+//   $('.list_of_activities').on('click', '#add_act_button' function(){
+//     $("header").removeClass("large").addClass("small");
+//     // change main content div to smallhead
+//     $('.main-content').addClass('smallhead');
+//     $('.graphicals').addClass('stuck');
+//     $('.school_story').css({display: 'none'});
+//     $('.users_name').addClass('thin');
+//     $('.student').addClass('thin');
+//   });
+// });
+
 
 // when the page scrolls
 $(document).on("scroll",function(){
@@ -129,6 +142,8 @@ $(document).on("scroll",function(){
         $('.main-content').addClass('smallhead');
         $('.graphicals').addClass('stuck');
         $('.school_story').css({display: 'none'});
+        $('.users_name').addClass('thin');
+        $('.student').addClass('thin');
         // $('.student_pic').css({display: 'none'});
     } else{
         $("header").removeClass("small").addClass("large");

@@ -2,7 +2,7 @@
 <!--  -->
 
   <div class="container">  
-    <div class="row">
+    <div class="row student">
       <div class="col-sm-3 student_pic">
         <center><%= image_tag((current_user.profile.image || "http://allthingseblog.com/wp-content/uploads/2013/06/circle-profile.jpg"), width: "250px", height:"250px", class: "profile_pic") %></center>
       </div>
@@ -42,11 +42,14 @@
       <div class="list_of_activities">
           <div id="activities">
           </div>
-          <div id="add_act_button" class="panel panel-default footer">
-            <div class="panel-body">
-              <center><font size="34"><a><h2><i class="glyphicon glyphicon-plus"></i></h2><a></font></center>
+          
+            <div id="add_act_button" class="panel panel-default footer">
+              <a href="#add_activity_modal" data-toggle="modal">
+                <div class="panel-body">
+                  <center><font size="34"><h2><i class="glyphicon glyphicon-plus"></i></h2></font></center>
+                </div>
+              </a>
             </div>
-          </div>
       </div>
 
       <div class="graphicals">
@@ -77,20 +80,30 @@
 
 
 
+<div class="modal fade" id="add_activity_modal" role="dialog"> 
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <form id="add_activity" class="to_hide">
+          <input id="activity_title" type="text" name="activity[title]" placeholder="What is your activity?"><br>
+          <div>Categories:</div> <!-- checkboxes -->
+            <div>
+              <% @categories.each do |category| %>
+                <input id="<%= category.id %>" class="categoryCheckboxes" type="checkbox">
+                <label for="<%= category.id %>"><%= category.name %></label>
+              <% end %>
+            </div>     
+        </form>
+      </div>
+    </div>
+  </div>
+</div> 
 
 
-  
 
-  <form id="add_activity" class="to_hide">
-    <input id="activity_title" type="text" name="activity[title]" placeholder="What is your activity?"><br>
-    <div>Categories:</div> <!-- checkboxes -->
-      <div>
-        <% @categories.each do |category| %>
-          <input id="<%= category.id %>" class="categoryCheckboxes" type="checkbox">
-          <label for="<%= category.id %>"><%= category.name %></label>
-        <% end %>
-      </div>     
-  </form>
+
+
+
 
   
 
