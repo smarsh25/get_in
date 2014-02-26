@@ -109,9 +109,18 @@ $(document).on("scroll",function(){
         $("header").removeClass("large").addClass("small");
         // change main content div to smallhead
         $('.main-content').addClass('smallhead');
+        $('.graphicals').addClass('stuck');
     } else{
         $("header").removeClass("small").addClass("large");
+        $('.graphicals').removeClass('stuck');
     }
 });
+
+// hover state effect on activities
+
+  $('.panel-default').on('hover', function(){
+    $(this).addClass('hover');
+  });
+  
 
 

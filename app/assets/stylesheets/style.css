@@ -211,12 +211,14 @@ header.large img{ width: 489px; height: 113px; }
 header.large li{ margin-top: 45px; }
 header.large h1 {
     text-align: center;
+    font-weight: normal;
 }
 
 header.small{ height: 70px; }
 header.small img{ width: 287px; height: 69px; margin-top: -10px; }
 header.small li{ margin-top: 17px; }
 header.small h1 {
+    font-weight: normal;
     font-size: 30px;
     text-align: center;
 
@@ -230,4 +232,26 @@ header,nav, a, img, li, h1{
 
 .main-content.smallhead {
     margin-top: 180px;
+}
+
+.panel-default {
+    border-radius: 0;
+    border: 0 solid black;
+    color: black;
+
+}
+
+.panel-default h2 {
+    font-weight: lighter;
+}
+
+.graphicals.stuck {
+    position: fixed;
+    margin-top: -100px;
+}
+
+
+
+.panel-default.hover {
+    background-color: blue;
 }
