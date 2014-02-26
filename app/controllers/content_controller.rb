@@ -1,6 +1,4 @@
 # All the usual methods for content.
-# Using 'contents' as a plural for content because
-# I didn't think through that model name.
 class ContentController < ApplicationController
   def index
     @contents = Activity.find(activity_id).contents

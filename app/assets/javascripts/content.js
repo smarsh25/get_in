@@ -49,11 +49,6 @@ $(function(){
       $(data.contents).each(function(index, item){
           Content.render(item);
       });
-      var container = document.querySelector('#container');
-      var msnry = new Masonry( container, {
-        columnWidth: 200, // options
-        itemSelector: '.item'
-      });
     });
     //when user submits form gets title of content clear the field and calls create content
     Content.do_this(function(){

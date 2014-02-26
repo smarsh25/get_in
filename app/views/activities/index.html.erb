@@ -77,6 +77,8 @@
 <script>
   // calling /categories.json, it is returned as data, 
   // then passing that get request into chartdata
+  var line_options;
+  var bar_options;
   $.ajax({
     url: "/categories.json",
     method: "GET"
@@ -95,7 +97,25 @@
       // activity_counts.push(item['activity_count']);
       content_counts.push(item['content_count']);
     });
-    
+    var max = 4;
+    $(content_counts).each(function(index, item){
+      if (max <= item) {
+        max = item;
+      }
+    });
+    max += 1;
+    step_width = Math.ceil(max / 25);
+    bar_options = {
+      scaleOverride : true,
+      //** Required if scaleOverride is true **
+      //Number - The number of steps in a hard coded scale
+      scaleSteps : Math.ceil(max/step_width),
+      //Number - The value jump in the hard coded scale
+      scaleStepWidth : step_width,
+      //Number - The scale starting value
+      scaleStartValue : 0
+    }
+
     var barData = {
       labels : datalabels,
       datasets : [
@@ -108,7 +128,7 @@
     };
 
     var category_graph = document.getElementById("category_chart_canvas").getContext("2d");      
-    new Chart(category_graph).Bar(barData); //is currently only printing last chart
+    new Chart(category_graph).Bar(barData, bar_options); //is currently only printing last chart
   });
 
 $.ajax({
@@ -127,7 +147,13 @@ $.ajax({
       // activity_counts.push(item['activity_count']);
       content_counts.push(item['content_total']);
     });
-
+    var max = 4;
+    $(content_counts).each(function(index, item){
+      if (max <= item) {
+        max = item;
+      }
+    });
+    max += 1;
     var lineData = {
       labels : datalabels,
 
@@ -142,7 +168,19 @@ $.ajax({
       ]
     }
 
+    step_width = Math.ceil(max / 25);
+
+    line_options = {
+      scaleOverride : true,
+      //** Required if scaleOverride is true **
+      //Number - The number of steps in a hard coded scale
+      scaleSteps : Math.ceil(max/step_width),
+      //Number - The value jump in the hard coded scale
+      scaleStepWidth : step_width,
+      //Number - The scale starting value
+      scaleStartValue : 0
+    }
     var category_line_graph = document.getElementById("category_by_time_canvas").getContext("2d");
-    new Chart(category_line_graph).Line(lineData);
+    new Chart(category_line_graph).Line(lineData, line_options);
   });
 </script>
