@@ -112,29 +112,24 @@
   });
 
 $.ajax({
-    url: "/categories.json",
+    url: "/categories/content_by_month.json",
     method: "GET"
   }).done(function(data){
     var chartdata = data;
     var datalabels = [];
-    var activity_counts = [];
+    // var activity_counts = [];
     var content_counts =[];
-    var time = [];
-    var name = ["sports", "volunteer", "community_service"]
-    var category1 = [65,59,90,81,56,55,40];
-    var category2 = [45,48,55,65,59,90,81];
-    var category3 = [81,56,55,45,90,81,65];
 
     // adding jquery to loop through data
     $(chartdata).each(function(index, item) {
       //  passing each item and collecting the item.name ('sports')
-      datalabels.push(item['name']);
+      datalabels.push(item['month']);
       // activity_counts.push(item['activity_count']);
-      content_counts.push(item['content_count']);
+      content_counts.push(item['content_total']);
     });
 
     var lineData = {
-      labels : ["09/12","10/12","11/12","12/12","1/13","2/13","3/13"],
+      labels : datalabels,
 
       datasets : [
         {
@@ -142,24 +137,7 @@ $.ajax({
           strokeColor : "rgba(220,220,220,1)",
           pointColor : "rgba(220,220,220,1)",
           pointStrokeColor : "#fff",
-          data : category1,
-          name : name[0]
-        },
-        {
-          fillColor : "rgba(151,187,205,0.5)",
-          strokeColor : "rgba(151,187,205,1)",
-          pointColor : "rgba(151,187,205,1)",
-          pointStrokeColor : "#fff",
-          data : category2,
-          name : name[1]
-        },
-        {
-          fillColor : "rgba(151,187,205,0.5)",
-          strokeColor : "rgba(151,187,205,1)",
-          pointColor : "rgba(151,187,205,1)",
-          pointStrokeColor : "#fff",
-          data : category3,
-          name : name [2]
+          data : content_counts
         }
       ]
     }
