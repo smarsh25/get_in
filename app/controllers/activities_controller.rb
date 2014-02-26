@@ -55,6 +55,7 @@ class ActivitiesController < ApplicationController
   def show
     @activity = Activity.find(params[:id])
     @profile = current_user.profile
+    @categories = Category.all
   end
 
   # DELETE - delete provided activity
