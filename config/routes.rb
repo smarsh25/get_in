@@ -5,6 +5,7 @@ GetIn::Application.routes.draw do
   post '/activities/:activity_id/content/add_pic', to: 'content#add_pic'
 
   resources :categories, only: [:index]
+  get '/categories/content_by_month', to: 'categories#group_content_by_month'
 
   resources :profiles, only: [:show, :edit, :update]
   post '/profiles/add_pic', to: 'profiles#add_pic'

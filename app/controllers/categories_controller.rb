@@ -35,4 +35,11 @@ class CategoriesController < ApplicationController
       format.json { render json: data }
     end
   end
+
+  def group_content_by_month
+    content_totals = current_user.contents.group_by_month.count
+    respond_to do |format|
+      format.json { render json: content_totals }
+    end
+  end
 end
