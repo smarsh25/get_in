@@ -129,7 +129,7 @@ $(document).on("scroll",function(){
         $('.main-content').addClass('smallhead');
         $('.graphicals').addClass('stuck');
         $('.school_story').css({display: 'none'});
-        $('.student_pic').css({display: 'none'});
+        // $('.student_pic').css({display: 'none'});
     } else{
         $("header").removeClass("small").addClass("large");
         $('.graphicals').removeClass('stuck');
