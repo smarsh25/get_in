@@ -12,11 +12,26 @@ Activity.delete_all
 Content.delete_all
 Tag.delete_all
 User.delete_all
+Profile.delete_all
 
-user1 = User.create!(email: 'steve@test.com', )
-user.email = 'test@example.com'
-user.encrypted_password = '#$taawktljasktlw4aaglj'
-user.save!
+user1 = User.create!(email: 'bobby@test.com',
+										 password: 'asdfasdf',
+										 password_confirmation: 'asdfasdf')
+user1.profile.update_attributes({first_name: 'Bobby',
+																 last_name: 'Jones',
+                                 school: 'Riverside High',
+                                 expected_graduation: 2016,
+                                 city: 'Atlanta', state: 'Ga'})
+
+user2 = User.create!(email: 'mary@test.com',
+										 password: 'asdfasdf',
+										 password_confirmation: 'asdfasdf')
+user2.profile.update_attributes({first_name: 'Mary',
+ 																 last_name: 'Smith',
+ 																 school: 'Lakeland High',
+ 																 expected_graduation: '2016',
+ 																 city: 'Brentwood',
+ 																 state: 'CA'})
 
 # create a set of categories
 categories = []
@@ -29,28 +44,59 @@ categories << Category.create!(name: 'Scholarships')
 # create some activities
 activities = []
 activities << Activity.create!(title: 'SAT',
-                               body: 'Math 620, Reading/Verbal 600')
+															 body:  'Math 620, Reading/Verbal 600')
 activities << Activity.create!(title: 'Chess Club',
-                               body: 'Club president and class champion.')
+															 body: 'Club president and class champion.')
 activities << Activity.create!(title: 'Hands on Atlanta',
-                               body: 'Residential yard cleaning.')
+															 body: 'Residential yard cleaning.')
 
-# add content to some activities
+# add content to the SAT Activity
 activities[0].contents.create(title: 'SAT results doc',
-                              body: 'link to scores online.', kind: 'text',
-                              created_at: '2012-02-27 00:00:00')
+														 	body: 'link to scores online.', kind: 'text',
+															created_at: '2012-02-27 00:00:00')
 activities[0].contents.create(title: 'SAT results trophy',
-                              body: 'you get a trophy for such a good score.',
-                              kind: 'text',
-                              created_at: '2013-12-31 00:00:00')
+															body: 'you get a trophy for such a good score.',
+															kind: 'text',
+															created_at: '2013-12-31 00:00:00')
 
+# add content to the Chess Club Activity
 activities[1].contents.create(title: 'Chess club website',
-                              body: 'link to chess club website.',
-                              kind: 'text',
-                              created_at: '2014-01-27 00:00:00')
+															body: 'link to chess club website.',
+															kind: 'text',
+															created_at: '2014-01-27 00:00:00')
+activities[1].contents.create(title: 'Chess club certificate',
+															body: 'stuff about chess club.',
+															kind: 'text',
+															created_at: '2014-01-27 00:00:00')
+activities[1].contents.create(title: 'Regional Tournament',
+															body: 'Won Tournament',
+															kind: 'text',
+															created_at: '2014-01-27 00:00:00')
+activities[1].contents.create(title: 'Great Chess Challlenge',
+															body: 'Took 2nd',
+															kind: 'text',
+															created_at: '2013-12-02 00:00:00')
+activities[1].contents.create(title: 'International Competition',
+															body: "Didn't do so well, but showed up",
+															kind: 'text',
+															created_at: '2013-01-07 00:00:00')
+activities[1].contents.create(title: 'Chess training class',
+															body: 'held a intro class at school',
+															kind: 'text',
+															created_at: '2012-04-22 00:00:00')
+activities[1].contents.create(title: 'Chess day',
+															body: 'Sponsored, lead chess day at school.',
+															kind: 'text',
+															created_at: '2012-03-04 00:00:00')
 
 # assign activities to categories
 activities[0].categories << categories[1]  # sat is academics
 activities[1].categories << categories[2]  # chess club is clubs
 activities[2].categories << categories[2]  # hands on atlanta is club
 activities[2].categories << categories[3]  # hands on atlanta is volunteer work
+
+user1.activities << activities[0]
+user2.activities << activities[1]
+user2.activities << activities[2]
+
+

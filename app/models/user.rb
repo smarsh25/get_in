@@ -28,5 +28,5 @@ class User < ActiveRecord::Base
   after_create do
     self.create_profile
   end
-
+  has_many :contents, through: :activities
 end
