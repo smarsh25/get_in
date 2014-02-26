@@ -273,8 +273,10 @@ header, nav, a, img, li, h1{
 
 
 
+.main-content.largehead {
+    margin-top: 620px;
 
-
+}
 
 
 
@@ -294,10 +296,17 @@ header, nav, a, img, li, h1{
     font-weight: lighter;
 }
 
-.graphicals.stuck {
+/*.graphicals.largehead {
     position: fixed;
-    margin-top: -100px;
+    margin-top: -400px;
+}*/
+
+
+.graphicals.smallhead {
+    position: fixed;
+    margin-top: -230px;
 }
+
 
 
 

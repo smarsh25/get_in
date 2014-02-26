@@ -132,24 +132,25 @@ $(function() {
 // });
 
 
-// when the page scrolls
+
+$(document).ready(function(){
+  $('.main-content').addClass('smallhead');
+});
+
 $(document).on("scroll",function(){
-  // if the document's head is lower than 100px
     if($(document).scrollTop()>160){
-        // change header to class small
         $("header").removeClass("large").addClass("small");
-        // change main content div to smallhead
         $('.main-content').addClass('smallhead');
         $('.graphicals').addClass('stuck');
         $('.school_story').css({display: 'none'});
         $('.users_name').addClass('thin');
         $('.student').addClass('thin');
-        // $('.student_pic').css({display: 'none'});
+        $('.graphicals').removeClass('stuck').addClass('smallhead');
     } else{
         $("header").removeClass("small").addClass("large");
-        $('.graphicals').removeClass('stuck');
         $('.school_story').css({display: 'inline'});
         $('.student_pic').css({display: 'inline'});
+        $('.graphicals').removeClass('smallhead').addClass('largehead');
     }
 });
 
