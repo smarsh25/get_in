@@ -29,7 +29,7 @@ $(function() {
   };
 
   Activities.redirect = function() {
-    window.location = "/activities";
+    window.location = "/activities/";
   };
 
   Activities.updateActivity = function(event) {
@@ -47,9 +47,9 @@ $(function() {
     $('.categoryCheckboxes').filter(':checked').each(function() {
       updatedActivity.tags_attributes.push({category_id: this.id});
     });
-
+    var id = $("#update_activity").attr('activity-id');
     // save the updated activity on the back end, and on success display
-    $.ajax({url:  _this.urls.update.path + $("#update_activity").attr('activity-id') + '.json',
+    $.ajax({url:  _this.urls.update.path + id + '.json',
             type: _this.urls.update.method,
             data: {activity: updatedActivity}}).done(_this.redirect);
   };
@@ -80,6 +80,7 @@ $(function() {
   Activities.setEventHandlers = function() {
     $('#add_activity').on('submit', Activities.saveActivity);
     $('#update_activity').on('submit', Activities.updateActivity);
+    $('#submit_edited_activity').on('click', Activities.updateActivity);
     $('#submit_activity').on('click', Activities.saveActivity);
   };
   
@@ -110,9 +111,8 @@ $(function() {
         $('.student_pic').css({display: 'inline'});
         $('.graphicals').removeClass('smallhead').addClass('largehead');
         $('.student').removeClass('thin');
-    } 
-  }
-
+      }
+    }
   });
 
 
@@ -126,28 +126,19 @@ $(function() {
         $('.graphicals').removeClass('stuck').addClass('smallhead');
     }
 
-
-  $(document).ready(function(){
       $('.activity_buttons').hide();
       $('.activity_show').hover(function(){
         $('.activity_buttons').slideToggle();
-      $('.activity_show').mouseleave(function(){
-        // $('.activity_buttons').slideToggle();
+        $('.activity_show').mouseleave(function(){
+          // $('.activity_buttons').slideToggle();
+        });
       });
-    }); 
-  });
 
-  $(document).ready(function(){
-    if ($('activity_show').length)
+    if ($('activity_show').length !== 0) {
         $("header").removeClass("small").addClass("large");
         $('.school_story').addClass('off');
         $('.student_pic').css({display: 'inline'});
         $('.graphicals').removeClass('smallhead').addClass('largehead');
         $('.student').removeClass('thin');
-  });
-
-
-
-
-
+      }
 });
