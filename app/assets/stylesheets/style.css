@@ -192,8 +192,8 @@ nav {
 }
 .top_navbar {
     width: 100%;
-    padding-bottom: 0;
-    margin-bottom: 0;
+    padding: 0;
+    margin: 0;
 }
 input[type="password"]:hover {
     border: 2px solid #999;
