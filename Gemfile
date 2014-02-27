@@ -43,7 +43,7 @@ group :development, :test do
   gem 'pry-rails'
   # suppresses assets messages in console
   gem 'quiet_assets'
-  gem 'better_errors'
+  # gem 'better_errors'
   # adds console access in browser, at point of error
   gem 'binding_of_caller'
   # adds better formatting / printing of objects/variables

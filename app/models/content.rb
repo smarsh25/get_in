@@ -14,7 +14,7 @@
 # class Content - ActiveRecord
 class Content < ActiveRecord::Base
   scope :group_by_month,   -> { group("date_trunc('month', eventdate) ") }
-  belongs_to :activity, dependent: :destroy
+  belongs_to :activity
 
   # initialize eventdate to created_at (for now, until we add ui to do add it)
   before_create do |content|
