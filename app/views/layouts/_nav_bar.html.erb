@@ -3,7 +3,7 @@
   <div class="navbar-header pull-left">
     <a class="navbar-brand" href="/">Get In!</a>
   </div>
-  <div class="navbar_header">
+  <div class="navbar_header pull_right">
       <!-- This checks to see if the user is signed in
       I found this method here https://github.com/plataformatec/devise#controller-filters-and-helpers 
       by googling "devise helper methods" -->
@@ -21,7 +21,7 @@
             <%= f.password_field :password, placeholder: 'password', class: "form-control log_in_field password_field" %>
             <%= f.submit 'Sign in', class: "sign_in_button form-control" %>
 
-            <div class="form-group remember_me_group">
+            <div class="form_group remember_me_group">
               <%= f.check_box :remember_me, class: "remember_me form-control" %>
               <%= f.label :remember_me, class: "remember_me_label" %>
             </div>
