@@ -299,14 +299,6 @@ header, nav, a, img, li, h1 {
 
 }
 
-#category_chart_canvas {
-    width: 100%;
-}
-
-#category_chart_canvas {
-    width: 900px;
-}
-
 .hover {
     background-color: blue;
 }
@@ -382,7 +374,13 @@ header, nav, a, img, li, h1 {
     margin: 0 auto;
 }
 .chart_label {
-    margin: 30px 50px;
+    margin: 10px 0 10px 67px;
     font-size: 16px;
     font-weight: 400;
+}
+.line_chart_label {
+    margin-left: 57px;
+}
+.line_graph {
+    margin-left: 10px;
 }
