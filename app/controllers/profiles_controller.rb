@@ -9,6 +9,8 @@ class ProfilesController < ApplicationController
     else
       redirect_to new_user_session_path
     end
+
+    # render partial: "edit", layout: "show"
   end
 
   def update

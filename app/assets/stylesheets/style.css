@@ -1,3 +1,7 @@
+/** {
+    border: 1px solid black;
+}*/
+
 .btn {
     border-radius: 0;
 }
@@ -28,8 +32,8 @@ input {
     background-color: rgba(245, 245, 245, .1);
 }
 #front_page {
-    max-width: 90%;
-    margin-bottom: 30px;
+    max-width: 55%;
+    margin-bottom: 0px;
 }
 .log_in_field {
     width: 25%;
@@ -339,11 +343,6 @@ header, nav, a, img, li, h1 {
     position: absolute;
 }
 
-.logout_button {
-    margin-left: 250px;
-    margin-top: -30px;
-}
-
 @media (max-width: 730px) {
     .users_name {
         display: none;
@@ -357,9 +356,6 @@ header, nav, a, img, li, h1 {
     color: rgb(255, 255, 255);
     background-color: rgb(66, 139, 202);
 }
-=======
-
-
 
 @media (max-width: 900px) {
     .form-control {
@@ -383,9 +379,6 @@ header, nav, a, img, li, h1 {
     margin: 0 auto;
 }
 
-
-
-
 .activity_paper {
     border: 1px solid black;
     height: 900px;
@@ -401,3 +394,12 @@ header, nav, a, img, li, h1 {
 .button_padding {
     height: 30px;
 }
+
+.edit_profile_modal_body {
+    height: 800px;
+}
+
+.landing_page_image {
+    margin: 0 auto;
+}
+
