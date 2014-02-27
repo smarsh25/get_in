@@ -130,7 +130,7 @@
                 <form id='add_activity_content' activity-id="<%= @activity.id %>">
                   <input id='content_title'type='text' name='content[title]' placeholder="describe an accomplishment" autofocus=true/>
                 </form>
-                <div class="panel-body" id="image_form">
+                <div class="panel-body" id="image_form" activity-id="<%= @activity.id %>">
                     <div>
                       <%= s3_uploader_form callback_url: "/activities/#{@activity.id}/content/add_pic",
                          id: 'content_s3_uploader',
@@ -141,7 +141,7 @@
                         <%= file_field_tag :file, multiple: false, class: 'file-chooser-button' %>
                       <% end %>
                     </div>
-                    <button type="button" class="btn btn-primary">Submit</button>
+                    <div  id="content_submit_button" class="btn btn-primary">Submit</div>
                 </div>
                 <div id='uploads_container'>
                 </div>
