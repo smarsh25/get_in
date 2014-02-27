@@ -314,6 +314,7 @@ header, nav, a, img, li, h1 {
     color: red;
     display: none;
 }
+<<<<<<< HEAD
 .graphs {
     margin-right: 0;
     padding-right: 0;
@@ -323,3 +324,5 @@ header, nav, a, img, li, h1 {
     margin-left: 24px;
 }
 
+=======
+>>>>>>> master

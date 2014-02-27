@@ -74,7 +74,7 @@
 </div> 
 
 <script>
-$(function(){});
+$(function(){
   var $category_line_graph;
   var category_line_graph;
   var category_graph;
@@ -83,6 +83,8 @@ $(function(){});
   var lineData;
   // calling /categories.json, it is returned as data, 
   // then passing that get request into chartdata
+  var line_options;
+  var bar_options;
   $.ajax({
     url: "/categories.json",
     method: "GET"
@@ -101,7 +103,25 @@ $(function(){});
       // activity_counts.push(item['activity_count']);
       content_counts.push(item['content_count']);
     });
-    
+    var max = 4;
+    $(content_counts).each(function(index, item){
+      if (max <= item) {
+        max = item;
+      }
+    });
+    max += 1;
+    step_width = Math.ceil(max / 25);
+    bar_options = {
+      scaleOverride : true,
+      //** Required if scaleOverride is true **
+      //Number - The number of steps in a hard coded scale
+      scaleSteps : Math.ceil(max/step_width),
+      //Number - The value jump in the hard coded scale
+      scaleStepWidth : step_width,
+      //Number - The scale starting value
+      scaleStartValue : 0
+    }
+
     barData = {
       labels : datalabels,
       datasets : [
@@ -121,29 +141,30 @@ $(function(){});
   });
 
 $.ajax({
-    url: "/categories.json",
+    url: "/categories/content_by_month.json",
     method: "GET"
   }).done(function(data){
     var chartdata = data;
     var datalabels = [];
-    var activity_counts = [];
+    // var activity_counts = [];
     var content_counts =[];
-    var time = [];
-    var name = ["sports", "volunteer", "community_service"]
-    var category1 = [65,59,90,81,56,55,40];
-    var category2 = [45,48,55,65,59,90,81];
-    var category3 = [81,56,55,45,90,81,65];
 
     // adding jquery to loop through data
     $(chartdata).each(function(index, item) {
       //  passing each item and collecting the item.name ('sports')
-      datalabels.push(item['name']);
+      datalabels.push(item['month']);
       // activity_counts.push(item['activity_count']);
-      content_counts.push(item['content_count']);
+      content_counts.push(item['content_total']);
     });
-
+    var max = 4;
+    $(content_counts).each(function(index, item){
+      if (max <= item) {
+        max = item;
+      }
+    });
+    max += 1;
     lineData = {
-      labels : ["09/12","10/12","11/12","12/12","1/13","2/13","3/13"],
+      labels : datalabels,
 
       datasets : [
         {
@@ -151,31 +172,25 @@ $.ajax({
           strokeColor : "rgba(220,220,220,1)",
           pointColor : "rgba(220,220,220,1)",
           pointStrokeColor : "#fff",
-          data : category1,
-          name : name[0]
-        },
-        {
-          fillColor : "rgba(151,187,205,0.5)",
-          strokeColor : "rgba(151,187,205,1)",
-          pointColor : "rgba(151,187,205,1)",
-          pointStrokeColor : "#fff",
-          data : category2,
-          name : name[1]
-        },
-        {
-          fillColor : "rgba(151,187,205,0.5)",
-          strokeColor : "rgba(151,187,205,1)",
-          pointColor : "rgba(151,187,205,1)",
-          pointStrokeColor : "#fff",
-          data : category3,
-          name : name [2]
+          data : content_counts
         }
       ]
     }
- 
+    step_width = Math.ceil(max / 25);
+
+    line_options = {
+      scaleOverride : true,
+      //** Required if scaleOverride is true **
+      //Number - The number of steps in a hard coded scale
+      scaleSteps : Math.ceil(max/step_width),
+      //Number - The value jump in the hard coded scale
+      scaleStepWidth : step_width,
+      //Number - The scale starting value
+      scaleStartValue : 0
+    }
   category_line_graph = document.getElementById("category_by_time_canvas").getContext("2d");
   $category_line_graph = $('#category_by_time_canvas');
-  new Chart(category_line_graph).Line(lineData);
+  new Chart(category_line_graph).Line(lineData, line_options);
   respondCanvas();
  });
   $(window).resize( respondCanvas );
@@ -189,8 +204,8 @@ $.ajax({
     height = width/2;
     $category_line_graph.attr('width', width);
     $category_line_graph.attr('height', height ); 
-    new Chart(category_line_graph).Line(lineData);
-    new Chart(category_graph).Bar(barData);
+    new Chart(category_line_graph).Line(lineData, line_options);
+    new Chart(category_graph).Bar(barData, bar_options);
   }
-  
+  });
 </script>

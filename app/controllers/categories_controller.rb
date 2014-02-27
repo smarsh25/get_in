@@ -37,7 +37,17 @@ class CategoriesController < ApplicationController
   end
 
   def group_content_by_month
-    content_totals = current_user.contents.group_by_month.count
+    content_totals = []
+    unformatted_totals = current_user.contents.select("eventdate").order("eventdate").group("eventdate").count
+    unformatted_totals.each do |m|
+      d1 = {}
+      d1['month'] = m[0].strftime("%m/%y")
+      d1['content_total'] = m[1]
+      content_totals << d1
+    end
+
+    # content_totals.sort! { |x, y| x['month'] <=> y['month']}
+
     respond_to do |format|
       format.json { render json: content_totals }
     end
