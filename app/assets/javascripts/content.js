@@ -60,6 +60,14 @@ $(function(){
         $('#content_title').val('');
         Content.create(activity_id, new_content);
       });
+      $('#content_submit_button').on('click', function(event){
+        event.preventDefault();
+        var activity_id = this.parentElement.attributes['activity-id'].value;
+        var new_content = {};
+        new_content.title = $('#content_title').val();
+        $('#content_title').val('');
+        Content.create(activity_id, new_content);
+      });
     });
      
   }

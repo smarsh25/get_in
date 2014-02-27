@@ -51,14 +51,10 @@
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 content_column">
       <center>
         <div id="content" activity-id="<%= @activity.id %>"></div>    
-
         </div>
       </center>
   </div>
 </div>
-
-
-
   <div>
     <% unless @activity.categories.empty? %>
       Categories:<br>
@@ -67,36 +63,7 @@
       <% end %>
     <% end %>
   <div>
-
-
-
-      
-
-
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <div class="modal fade" id="edit_activity_modal" role="dialog"> 
   <div class="modal-dialog">
     <div class="modal-content">
@@ -127,14 +94,11 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-body">
-
-
         <div class="panel panel-default">
           <div class="panel-body" id="content_form">
             <form id='add_activity_content' activity-id="<%= @activity.id %>">
               <input id='content_title'type='text' name='content[title]' placeholder="describe an accomplishment"/>
-              <br>
-              <button type="button" class="btn btn-primary">Submit</button>
+              <div id="content_submit_button" class="btn btn-primary">Submit</div>
             </form>
           </div>
           <div class="panel-body" id="image_form">
