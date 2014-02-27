@@ -13,7 +13,9 @@ input {
 form {
     text-align: center;
 }
-
+.landing_page_img {
+    margin: 0 auto;
+}
 input {
     font-size: 200%;
     color: black;
