@@ -69,9 +69,9 @@ h1 {
     display: block;
 }
 .sign_in_button {
+    margin-top: -6px;
     width: 75px;
-    height: 30px;
-    float: right;
+    height: 31px;
     margin-right: 4px;
     text-align: center;
     font-size: 14px;
