@@ -129,13 +129,13 @@ $(function() {
         $('.graphicals').removeClass('stuck').addClass('smallhead');
     }
 
-      $('.activity_buttons').hide();
-      $('.activity_show').hover(function(){
-        $('.activity_buttons').slideToggle();
-        $('.activity_show').mouseleave(function(){
-          // $('.activity_buttons').slideToggle();
-        });
-      });
+      // $('.activity_buttons').hide();
+      // $('.activity_show').hover(function(){
+      //   $('.activity_buttons').slideToggle();
+      //   $('.activity_show').mouseleave(function(){
+      //     // $('.activity_buttons').slideToggle();
+      //   });
+      // });
 
     if ($('activity_show').length !== 0) {
         $("header").removeClass("small").addClass("large");

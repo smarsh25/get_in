@@ -331,7 +331,7 @@ header, nav, a, img, li, h1 {
 }
 
 .show_padding {
-    height: 85px;
+    height: 80px;
 }
 
 
@@ -381,4 +381,23 @@ header, nav, a, img, li, h1 {
 
 .center_form {
     margin: 0 auto;
+}
+
+
+
+
+.activity_paper {
+    border: 1px solid black;
+    height: 900px;
+    z-index: -1;
+    position: relative;
+    z-index: 1;
+}
+
+.buttons {
+    text-align: center;
+}
+
+.button_padding {
+    height: 30px;
 }
