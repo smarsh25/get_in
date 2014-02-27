@@ -143,8 +143,15 @@ $(function() {
         $('.student_pic').css({display: 'inline'});
         $('.graphicals').removeClass('smallhead').addClass('largehead');
         $('.student').removeClass('thin');
+
+        $('.hidden_buttons').css('display', 'none');
+
+
     }
 });
+
+
+
 
 $(function () {
     $('.list-group.checked-list-box .list-group-item').each(function () {

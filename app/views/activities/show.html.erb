@@ -13,7 +13,25 @@
 
     <center><h1><%= @activity.title %></h1>
     </center>
+
+      <div>
+    <% unless @activity.categories.empty? %>
+      <center><% @activity.categories.each do |category| %>
+        <%= category.name %>
+      <% end %></center>
+      <br>
+    <% end %>
+  <div>
+
       <div class="wrapper buttons">
+        <a href="#add_content_modal" data-toggle="modal">
+          <button>
+            Add an accomplishment...
+          </button>
+        </a>
+      </div>
+
+      <div class="hidden_buttons">
         <a href="#edit_activity_modal" data-toggle="modal">
           <button>
            Edit
@@ -27,11 +45,8 @@
             Delete
           </button>
         <% end %>
-        <a href="#add_content_modal" data-toggle="modal">
-          <button>
-            Add an accomplishment...
-          </button>
-        </a>
+      </div>
+
 </div>
 
 <div class="button_padding">
@@ -49,14 +64,7 @@
   </div>
 </div>
 
-  <div>
-    <% unless @activity.categories.empty? %>
-      Categories:<br>
-      <% @activity.categories.each do |category| %>
-        <%= category.name %><br>
-      <% end %>
-    <% end %>
-  <div>
+
 </div>
 
 

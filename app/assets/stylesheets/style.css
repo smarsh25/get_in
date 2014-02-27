@@ -388,7 +388,8 @@ header, nav, a, img, li, h1 {
 
 .activity_paper {
     border: 1px solid black;
-    height: 900px;
+    border-bottom: 0px;
+    height: 105%;
     z-index: -1;
     position: relative;
     z-index: 1;
@@ -401,3 +402,41 @@ header, nav, a, img, li, h1 {
 .button_padding {
     height: 30px;
 }
+
+h3 {
+    font-weight: lighter;
+}
+
+/*
+* {
+    border: 1px solid black;
+}
+*/
+
+.display {
+    display: inline;
+
+}
+
+.hidden {
+    display: none;
+}
+
+
+
+.content_column > #content{
+    padding: 10px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    transition: 0.2s;
+}
+
+.content_column > div:hover {
+    margin-top: -10px;
+    border: 1px solid rgb(200, 200, 200);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 5px 2px;
+    background: rgba(200, 200, 200, 0.1);
+    transition: 0.5s;
+}
+
+
