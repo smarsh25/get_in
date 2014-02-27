@@ -1,0 +1,34 @@
+<header>
+
+    <% if params[:action] == "index" && params[:controller] == "activities" %>
+
+        <div class="page_title">
+            <center><h1><%= current_user.profile.first_name || "First Name" %> <%= current_user.profile.last_name || "Last Name" %></h1></center>
+        </div>
+
+        <div class="page_head_detail">
+
+
+        <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 student_picture">
+            <a href="/activities"><center><%= image_tag((current_user.profile.image || "http://allthingseblog.com/wp-content/uploads/2013/06/circle-profile.jpg"), width: "250px", height:"250px", class: "profile_pic") %></center></a>
+        </div>
+
+    <% end %>
+
+
+
+
+
+
+
+    <% if params[:action] == "show" && params[:controller] == "activities" %>
+
+                <center><h1><%= @activity.title %></h1></center>
+
+    <% end %>
+
+
+
+
+
+</header>

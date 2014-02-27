@@ -1,9 +1,24 @@
-<%= render "layouts/userprofile" %>
 
-<section class="act_index_section">
-  <div class="container">
+<div class="header">
+  <center><h1><%= current_user.profile.first_name || "First Name" %> <%= current_user.profile.last_name || "Last Name" %></h1></center>
+</div>
+
+
+
+<div class="detail_index">
+  <a href="/activities"><center><%= image_tag((current_user.profile.image || "http://allthingseblog.com/wp-content/uploads/2013/06/circle-profile.jpg"), width: "250px", height:"250px", class: "profile_pic") %></center></a>
+</div>
+
+
+<div class="page_index">
+
+  <div class="container act_index_container user_paper">
+
     <div class="row main-content">
+
       <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 list_of_activities">
+        <br>
+        <br>
           <div id="activities">
           </div>
             <div id="add_act_button" class="panel panel-default footer">
@@ -16,13 +31,32 @@
       </div>
 
       <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 graphicals">
+        <br>
+        <br>
         <label for="category_chart_canvas">Activites/Content over Time</label>
         <canvas id="category_chart_canvas" class='graphs' width="600" height="300"></canvas>
+
+        <br>
+        <br>
+
         <label for="category_by_time_canvas">Activites/Content by Category</label>
         <canvas id="category_by_time_canvas" class='graphs line-graph' width="600" height="300"></canvas>
       </div>
     </div>
   </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+<section class="act_index_section">
+  
 </section>
 
 <div class="modal fade" id="add_activity_modal" role="dialog"> 
@@ -46,6 +80,8 @@
     </div>
   </div>
 </div> 
+
+
 
 <script>
 $(function(){

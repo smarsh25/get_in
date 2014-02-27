@@ -93,41 +93,7 @@ $(function() {
     Activities.getItems();
   }
 
-  $('.main-content').addClass('smallhead');
 
-  $(document).on("scroll",function(){
-    var window_height = $( window ).height();
-    minimize_header_threshold = window_height*0.10;
-    if ($('.act_index_section').length !== 0) {
-        if($(document).scrollTop()>minimize_header_threshold){
-        $("header").removeClass("large").addClass("small");
-        $('.main-content').addClass('smallhead');
-        $('.graphicals').addClass('stuck');
-        $('.school_story').css({display: 'none'});
-        $('.users_name').addClass('thin');
-        $('.student').addClass('thin');
-        $('.graphicals').removeClass('stuck').addClass('smallhead');
-      } else{
-        $("header").removeClass("small").addClass("large");
-        $(".school_story").removeClass('off');
-        $('.school_story').css({display: 'inline'});
-        $('.student_pic').css({display: 'inline'});
-        $('.graphicals').removeClass('smallhead').addClass('largehead');
-        $('.student').removeClass('thin');
-      }
-    }
-  });
-
-
-    if ($('.act_show_section').length !== 0) {
-        $("header").removeClass("large").addClass("small");
-        $('.main-content').addClass('smallhead');
-        $('.graphicals').addClass('stuck');
-        $('.school_story').css('display', 'none', 'important');
-        $('.users_name').addClass('thin');
-        $('.student').addClass('thin');
-        $('.graphicals').removeClass('stuck').addClass('smallhead');
-    }
 
       // $('.activity_buttons').hide();
       // $('.activity_show').hover(function(){
@@ -149,6 +115,17 @@ $(function() {
 
     }
 });
+
+
+
+//   if ($('activity_show').length === 0) {
+//     $.get('userdetail.html.erb', function (data){
+//         $('header').append("hwll");
+//     });
+
+// }
+
+
 
 
 
