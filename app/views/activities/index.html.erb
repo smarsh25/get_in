@@ -4,15 +4,15 @@
   <div class="container">
     <div class="row main-content">
       <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 list_of_activities">
-          <div id="activities">
-          </div>
-            <div id="add_act_button" class="panel panel-default footer">
-              <a href="#add_activity_modal" data-toggle="modal">
-                <div class="panel-body">
-                  <center><font size="34"><h2><i class="glyphicon glyphicon-plus"></i></h2></font></center>
-                </div>
-              </a>
+        <div id="activities">
+        </div>
+        <div id="add_act_button" class="panel panel-default footer">
+          <a href="#add_activity_modal" data-toggle="modal">
+            <div class="panel-body">
+              <center><font size="34"><h2><i class="glyphicon glyphicon-plus"></i></h2></font></center>
             </div>
+          </a>  
+        </div>
       </div>
 
       <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 graphicals">
@@ -31,16 +31,15 @@
       <div class="modal-body">
         <form id="add_activity" class="to_hide">
           <input id="activity_title" type="text" name="activity[title]" placeholder="What is your activity?" autofocus=true>
-            <div class="well" style="max-height: 300px;overflow: auto;">
-              <div class="list-group checked-list-box">
-                <% @categories.each do |category| %>
-                  <div id="<%= category.id %>" class="list-group-item"><%= category.name %></div>
-                <% end %>
-              </div>
+          <div class="well" style="max-height: 300px;overflow: auto;">
+            <div class="list-group checked-list-box glyph_checkbox">
+              <% @categories.each do |category| %>
+                <div id="<%= category.id %>" initial_check="false" class="list-group-item"><%= category.name %></div>
+              <% end %>
             </div>
-          <input id="activity_body" type="text" name="activity[title]" placeholder="Provide some details...">
-            <div id="submit_activity" class="btn btn-primary" style="width: 70px; height: 30px;">Submit</div>   
-          </div>   
+          </div>
+          <textarea id="activity_body" name="activity[body]" rows="3" cols="60" placeholder="Details please..."></textarea>
+          <div id="submit_activity" class="btn btn-primary" style="width: 70px; height: 30px;">Submit</div>   
         </form>
       </div>
     </div>

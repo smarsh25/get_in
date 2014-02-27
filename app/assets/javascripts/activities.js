@@ -80,13 +80,80 @@ $(function() {
     $.get(this.urls.index.path).done(this.displayActivities);
   };
 
+  Activities.load_modal = function () {
+    $('.list-group.checked-list-box .list-group-item').each(function () {
+      // Settings
+      var $widget = $(this),
+          $checkbox = $('<input id="' + this.id + '" type="checkbox" class="hidden categoryCheckboxes" />'),
+          color = ($widget.data('color') ? $widget.data('color') : "primary"),
+          style = ($widget.data('style') == "button" ? "btn-" : "list-group-item-"),
+          settings = {
+            on:  { icon: 'glyphicon glyphicon-check' },
+            off: { icon: 'glyphicon glyphicon-unchecked' }
+          };
+
+      $checkbox.prop('checked', false);
+      $widget.css('cursor', 'pointer');
+      $widget.append($checkbox);
+
+      // Event Handlers
+      $widget.on('click', function () {
+        $checkbox.prop('checked', !$checkbox.is(':checked'));
+        $checkbox.triggerHandler('change');
+        updateDisplay();
+      });
+      $checkbox.on('change', function () {
+        updateDisplay();
+      });
+
+      // Actions
+      function updateDisplay() {
+        var isChecked = $checkbox.is(':checked');
+
+        // Set the button's state
+        $widget.data('state', (isChecked) ? "on" : "off");
+
+        // Set the button's icon
+        $widget.find('.state-icon')
+            .removeClass()
+            .addClass('state-icon ' + settings[$widget.data('state')].icon);
+
+        // Update the button's color
+        if (isChecked) {
+          $widget.addClass(style + color + ' active');
+        }
+        else {
+          $widget.removeClass(style + color + ' active');
+        }
+      }
+
+      // Initialization
+      function init() {
+        if ($widget.data('checked') === true) {
+            $checkbox.prop('checked', !$checkbox.is(':checked'));
+        }
+
+        updateDisplay();
+
+        // Inject the icon if applicable
+        if ($widget.find('.state-icon').length === 0) {
+          $widget.prepend('<span class="state-icon ' + settings[$widget.data('state')].icon + '"></span> ');
+        }
+      }
+
+      init();
+
+    });
+  };
+
   Activities.setEventHandlers = function() {
     $('#add_activity').on('submit', Activities.saveActivity);
     $('#update_activity').on('submit', Activities.updateActivity);
     $('#submit_edited_activity').on('click', Activities.updateActivity);
     $('#submit_activity').on('click', Activities.saveActivity);
+    $('#add_act_button').on('click', Activities.load_modal);
   };
-  
+
   Activities.setEventHandlers();
   // if on the create activity page (index), then get items to display
   if ($('#add_activity').length !== 0) {
@@ -107,7 +174,8 @@ $(function() {
         $('.users_name').addClass('thin');
         $('.student').addClass('thin');
         $('.graphicals').removeClass('stuck').addClass('smallhead');
-      } else{
+      }
+      else{
         $("header").removeClass("small").addClass("large");
         $(".school_story").removeClass('off');
         $('.school_story').css({display: 'inline'});
@@ -118,99 +186,29 @@ $(function() {
     }
   });
 
+  if ($('.act_show_section').length !== 0) {
+    $("header").removeClass("large").addClass("small");
+    $('.main-content').addClass('smallhead');
+    $('.graphicals').addClass('stuck');
+    $('.school_story').css('display', 'none', 'important');
+    $('.users_name').addClass('thin');
+    $('.student').addClass('thin');
+    $('.graphicals').removeClass('stuck').addClass('smallhead');
+  }
 
-    if ($('.act_show_section').length !== 0) {
-        $("header").removeClass("large").addClass("small");
-        $('.main-content').addClass('smallhead');
-        $('.graphicals').addClass('stuck');
-        $('.school_story').css('display', 'none', 'important');
-        $('.users_name').addClass('thin');
-        $('.student').addClass('thin');
-        $('.graphicals').removeClass('stuck').addClass('smallhead');
-    }
-
-      $('.activity_buttons').hide();
-      $('.activity_show').hover(function(){
-        $('.activity_buttons').slideToggle();
-        $('.activity_show').mouseleave(function(){
-          // $('.activity_buttons').slideToggle();
-        });
-      });
-
-    if ($('activity_show').length !== 0) {
-        $("header").removeClass("small").addClass("large");
-        $('.school_story').addClass('off');
-        $('.student_pic').css({display: 'inline'});
-        $('.graphicals').removeClass('smallhead').addClass('largehead');
-        $('.student').removeClass('thin');
-    }
-});
-
-$(function () {
-    $('.list-group.checked-list-box .list-group-item').each(function () {
-        
-        // Settings
-        var $widget = $(this),
-            $checkbox = $('<input id="' + this.id + '" type="checkbox" class="hidden categoryCheckboxes" />'),
-            color = ($widget.data('color') ? $widget.data('color') : "primary"),
-            style = ($widget.data('style') == "button" ? "btn-" : "list-group-item-"),
-            settings = {
-                on: {
-                    icon: 'glyphicon glyphicon-check'
-                },
-                off: {
-                    icon: 'glyphicon glyphicon-unchecked'
-                }
-            };
-            
-        $widget.css('cursor', 'pointer');
-        $widget.append($checkbox);
-
-        // Event Handlers
-        $widget.on('click', function () {
-            $checkbox.prop('checked', !$checkbox.is(':checked'));
-            $checkbox.triggerHandler('change');
-            updateDisplay();
-        });
-        $checkbox.on('change', function () {
-            updateDisplay();
-        });
-          
-
-        // Actions
-        function updateDisplay() {
-            var isChecked = $checkbox.is(':checked');
-
-            // Set the button's state
-            $widget.data('state', (isChecked) ? "on" : "off");
-
-            // Set the button's icon
-            $widget.find('.state-icon')
-                .removeClass()
-                .addClass('state-icon ' + settings[$widget.data('state')].icon);
-
-            // Update the button's color
-            if (isChecked) {
-                $widget.addClass(style + color + ' active');
-            } else {
-                $widget.removeClass(style + color + ' active');
-            }
-        }
-
-        // Initialization
-        function init() {
-            
-            if ($widget.data('checked') === true) {
-                $checkbox.prop('checked', !$checkbox.is(':checked'));
-            }
-            
-            updateDisplay();
-
-            // Inject the icon if applicable
-            if ($widget.find('.state-icon').length === 0) {
-                $widget.prepend('<span class="state-icon ' + settings[$widget.data('state')].icon + '"></span> ');
-            }
-        }
-        init();
+  $('.activity_buttons').hide();
+  $('.activity_show').hover(function(){
+    $('.activity_buttons').slideToggle();
+    $('.activity_show').mouseleave(function(){
+      // $('.activity_buttons').slideToggle();
     });
+  });
+
+  if ($('activity_show').length !== 0) {
+    $("header").removeClass("small").addClass("large");
+    $('.school_story').addClass('off');
+    $('.student_pic').css({display: 'inline'});
+    $('.graphicals').removeClass('smallhead').addClass('largehead');
+    $('.student').removeClass('thin');
+  }
 });

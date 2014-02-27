@@ -24,6 +24,17 @@ input {
     background-color: rgba(245, 245, 245, .1);
     border: 0;
 }
+
+textarea {
+    font-size: 200%;
+    color: black;
+    width: 100%;
+    display: inline-block;
+    text-align: left;
+    background-color: rgba(245, 245, 245, .1);
+    border: 0;
+}
+
 #signup_form {
     background-color: rgba(245, 245, 245, .1);
 }
@@ -349,7 +360,6 @@ header, nav, a, img, li, h1 {
         display: none;
     }
 }
-<<<<<<< HEAD
 .state-icon {
     left: -5px;
 }
@@ -357,9 +367,6 @@ header, nav, a, img, li, h1 {
     color: rgb(255, 255, 255);
     background-color: rgb(66, 139, 202);
 }
-=======
-
-
 
 @media (max-width: 900px) {
     .form-control {
@@ -381,4 +388,8 @@ header, nav, a, img, li, h1 {
 
 .center_form {
     margin: 0 auto;
+}
+
+.glyph_checkbox {
+    text-align: left;    
 }
