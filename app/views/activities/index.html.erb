@@ -30,12 +30,13 @@
         <form id="add_activity" class="to_hide">
           <input id="activity_title" type="text" name="activity[title]" placeholder="What is your activity?" autofocus=true><br>
             <div class="well" style="max-height: 300px;overflow: auto;">
-              <ul class="list-group checked-list-box">
+              <div class="list-group checked-list-box">
                 <% @categories.each do |category| %>
-                  <li id="<%= category.id %>" class="list-group-item"><%= category.name %></li><br>
+                  <div id="<%= category.id %>" class="list-group-item"><%= category.name %></div>
                 <% end %>
-              </ul>
+              </div>
             </div>
+          <input id="activity_body" type="text" name="activity[title]" placeholder="Provide some details..."><br>
             <div id="submit_activity" class="btn btn-primary" style="width: 70px; height: 30px;">Submit</div>   
             <div class="well" style="max-height: 300px;overflow: auto;">
             </div>
