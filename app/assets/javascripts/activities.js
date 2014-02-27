@@ -148,7 +148,7 @@ $(function () {
         
         // Settings
         var $widget = $(this),
-            $checkbox = $('<input type="checkbox" class="hidden" />'),
+            $checkbox = $('<input id="' + this.id + '" type="checkbox" class="hidden categoryCheckboxes" />'),
             color = ($widget.data('color') ? $widget.data('color') : "primary"),
             style = ($widget.data('style') == "button" ? "btn-" : "list-group-item-"),
             settings = {

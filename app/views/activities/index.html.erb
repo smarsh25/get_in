@@ -33,16 +33,14 @@
             <div class="well" style="max-height: 300px;overflow: auto;">
               <ul class="list-group checked-list-box">
                 <% @categories.each do |category| %>
-                  <li id="<%= category.id %>" class="list-group-item categoryCheckboxes"><%= category.name %></li><br>
+                  <li id="<%= category.id %>" class="list-group-item"><%= category.name %></li><br>
                 <% end %>
               </ul>
             </div>
             <div id="submit_activity" class="btn btn-primary" style="width: 70px; height: 30px;">Submit</div>   
-              <div class="well" style="max-height: 300px;overflow: auto;">
-
-              </div>
-            </div>   
-
+            <div class="well" style="max-height: 300px;overflow: auto;">
+            </div>
+          </div>   
         </form>
       </div>
     </div>
