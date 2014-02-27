@@ -1,40 +1,10 @@
-<header class="large">
-<!--  -->
-  <div class="container">  
-    <div class="row student">
-      <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 student_pic">
-        <center><%= image_tag((current_user.profile.image || "http://allthingseblog.com/wp-content/uploads/2013/06/circle-profile.jpg"), width: "250px", height:"250px", class: "profile_pic") %></center>
-      </div>
-
-      <div class="col-sm-8 col-md-8 col-lg-8 col-xl-8 student_info">
-
-        <div class="users_name">
-            <h1><%= current_user.profile.first_name || "First Name" %> <%= current_user.profile.last_name || "Last Name" %></h1>
-            <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-        </div>
-
-        <div class="school_story">
-          <h3>
-          <%= @profile.school%>
-          <br>
-          <%= @profile.expected_graduation %>
-          <%= @profile.city %>, <%= @profile.state %>
-          <br>
-          GPA: 4.0, SAT: 1600
-          <br>
-        </h3>
-        </div>
-      </div>
-  </div>
-</header>
-<section>
+<%= render "layouts/userprofile" %>
 
 
+<section class="act_index_section">
   <div class="container">
-
-    <div class="main-content">
-
-      <div class="list_of_activities">
+    <div class="row main-content">
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl- 6 list_of_activities">
           <div id="activities">
           </div>
           
@@ -46,9 +16,9 @@
               </a>
             </div>
       </div>
-      <div class="graphicals">
-        <canvas id="category_chart_canvas" class='graphs' width="800" height="400"></canvas>
-        <canvas id="category_by_time_canvas" class='graphs line-graph' width="800" height="400"></canvas>
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 graphicals">
+        <canvas id="category_chart_canvas" class='graphs' width="600" height="300"></canvas>
+        <canvas id="category_by_time_canvas" class='graphs line-graph' width="600" height="300"></canvas>
       </div>
     </div>
   </div>
@@ -196,7 +166,10 @@ $.ajax({
   $(window).resize( respondCanvas );
 
   function respondCanvas(){ 
-    var width = $( window ).width()* .58;
+    var width = $( window ).width()* .48;
+    if ($( window ).width() <= 990){
+      var width = $( '.panel-body' ).width() *1.05;
+    }
     var height = width/2;
     $category_graph.attr('width', width );
     $category_graph.attr('height', height);

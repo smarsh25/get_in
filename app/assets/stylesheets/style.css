@@ -141,34 +141,20 @@ input[type="text"]:hover {
     border: 2px solid #999;
     border-radius: 5px;
 }
-.main-content {
-    display: flex;
-    display: -webkit-flex;
-    display: -moz-flex;
-    flex-direction: row;
-    -webkit-flex-direction: row;
-    -moz-flex-direction: row;
-    margin: 0 auto;
-}
+
 .users_pic {
     flex: 5;
 }
 .users_name {
     flex: 5;
 }
-.list_of_activities {
-    width: 50%;
-    margin-left: -90px;
-}
-.graphicals {
-    width: 50%;
-    float: right;
-}
+
 .student_info {
     width:;
 }
 .school_story h3 {
     padding-left: 3px;
+    padding-top: 90px;
 }
 .users_name.thin h1 {
     text-align: left;
@@ -271,7 +257,6 @@ header.large .student_info {
 }
 header.small {
     height: 70px;
-    background-color: rgba(199, 199, 199, .7);
 }
 header.small img {
     width: 50px;
@@ -307,6 +292,15 @@ header, nav, a, img, li, h1 {
 .graphicals.smallhead {
 
 }
+
+#category_chart_canvas {
+    width: 100%;
+}
+
+#category_chart_canvas {
+    width: 900px;
+}
+
 .hover {
     background-color: blue;
 }
@@ -314,7 +308,7 @@ header, nav, a, img, li, h1 {
     color: red;
     display: none;
 }
-<<<<<<< HEAD
+
 .graphs {
     margin-right: 0;
     padding-right: 0;
@@ -324,5 +318,30 @@ header, nav, a, img, li, h1 {
     margin-left: 24px;
 }
 
-=======
->>>>>>> master
+.responsive_image {
+    width: 100%;
+}
+
+.school_story.off {
+    display: none !important;
+}
+
+.show_padding {
+    height: 85px;
+}
+
+
+.users_name {
+    position: absolute;
+}
+
+.logout_button {
+    margin-left: 250px;
+    margin-top: -30px;
+}
+
+@media (max-width: 730px) {
+    .users_name {
+        display: none;
+    }
+}

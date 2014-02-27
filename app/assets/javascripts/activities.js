@@ -93,7 +93,8 @@ $(function() {
   $(document).on("scroll",function(){
     var window_height = $( window ).height();
     minimize_header_threshold = window_height*0.10;
-    if($(document).scrollTop()>minimize_header_threshold){
+    if ($('.act_index_section').length !== 0) {
+        if($(document).scrollTop()>minimize_header_threshold){
         $("header").removeClass("large").addClass("small");
         $('.main-content').addClass('smallhead');
         $('.graphicals').addClass('stuck');
@@ -101,12 +102,51 @@ $(function() {
         $('.users_name').addClass('thin');
         $('.student').addClass('thin');
         $('.graphicals').removeClass('stuck').addClass('smallhead');
-    } else{
+      } else{
         $("header").removeClass("small").addClass("large");
+        $(".school_story").removeClass('off');
         $('.school_story').css({display: 'inline'});
         $('.student_pic').css({display: 'inline'});
         $('.graphicals').removeClass('smallhead').addClass('largehead');
         $('.student').removeClass('thin');
-    }
+    } 
+  }
+
   });
+
+
+      if ($('.act_show_section').length !== 0) {
+        $("header").removeClass("large").addClass("small");
+        $('.main-content').addClass('smallhead');
+        $('.graphicals').addClass('stuck');
+        $('.school_story').css('display', 'none', 'important');
+        $('.users_name').addClass('thin');
+        $('.student').addClass('thin');
+        $('.graphicals').removeClass('stuck').addClass('smallhead');
+    }
+
+
+  $(document).ready(function(){
+      $('.activity_buttons').hide();
+      $('.activity_show').hover(function(){
+        $('.activity_buttons').slideToggle();
+      $('.activity_show').mouseleave(function(){
+        // $('.activity_buttons').slideToggle();
+      });
+    }); 
+  });
+
+  $(document).ready(function(){
+    if ($('activity_show').length)
+        $("header").removeClass("small").addClass("large");
+        $('.school_story').addClass('off');
+        $('.student_pic').css({display: 'inline'});
+        $('.graphicals').removeClass('smallhead').addClass('largehead');
+        $('.student').removeClass('thin');
+  });
+
+
+
+
+
 });
