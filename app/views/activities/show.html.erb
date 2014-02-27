@@ -16,21 +16,22 @@
         <div class="row activity_buttons">
           <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
             <div id="edit_act_button" class="panel panel-default footer">
-                      <a href="#edit_activity_modal" data-toggle="modal">
-                        <div class="panel-body">
-                          <center><font size="34"><h2>Edit</h2></font></center>
-                        </div>
-                      </a>
+                <a href="#edit_activity_modal" data-toggle="modal">
+                  <div class="panel-body">
+                    <center><font size="34"><h2>Edit</h2></font></center>
+                  </div>
+                </a>
             </div>
           </div>
           <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                <div id="edit_act_button" class="panel panel-default footer">
-                      <a href="#edit_activity_modal" data-toggle="modal">
-                        <div class="panel-body">
-                          <center><font size="34"><h2>Delete</h2></font></center>
-                        </div>
-                      </a>
-                </div>
+              <%= link_to(@activity, 
+                          method: :delete, 
+                          data: {confirm: "Are you sure you want to delete this activity and all the content associated with it?"}
+                          ) do %>
+                    <div class="panel-body">
+                      <center><font size="34"><h2>Delete</h2></font></center>
+                    </div>
+              <% end %>
           </div>
         </div>
      </div>
@@ -48,13 +49,12 @@
 </div>
 
 <div class="row act_content">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 content_column">
-      <center>
-        <div id="content" activity-id="<%= @activity.id %>"></div>    
+  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 content_column">
+        <div id="content" activity-id="<%= @activity.id %>"></div>
         </div>
-      </center>
   </div>
 </div>
+
   <div>
     <% unless @activity.categories.empty? %>
       Categories:<br>
@@ -64,31 +64,28 @@
     <% end %>
   <div>
 </div>
-<div class="modal fade" id="edit_activity_modal" role="dialog"> 
+
+<div class="modal fade" id="edit_activity_modal" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-body">
-        <h2>Edit Activity</h2>
-          <form id="update_activity" activity-id="<%= @activity.id%>">
-            <div>Categories:</div> <!-- checkboxes -->
+        <form id="update_activity" class="to_hide" activity-id="<%= @activity.id %>" >
+          <input id="activity_title" type="text" name="activity[title]" value="<%= @activity.title %>" autofocus=true><br>
             <div>
-              <% @categories.each do |category| %>
-                <input id="<%= category.id %>" class="categoryCheckboxes" type="checkbox"
-                  <% if @activity.categories.exists?(category.id) %> checked<% end %>>
-                <label for="<%= category.id %>"><%= category.name %></label>
-              <% end %>
-            </div>
-            <div>Body</div>
-            <textarea id="activity_body" name="activity[body]" rows="3" cols="60"><%=@activity.body%></textarea><br>
-            <div>Title</div>
-            <input id="activity_title" type="text" name="activity[title]" value="<%=@activity.title%>"><br>
+              <div class="well" style="max-height: 300px;overflow: auto;">
+                <% @categories.each do |category| %>
+                  <input id="<%= category.id %>" class="categoryCheckboxes" type="checkbox"
+                    <% if @activity.categories.exists?(category.id) %> checked<% end %>>
+                  <label for="<%= category.id %>"><%= category.name %></label>
+                <% end %>
+              </div>
+            </div>   
             <div id="submit_edited_activity" class="btn btn-primary" style="width: 70px; height: 30px;">Submit</div>
-          </form>
+        </form>
       </div>
     </div>
   </div>
 </div> 
-
 
 
 <div class="modal fade" id="add_content_modal" role="dialog">
@@ -98,14 +95,12 @@
         <div class="panel panel-default">
           <div class="panel-body" id="content_form">
             <form id='add_activity_content' activity-id="<%= @activity.id %>">
-              <input id='content_title'type='text' name='content[title]' placeholder="describe an accomplishment"/>
+              <input id='content_title'type='text' name='content[title]' placeholder="describe an accomplishment" autofocus=true/>
               <div id="content_submit_button" class="btn btn-primary">Submit</div>
             </form>
           </div>
           <div class="panel-body" id="image_form">
-          <h4>Or Add a image or video</h4>
               <div>
-                <input id='image_content_title'type="text" class="image_caption" name="content['title']"/>
                 <%= s3_uploader_form callback_url: "/activities/#{@activity.id}/content/add_pic",
                    id: 'content_s3_uploader',
                    callback_param: 'profile[image]',
@@ -115,6 +110,7 @@
                   <%= file_field_tag :file, multiple: false, class: 'file-chooser-button' %>
                 <% end %>
               </div>
+              <button type="button" class="btn btn-primary">Submit</button>
           </div>
           <div id='uploads_container'>
           </div>
@@ -123,15 +119,7 @@
     </div>
   </div>
 </div>
-
-
-
 </section>
-
-
-
-
-
 
 <script>
   $(function() {

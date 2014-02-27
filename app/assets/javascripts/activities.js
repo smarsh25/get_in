@@ -140,5 +140,6 @@ $(function() {
         $('.student_pic').css({display: 'inline'});
         $('.graphicals').removeClass('smallhead').addClass('largehead');
         $('.student').removeClass('thin');
-      }
+    }
 });
+
