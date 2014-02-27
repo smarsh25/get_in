@@ -70,17 +70,18 @@
     <div class="modal-content">
       <div class="modal-body">
         <form id="update_activity" class="to_hide" activity-id="<%= @activity.id %>" >
-          <input id="activity_title" type="text" name="activity[title]" value="<%= @activity.title %>" autofocus=true><br>
-            <div>
-              <div class="well" style="max-height: 300px;overflow: auto;">
-                <% @categories.each do |category| %>
-                  <input id="<%= category.id %>" class="categoryCheckboxes" type="checkbox"
-                    <% if @activity.categories.exists?(category.id) %> checked<% end %>>
-                  <label for="<%= category.id %>"><%= category.name %></label>
-                <% end %>
-              </div>
-            </div>   
-            <div id="submit_edited_activity" class="btn btn-primary" style="width: 70px; height: 30px;">Submit</div>
+          <input id="activity_title" type="text" name="activity[title]" value="<%= @activity.title %>" autofocus=true>
+          <div>
+            <div class="well" style="max-height: 300px;overflow: auto;">
+              <% @categories.each do |category| %>
+                <input id="<%= category.id %>" class="categoryCheckboxes" type="checkbox"
+                  <% if @activity.categories.exists?(category.id) %> checked<% end %>>
+                <label for="<%= category.id %>"><%= category.name %></label>
+              <% end %>
+            </div>
+          </div>   
+          <input id="activity_body" type="text" name="activity[body]" value="<%= @activity.body %>">
+          <div id="submit_edited_activity" class="btn btn-primary" style="width: 70px; height: 30px;">Submit</div>
         </form>
       </div>
     </div>
