@@ -349,7 +349,7 @@ header, nav, a, img, li, h1 {
         display: none;
     }
 }
-<<<<<<< HEAD
+
 .state-icon {
     left: -5px;
 }
@@ -357,9 +357,6 @@ header, nav, a, img, li, h1 {
     color: rgb(255, 255, 255);
     background-color: rgb(66, 139, 202);
 }
-=======
-
-
 
 @media (max-width: 900px) {
     .form-control {
