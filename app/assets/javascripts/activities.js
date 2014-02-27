@@ -68,6 +68,9 @@ $(function() {
       $('#activity_body').val('');
       $('.categoryCheckboxes').each(function(){$(this).prop('checked',false);});
 
+      // clear the modal dialog (was showing to add new activity)
+      $("#add_activity_modal").modal('hide');
+
       // append/display new saved activity
       var activityHTML = HandlebarsTemplates.activities(responseData);
       $('#activities').append(activityHTML);
