@@ -59,6 +59,9 @@
   <div>
 </div>
 
+
+<!-- THE ORIGINAL, WORKING BUT SLOPPY EDIT FORM -->
+
 <div class="modal fade" id="edit_activity_modal" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -83,33 +86,66 @@
 </div> 
 
 
+
+
+
+<!-- THE EDIT FORM MADE FROM ADD FORM -->
+
+<div class="modal fade" id="edit_activity_modal" role="dialog"> 
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <form id="update_activity" class="to_hide">
+          <input id="activity_title" type="text" name="activity[title]" placeholder="<%= @activity.title %>" autofocus=true>
+            <div class="well" style="max-height: 300px;overflow: auto;">
+              <div class="list-group checked-list-box">
+                <% @categories.each do |category| %>
+                  <div id="<%= category.id %>" class="list-group-item"><%= category.name %></div>
+                <% end %>
+              </div>
+            </div>
+          <input id="activity_body" type="text" name="activity[title]" placeholder="Provide some details...">
+            <div id="submit_activity" class="btn btn-primary" style="width: 70px; height: 30px;">Submit</div>   
+          </div>   
+        </form>
+      </div>
+    </div>
+  </div>
+</div> 
+
+
+
+
+
+
+
+
+
+
 <div class="modal fade" id="add_content_modal" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-body">
-        <div class="panel panel-default">
-          <div class="panel-body" id="content_form">
-            <form id='add_activity_content' activity-id="<%= @activity.id %>">
-              <input id='content_title'type='text' name='content[title]' placeholder="describe an accomplishment" autofocus=true/>
-              <div id="content_submit_button" class="btn btn-primary">Submit</div>
-            </form>
-          </div>
-          <div class="panel-body" id="image_form">
-              <div>
-                <%= s3_uploader_form callback_url: "/activities/#{@activity.id}/content/add_pic",
-                   id: 'content_s3_uploader',
-                   callback_param: 'profile[image]',
-                   expiration: 2.hours.from_now.utc.iso8601,
-                   callback_method: 'POST',
-                   max_file_size: 10.megabytes do %>
-                  <%= file_field_tag :file, multiple: false, class: 'file-chooser-button' %>
-                <% end %>
-              </div>
-              <button type="button" class="btn btn-primary">Submit</button>
-          </div>
-          <div id='uploads_container'>
-          </div>
-        </div>
+
+                <form id='add_activity_content' activity-id="<%= @activity.id %>">
+                  <input id='content_title'type='text' name='content[title]' placeholder="describe an accomplishment" autofocus=true/>
+                </form>
+                <div class="panel-body" id="image_form">
+                    <div>
+                      <%= s3_uploader_form callback_url: "/activities/#{@activity.id}/content/add_pic",
+                         id: 'content_s3_uploader',
+                         callback_param: 'profile[image]',
+                         expiration: 2.hours.from_now.utc.iso8601,
+                         callback_method: 'POST',
+                         max_file_size: 10.megabytes do %>
+                        <%= file_field_tag :file, multiple: false, class: 'file-chooser-button' %>
+                      <% end %>
+                    </div>
+                    <button type="button" class="btn btn-primary">Submit</button>
+                </div>
+                <div id='uploads_container'>
+                </div>
+
       </div>
     </div>
   </div>
