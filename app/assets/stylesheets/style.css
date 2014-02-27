@@ -32,8 +32,8 @@ input {
     background-color: rgba(245, 245, 245, .1);
 }
 #front_page {
-    max-width: 90%;
-    margin-bottom: 30px;
+    max-width: 55%;
+    margin-bottom: 0px;
 }
 .log_in_field {
     width: 25%;
@@ -388,3 +388,9 @@ header, nav, a, img, li, h1 {
 .edit_profile_modal_body {
     height: 800px;
 }
+
+.landing_page_image {
+    margin: 0 auto;
+}
+
+
