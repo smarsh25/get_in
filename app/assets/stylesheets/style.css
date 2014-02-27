@@ -1,6 +1,6 @@
-* {
+/** {
     border-radius: 0 !important;
-}
+}*/
 .btn {
     border-radius: 0;
 }
@@ -34,6 +34,7 @@ input {
 }
 #front_page {
     max-width: 90%;
+    margin-bottom: 30px;
 }
 .log_in_field {
     width: 25%;
@@ -175,7 +176,7 @@ input[type="password"]:focus {
     margin-bottom: 90px;
 }
 h1 {
-    font-size: 90px;
+    font-size: 40px;
 }
 body {
     background-color: #ebebeb;
@@ -345,3 +346,18 @@ header, nav, a, img, li, h1 {
         display: none;
     }
 }
+
+
+
+@media (max-width: 900px) {
+    .form-control {
+        width: 70%;
+        margin: 0 auto;
+    }
+
+    #front_page {
+        width: 80%;
+        margin-left: 10%;
+    }
+}
+
