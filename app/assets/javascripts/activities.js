@@ -80,6 +80,7 @@ $(function() {
   Activities.setEventHandlers = function() {
     $('#add_activity').on('submit', Activities.saveActivity);
     $('#update_activity').on('submit', Activities.updateActivity);
+    $('#submit_activity').on('click', Activities.saveActivity);
   };
   
   Activities.setEventHandlers();
@@ -115,7 +116,7 @@ $(function() {
   });
 
 
-      if ($('.act_show_section').length !== 0) {
+    if ($('.act_show_section').length !== 0) {
         $("header").removeClass("large").addClass("small");
         $('.main-content').addClass('smallhead');
         $('.graphicals').addClass('stuck');
