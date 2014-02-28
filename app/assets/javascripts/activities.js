@@ -69,11 +69,16 @@ $(function() {
       });
   };
 
-  Activities.displayNewActivity = function(responseData) {
+  Activities.clearValues = function() {
       // clear out stale data entry text fields
       $('#activity_title').val('');
       $('#activity_body').val('');
       $('.categoryCheckboxes').each(function(){$(this).prop('checked',false);});
+  };
+
+  Activities.displayNewActivity = function(responseData) {
+      // clear fields on modal dialog
+      Activities.clearValues();
 
       // clear the modal dialog (was showing to add new activity)
       $("#add_activity_modal").modal('hide');
@@ -92,6 +97,7 @@ $(function() {
     $('#update_activity').on('submit', Activities.updateActivity);
     $('#submit_edited_activity').on('click', Activities.updateActivity);
     $('#submit_activity').on('click', Activities.saveActivity);
+    $('#add_activity_modal').on('hidden.bs.modal', Activities.clearValues);
   };
   
   Activities.setEventHandlers();
