@@ -69,11 +69,16 @@ $(function() {
       });
   };
 
-  Activities.displayNewActivity = function(responseData) {
+  Activities.clearValues = function() {
       // clear out stale data entry text fields
       $('#activity_title').val('');
       $('#activity_body').val('');
       $('.categoryCheckboxes').each(function(){$(this).prop('checked',false);});
+  };
+
+  Activities.displayNewActivity = function(responseData) {
+      // clear fields on modal dialog
+      Activities.clearValues();
 
       // clear the modal dialog (was showing to add new activity)
       $("#add_activity_modal").modal('hide');
@@ -92,6 +97,7 @@ $(function() {
     $('#update_activity').on('submit', Activities.updateActivity);
     $('#submit_edited_activity').on('click', Activities.updateActivity);
     $('#submit_activity').on('click', Activities.saveActivity);
+    $('#add_activity_modal').on('hidden.bs.modal', Activities.clearValues);
   };
   
   Activities.setEventHandlers();
@@ -131,77 +137,3 @@ $(function() {
 //     });
 
 // }
-
-
-
-
-
-
-$(function () {
-    $('.list-group.checked-list-box .list-group-item').each(function () {
-        
-        // Settings
-        var $widget = $(this),
-            $checkbox = $('<input id="' + this.id + '" type="checkbox" class="hidden categoryCheckboxes" />'),
-            color = ($widget.data('color') ? $widget.data('color') : "primary"),
-            style = ($widget.data('style') == "button" ? "btn-" : "list-group-item-"),
-            settings = {
-                on: {
-                    icon: 'glyphicon glyphicon-check'
-                },
-                off: {
-                    icon: 'glyphicon glyphicon-unchecked'
-                }
-            };
-            
-        $widget.css('cursor', 'pointer');
-        $widget.append($checkbox);
-
-        // Event Handlers
-        $widget.on('click', function () {
-            $checkbox.prop('checked', !$checkbox.is(':checked'));
-            $checkbox.triggerHandler('change');
-            updateDisplay();
-        });
-        $checkbox.on('change', function () {
-            updateDisplay();
-        });
-          
-
-        // Actions
-        function updateDisplay() {
-            var isChecked = $checkbox.is(':checked');
-
-            // Set the button's state
-            $widget.data('state', (isChecked) ? "on" : "off");
-
-            // Set the button's icon
-            $widget.find('.state-icon')
-                .removeClass()
-                .addClass('state-icon ' + settings[$widget.data('state')].icon);
-
-            // Update the button's color
-            if (isChecked) {
-                $widget.addClass(style + color + ' active');
-            } else {
-                $widget.removeClass(style + color + ' active');
-            }
-        }
-
-        // Initialization
-        function init() {
-            
-            if ($widget.data('checked') === true) {
-                $checkbox.prop('checked', !$checkbox.is(':checked'));
-            }
-            
-            updateDisplay();
-
-            // Inject the icon if applicable
-            if ($widget.find('.state-icon').length === 0) {
-                $widget.prepend('<span class="state-icon ' + settings[$widget.data('state')].icon + '"></span> ');
-            }
-        }
-        init();
-    });
-});

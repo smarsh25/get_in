@@ -87,7 +87,7 @@
               <% end %>
             </div>
           </div>   
-          <input id="activity_body" type="text" name="activity[body]" value="<%= @activity.body %>">
+          <textarea id="activity_body" name="activity[body]" rows="4" cols="60"><%= @activity.body %></textarea>
           <div id="submit_edited_activity" class="btn btn-primary" style="width: 70px; height: 30px;">Submit</div>
         </form>
       </div>
