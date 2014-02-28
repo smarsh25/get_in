@@ -88,14 +88,13 @@
       <div class="modal-body">
         <form id="add_activity" class="to_hide">
           <input id="activity_title" type="text" name="activity[title]" placeholder="What is your activity?" autofocus=true>
-            <div class="well" style="max-height: 300px;overflow: auto;">
-              <div class="list-group checked-list-box">
-                <% @categories.each do |category| %>
-                  <div id="<%= category.id %>" class="list-group-item"><%= category.name %></div>
-                <% end %>
-              </div>
+            <div>
+              <% @categories.each do |category| %>
+                <input id="<%= category.id %>" class="categoryCheckboxes" type="checkbox">
+                <label for="<%= category.id %>"><%= category.name %></label>
+              <% end %>
             </div>
-          <input id="activity_body" type="text" name="activity[title]" placeholder="Provide some details...">
+            <input id="activity_body" type="text" name="activity[title]" placeholder="Provide some details...">
             <div id="submit_activity" class="btn btn-primary" style="width: 70px; height: 30px;">Submit</div>   
           </div>   
         </form>
