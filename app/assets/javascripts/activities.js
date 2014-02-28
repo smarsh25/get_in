@@ -25,11 +25,19 @@ $(function() {
     });
 
     // save the new activity on the back end, and on success display
-    $.post(_this.urls.create.path, {activity: newActivity}).done(_this.displayNewActivity);
+    $.post(_this.urls.create.path, {activity: newActivity}).done(function(responseData){
+      Activities.redirect(responseData.id);
+    });
   };
 
-  Activities.redirect = function() {
-    window.location = "/activities/";
+  Activities.redirect = function(id) {
+    if (id) {
+      window.location = "/activities/" + id;
+      location.reload();
+    } else
+    {
+      window.location = '/activities';
+    }
   };
 
   Activities.updateActivity = function(event) {
@@ -51,7 +59,9 @@ $(function() {
     // save the updated activity on the back end, and on success display
     $.ajax({url:  _this.urls.update.path + id + '.json',
             type: _this.urls.update.method,
-            data: {activity: updatedActivity}}).done(_this.redirect);
+            data: {activity: updatedActivity}}).done(function(){
+              _this.redirect(id);
+            });
   };
 
   Activities.displayActivities = function(responseData) {
