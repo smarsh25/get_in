@@ -119,6 +119,13 @@ $(function() {
   }
 });
 
+
+$(document).ready(function(){
+  $("textarea").height(90);
+});
+
+
+
 $(function () {
     $('.list-group.checked-list-box .list-group-item').each(function () {
         
@@ -149,6 +156,15 @@ $(function () {
             updateDisplay();
         });
           
+
+
+        $(document).ready(function(){
+          $(document).scrollTop(120);
+        });
+
+
+
+
 
         // Actions
         function updateDisplay() {
