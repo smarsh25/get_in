@@ -33,6 +33,18 @@ form {
 .landing_page_img {
     margin: 0 auto;
 }
+.glyph_white {
+    color: white !important;
+}
+#glyph_white {
+    color: white !important;
+}
+.glyphicon {
+    color: white;
+}
+.glyph_black {
+    color: black !important;
+}
 input {
     font-size: 200%;
     color: black;
@@ -504,7 +516,7 @@ section.stretch p.bottom {
 }
 
 .big_plus {
-    background-color: rgba(269,244,255, .5);
+    background-color: rgba(255,244,255, .5);
     height: 300px;
 /*    margin-left: 2%;*/
 }

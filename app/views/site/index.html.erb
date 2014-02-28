@@ -40,11 +40,11 @@
         <h1 id="timeline">Track your stats and get in.</h1>
     <ul class="timeline">
         <li>
-          <div class="timeline-badge primary"><i class="glyphicon glyphicon-check"></i></div>
+          <div class="timeline-badge primary"><i id="glyph-white" class="glyphicon glyphicon-check"></i></div>
           <div class="timeline-panel">
             <div class="timeline-heading">
               <h4 class="timeline-title">Joined Get In!</h4>
-              <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 11 hours ago via Twitter</small></p>
+              <p><small class="text-muted"><i class="glyphicon glyph-white glyphicon-time"></i> 11 hours ago via Twitter</small></p>
             </div>
             <div class="timeline-body">
               <p> Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
@@ -52,7 +52,7 @@
           </div>
         </li>
         <li class="timeline-inverted">
-          <div class="timeline-badge primary"><i class="glyphicon glyphicon-book"></i></div>
+          <div class="timeline-badge primary"><i id="glyph-white" class="glyphicon glyphicon-book"></i></div>
           <div class="timeline-panel">
             <div class="timeline-heading">
               <h4 class="timeline-title">My Courses</h4>
@@ -63,7 +63,7 @@
           </div>
         </li>
         <li>
-          <div class="timeline-badge primary"><i class="glyphicon glyphicon-briefcase"></i></div>
+          <div class="timeline-badge primary"><i class="glyphicon glyph-white glyphicon-flash"></i></div>
           <div class="timeline-panel">
             <div class="timeline-heading">
               <h4 class="timeline-title">Sports</h4>
@@ -84,7 +84,7 @@
           </div>
         </li>
         <li>
-          <div class="timeline-badge primary"><i class="glyphicon glyphicon-star-empty"></i></div>
+          <div class="timeline-badge primary"><i class="glyphicon glyph-white glyphicon-star-empty"></i></div>
           <div class="timeline-panel">
             <div class="timeline-heading">
               <h4 class="timeline-title">Highlights</h4>
@@ -165,28 +165,41 @@
   <script>
 
 var data = [
-  {
-    value: 30,
-    color:"#F7464A"
-  },
-  {
-    value : 50,
-    color : "#E2EAE9"
-  },
-  {
-    value : 100,
-    color : "#D4CCC5"
-  },
-  {
-    value : 40,
-    color : "#949FB1"
-  },
-  {
-    value : 120,
-    color : "#4D5360"
-  }
-
-]
+    {
+     label: "Sports",
+      value: 30,
+     color:"#656E75",
+     labelColor: 'black',
+     labelFontSize: '16'
+    },
+    {
+     label: "Sports",
+      value : 50,
+     color : "#E2EAE9",
+     labelColor: 'black',
+     labelFontSize: '16'
+    },
+    {
+     label: "Sports",
+      value : 100,
+     color : "#679EC9",
+     labelColor: 'black',
+     labelFontSize: '16'
+    },
+    {
+     label: "Sports",
+      value : 40,
+     color : "#949FB1",
+     labelColor: 'black',
+     labelFontSize: '16'
+    },
+    {
+     label: "Sports",
+      value : 120,
+     color : "#FDA006",
+     labelColor: 'black',
+     labelFontSize: '16'
+    }];
   var ctx = $("#landing_chart").get(0).getContext("2d");
   new Chart(ctx).Doughnut(data);
   </script>
