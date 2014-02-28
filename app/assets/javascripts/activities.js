@@ -80,7 +80,16 @@ $(function() {
     $.get(this.urls.index.path).done(this.displayActivities);
   };
 
-  Activities.load_modal = function () {
+  Activities.showModal = function() {
+    $('.categoryCheckboxes').each(function() {
+      $(this).prop('checked', false);
+    });
+    $('.list-group.checked-list-box .list-group-item').each(function () {
+      $(this).attr('data-checked', false);
+    });
+  };
+
+  Activities.createModal = function () {
     $('.list-group.checked-list-box .list-group-item').each(function () {
       // Settings
       var $widget = $(this),
@@ -92,7 +101,6 @@ $(function() {
             off: { icon: 'glyphicon glyphicon-unchecked' }
           };
 
-      $checkbox.prop('checked', false);
       $widget.css('cursor', 'pointer');
       $widget.append($checkbox);
 
@@ -151,7 +159,8 @@ $(function() {
     $('#update_activity').on('submit', Activities.updateActivity);
     $('#submit_edited_activity').on('click', Activities.updateActivity);
     $('#submit_activity').on('click', Activities.saveActivity);
-    $('#add_act_button').on('click', Activities.load_modal);
+    $('#add_activity_modal').on('show.bs.modal', Activities.showModal);
+    //$('#add_activity_modal').on('hidden.bs.modal', function(){alert('hiding modal.');});
   };
 
   Activities.setEventHandlers();
@@ -159,6 +168,7 @@ $(function() {
   if ($('#add_activity').length !== 0) {
     Activities.getItems();
   }
+  Activities.createModal();
 
   $('.main-content').addClass('smallhead');
 

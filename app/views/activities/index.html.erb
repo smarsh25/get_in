@@ -34,7 +34,7 @@
           <div class="well" style="max-height: 300px;overflow: auto;">
             <div class="list-group checked-list-box glyph_checkbox">
               <% @categories.each do |category| %>
-                <div id="<%= category.id %>" initial_check="false" class="list-group-item"><%= category.name %></div>
+                <div id="<%= category.id %>" data-checked="false" class="list-group-item"><%= category.name %></div>
               <% end %>
             </div>
           </div>
@@ -141,9 +141,9 @@ $.ajax({
 
       datasets : [
         {
-          fillColor : "rgba(230,126,34,0.5)",
-          strokeColor : "rgba(230,126,34,1)",
-          pointColor : "rgba(230,126,34,1)",
+          fillColor : "rgba(241, 196, 15,0.5)",
+          strokeColor : "rgba(241, 196, 15,1)",
+          pointColor : "rgba(241, 196, 15,1)",
           pointStrokeColor : "#fff",
           data : content_counts
         }
