@@ -25,9 +25,7 @@
           <%= @profile.expected_graduation %>
           <%= @profile.city %>, <%= @profile.state %>
           <br>
-          GPA: 4.0, SAT: 1600
-          <br>
-          
+
         </h3>
         </div>
       </div>
@@ -77,6 +75,105 @@
 
 </div>
 
+
+
+
+<div class="modal fade" id="edit_profile_modal" role="dialog"> 
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body edit_profile_modal_body">
+
+            <div class='col-md-6'>
+            <%= form_for @profile do |f| %>
+                  <div class="form-group">
+                    <%= label_tag(:first_name, "First Name:") %>
+                    <%= f.text_field(:first_name, value: @profile.first_name, class: "form-control") %>
+                  </div>
+                  <div class="form-group">
+                      <%= label_tag(:last_name, "Last Name:") %>
+                      <%= f.text_field(:last_name, value: @profile.last_name, class: "form-control") %>
+                  </div>
+
+                  <div class="form-group">
+                      <%= label_tag(:school, "School:") %>
+                      <%= f.text_field(:school, value: @profile.school, class: "form-control") %>
+                  </div>
+
+                  <div class="form-group">
+                      <%= label_tag(:expected_graduation, "Expected Graduation:") %>
+                      <%= f.text_field(:expected_graduation, value: @profile.expected_graduation, class: "form-control") %>
+                  </div>
+
+                  <div class="form-group">
+                      <%= label_tag(:city, "City:") %>
+                      <%= f.text_field(:city, value: @profile.city, class: "form-control") %>
+                  </div>
+                  <div class="form-group">
+                      <%= label_tag(:state, "State:") %>
+                      <%= f.text_field(:state, value: @profile.state, class: "form-control") %>
+                  </div>
+                 <%= f.submit("Update", class: "btn btn-primary") %>
+            <% end %>
+              <div>
+                <%= s3_uploader_form callback_url: '/profiles/add_pic',
+                         id: "s3_uploader",
+                         callback_param: "profile[image]",
+                         expiration: 2.hours.from_now.utc.iso8601,
+                         callback_method: "POST",
+                         max_file_size: 10.megabytes do %>
+                          <div class="choose-file-text">Add Profile Picture</div>
+                  <%= file_field_tag :file, multiple: false, class: "file-chooser-button" %>
+                <% end %>
+              </div>
+               <div id="uploads_container">
+               </div>
+            </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<script>
+$(function() {
+  $('#s3_uploader').S3Uploader({
+    remove_completed_progress_bar: false,
+    progress_bar_target: $('#uploads_container')
+  });
+
+  $('#s3_uploader').bind('s3_upload_failed', function(e, content) {
+    return alert(content.filename + ' failed to upload. Error: ' + content.error_thrown);
+  });
+
+  $('#s3_uploader').bind('ajax:success', function(e, data) {
+    window.location = data["url"];
+  });
+
+});</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="modal fade" id="add_activity_modal" role="dialog"> 
   <div class="modal-dialog">
     <div class="modal-content">
@@ -91,7 +188,6 @@
             </div>
             <textarea id="activity_body" name="activity[body]" rows="4" cols="60" placeholder="Provide some details..."></textarea>
             <div id="submit_activity" class="btn btn-primary" style="width: 70px; height: 30px;">Submit</div>   
-          </div>   
         </form>
       </div>
     </div>

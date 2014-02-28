@@ -108,19 +108,15 @@ $(function() {
   if ($('#add_activity').length !== 0) {
     Activities.getItems();
   }
+  if ($('activity_show').length !== 0) {
+      $("header").removeClass("small").addClass("large");
+      $('.school_story').addClass('off');
+      $('.student_pic').css({display: 'inline'});
+      $('.graphicals').removeClass('smallhead').addClass('largehead');
+      $('.student').removeClass('thin');
 
-
-    if ($('activity_show').length !== 0) {
-        $("header").removeClass("small").addClass("large");
-        $('.school_story').addClass('off');
-        $('.student_pic').css({display: 'inline'});
-        $('.graphicals').removeClass('smallhead').addClass('largehead');
-        $('.student').removeClass('thin');
-
-        $('.hidden_buttons').css('display', 'none');
-
-
-    }
+      $('.hidden_buttons').css('display', 'none');
+  }
 });
 
 $(function () {
