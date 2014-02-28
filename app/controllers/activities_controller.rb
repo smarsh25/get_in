@@ -33,6 +33,9 @@ class ActivitiesController < ApplicationController
   def edit
     @activity = Activity.find(params[:id])
     @categories = Category.all
+    respond_to do |format|
+      format.json { render json: @activity }
+    end
   end
 
   # PATCH - save the updated activity attributes

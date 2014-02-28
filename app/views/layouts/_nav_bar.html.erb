@@ -1,7 +1,7 @@
 <nav class="navbar navbar-inverse top_navbar" role="navigation">
   <!-- Brand and toggle get grouped for better mobile display -->
   <div class="navbar-header pull-left">
-    </button><a class="navbar-brand" href="/">Get In!</a>
+    <a class="navbar-brand" href="/">Get In!</a>
   </div>
   <div class="navbar_header pull_right">
       <!-- This checks to see if the user is signed in
@@ -16,9 +16,11 @@
         https://github.com/plataformatec/devise/wiki/How-To:-Display-a-custom-sign_in-form-anywhere-in-your-app 
         I found this by 'googling devise custom sign in page' -->
           <%= form_for(:user, url: session_path(:user), html:{ class: 'navbar-form navbar-right log_in' }) do |f| %>
+
             <%= f.text_field :email, placeholder: 'email', class: "form-control log_in_field email_text_field" %>
             <%= f.password_field :password, placeholder: 'password', class: "form-control log_in_field password_field" %>
-            <%= f.submit 'Sign in', class: "sign_in_button form-control" %><br/>
+            <%= f.submit 'Sign in', class: "sign_in_button form-control" %>
+
             <div class="form_group remember_me_group">
               <%= f.check_box :remember_me, class: "remember_me form-control" %>
               <%= f.label :remember_me, class: "remember_me_label" %>

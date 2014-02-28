@@ -17,8 +17,20 @@ input {
 form {
     text-align: center;
 }
-
+.landing_page_img {
+    margin: 0 auto;
+}
 input {
+    font-size: 200%;
+    color: black;
+    height: 60px;
+    width: 100%;
+    display: inline-block;
+    text-align: left;
+    background-color: rgba(245, 245, 245, .1);
+    border: 0;
+}
+textarea {
     font-size: 200%;
     color: black;
     height: 60px;
@@ -114,6 +126,7 @@ h1 {
 }
 .password_field {
     width: 200px;
+    margin-right: -48px;
     margin-bottom: 4px;
 }
 .remember_me_group {
@@ -150,6 +163,27 @@ input[type="text"]:hover {
     border-radius: 5px;
 }
 
+.users_pic {
+    flex: 5;
+}
+.users_name {
+    flex: 5;
+}
+
+.student_info {
+    /*width:;*/
+}
+.school_story h3 {
+    padding-left: 3px;
+    padding-top: 90px;
+}
+.users_name.thin h1 {
+    text-align: left;
+}
+.student.thin h1 {
+    margin-left: -160px;
+}
+
 input[type="password"]:focus {
     border: 2px solid #999;
     border-radius: 5px;
@@ -166,6 +200,7 @@ h1 {
     font-size: 30px;
 }
 .landing_page_header {
+    margin-top: 150px;
     font-size: 40px;
 }
 body {
@@ -184,8 +219,8 @@ nav {
 }
 .top_navbar {
     width: 100%;
-    padding-bottom: 0;
-    margin-bottom: 0;
+    padding: 0;
+    margin: 0;
 }
 input[type="password"]:hover {
     border: 2px solid #999;
@@ -228,14 +263,6 @@ section.stretch p.bottom {
 }
 .graphicals.smallhead {
 
-}
-
-#category_chart_canvas {
-    width: 100%;
-}
-
-#category_chart_canvas {
-    width: 900px;
 }
 
 .hover {
@@ -309,6 +336,18 @@ section.stretch p.bottom {
 
 .center_form {
     margin: 0 auto;
+}
+
+.chart_label {
+    margin: 10px 0 10px 67px;
+    font-size: 16px;
+    font-weight: 400;
+}
+.line_chart_label {
+    margin-left: 57px;
+}
+.line_graph {
+    margin-left: 10px;
 }
 
 .activity_paper {
