@@ -150,6 +150,15 @@ $(function () {
         });
           
 
+
+        $(document).ready(function(){
+          $(document).scrollTop(120);
+        });
+
+
+
+
+
         // Actions
         function updateDisplay() {
             var isChecked = $checkbox.is(':checked');

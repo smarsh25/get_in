@@ -189,6 +189,7 @@ input[type="text"]:hover {
 .school_story h3 {
     padding-left: 3px;
     padding-top: 30px;
+    margin-top: -60px;
 }
 .users_name.thin h1 {
     text-align: left;
@@ -256,6 +257,7 @@ section.stretch p.bottom {
 }
 .main-content {
     background-color: rgb(239,244,255);
+    min-height: 1300px;
 }
 .main-content.largehead {
     margin-top: 620px;
@@ -319,6 +321,8 @@ section.stretch p.bottom {
     }
     .student_info_h3 {
         font-size: 18px;
+        margin-top: 50px;
+        display: none;
     }
 }
 
@@ -370,6 +374,7 @@ section.stretch p.bottom {
     z-index: -1;
     position: relative;
     z-index: 1;
+    min-height:900px; 
     background-color: rgba(238, 233, 233, 1);
 }
 
@@ -379,6 +384,7 @@ section.stretch p.bottom {
     z-index: -1;
     position: relative;
     z-index: 1;
+    min-height: 1000px;
     background-color: white;
 }
 
@@ -491,7 +497,7 @@ section.stretch p.bottom {
 
 .buttons {
     position: relative;
-    padding-left: 30%;
+    padding-left: 20%;
     padding-right: 10%;
 }
 
@@ -509,3 +515,16 @@ section.stretch p.bottom {
     padding-top: 20px;
 }
 
+.categoryCheckboxes {
+    display:block;
+    width:100px;
+    height:19px;
+    margin:-1px 4px 0 0;
+    vertical-align:middle;
+    font-size: 100%;
+}
+
+
+.checkbox {
+    display: none;
+}
