@@ -137,6 +137,21 @@ $(function() {
 
 
 
+// $(document).ready(function(){
+//   $('.buttons').css('opacity', '30%');
+//   $('.act_title').hover(function(){
+//     $('.buttons').slideToggle();
+//     });
+// });
+
+
+
+  $(document).ready(function(){
+    $('body,html').scrollTop(40);
+  });
+
+
+
 $(function () {
     $('.list-group.checked-list-box .list-group-item').each(function () {
         

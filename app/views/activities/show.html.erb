@@ -1,25 +1,37 @@
 <div class="header">
-  <center><h1><%= @activity.title %></h1></center>
+
+ 
+
+    <a class="back_button" href="/"><i class="glyphicon glyphicon-chevron-left"></i></a>
+
+
+
+      <h1 class="act_title"><center><%= @activity.title %></center>
+
+
+
+    
 </div>
 
 <div class="detail_show">
 
   <% unless @activity.categories.empty? %>
-      <center><% @activity.categories.each do |category| %>
-        <%= category.name %>
-      <% end %></center>
+      <% @activity.categories.each do |category| %>
+    <center><%= category.name %></center>
+      <% end %>
       <br>
     <% end %>
 
+  
   <div class="row buttons">
-    <div class="col-sm-4 col-md-4 col-lg-4 wrapper_button">
+    <div class="col-sm-4 col-md-4 col-lg-5 wrapper_button">
       <a href="#edit_activity_modal" data-toggle="modal">
         <center><button>
          Edit
         </button class="show_button"></center>
       </a>
     </div>
-    <div class="col-sm-4 col-md-4 col-lg-4 wrapper_button">
+    <div class="col-sm-4 col-md-4 col-lg-5 wrapper_button">
       <%= link_to(@activity, 
         method: :delete, 
         data: {confirm: "Are you sure you want to delete this activity and all the content associated with it?"}
@@ -29,15 +41,6 @@
         </button class="show_button"></center>
       <% end %>
     </div>
-
-    <div class="col-sm-4 col-md-4 col-lg-4 wrapper_button">
-      <a href="#add_content_modal" data-toggle="modal">
-        <button>
-          Add an accomplishment...
-        </button>
-      </a>
-    </div>
-
   </div>
 
 </div>
@@ -57,8 +60,10 @@
 
     
 
-
   <div class="row act_content">
+    
+    <a href="#add_content_modal" data-toggle="modal"><div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 big_plus"><img class="big_plus_img" src="https://dl.dropboxusercontent.com/u/9144870/addactnorng.jpg">
+    </div></a>
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
       <div id="content" activity-id="<%= @activity.id %>"></div>
       </div>
