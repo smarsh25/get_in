@@ -76,12 +76,20 @@ activities[1].contents.create(title: 'Great Chess Challlenge',
 															body: 'Took 2nd',
 															kind: 'text',
 															eventdate: '2013-12-02 00:00:00')
+activities[1].contents.create(title: 'Tristate Tourney',
+															body: 'Won again!',
+															kind: 'text',
+															eventdate: '2013-12-02 00:00:00')
 activities[1].contents.create(title: 'International Competition',
 															body: "Didn't do so well, but showed up",
 															kind: 'text',
 															eventdate: '2013-01-07 00:00:00')
 activities[1].contents.create(title: 'Chess training class',
 															body: 'held a intro class at school',
+															kind: 'text',
+															eventdate: '2012-04-22 00:00:00')
+activities[1].contents.create(title: 'Chess club bake sale',
+															body: 'raising money to buy new boards.',
 															kind: 'text',
 															eventdate: '2012-04-22 00:00:00')
 activities[1].contents.create(title: 'Chess day',
