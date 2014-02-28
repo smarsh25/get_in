@@ -528,3 +528,7 @@ section.stretch p.bottom {
 .checkbox {
     display: none;
 }
+
+.to_hide {
+    text-align: left;
+}
