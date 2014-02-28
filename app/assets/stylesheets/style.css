@@ -213,7 +213,8 @@ h1 {
     font-size: 30px;
 }
 .landing_page_header {
-    margin-top: 150px;
+    margin-top: 75px;
+    margin-bottom: 50px;
     font-size: 40px;
 }
 body {
@@ -371,6 +372,7 @@ section.stretch p.bottom {
     position: relative;
     z-index: 1;
     background-color: rgba(238, 233, 233, 1);
+    height: 100%;
 }
 
 .user_paper {
