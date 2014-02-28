@@ -1,8 +1,10 @@
 <div class="container">
   <h1 class="landing_page_header"> Track your high school highlights and get into better colleges. </h1>
   <div class="row">
-    <div class="col-sm-12 col-md-8 col-lg-8">
-     <img class="landing_page_img" id="front_page" src="http://placehold.it/750x450">
+    <div class="col-sm-12 col-md-6 col-lg-8">
+
+     <canvas class="landing_page_img" width="480px" height="240px"id="landing_chart"> </canvas>
+
     </div>
     
     <form class="form-horizontal" role="form">
@@ -161,4 +163,35 @@
       </div>
     </div>
   </div>
+
+  <script>
+
+var data = [
+  {
+    value: 30,
+    color:"#F7464A"
+  },
+  {
+    value : 50,
+    color : "#E2EAE9"
+  },
+  {
+    value : 100,
+    color : "#D4CCC5"
+  },
+  {
+    value : 40,
+    color : "#949FB1"
+  },
+  {
+    value : 120,
+    color : "#4D5360"
+  }
+
+]
+  var ctx = $("#landing_chart").get(0).getContext("2d");
+  new Chart(ctx).Doughnut(data);
+  </script>
+
+
 

@@ -1,68 +1,76 @@
-<%= render "layouts/userprofile" %>
-
-
-<div class="show_padding">
+<div class="header">
+  <center><h1><%= @activity.title %></h1></center>
 </div>
 
-<section class="act_show_section">
-<div class="container">
+<div class="detail_show">
 
-<br>
-<div class="holds_panels">
-  <div class="panel panel-default activity_show">
-    <div class="panel-body">
-      <center><h1><%= @activity.title %></h1></center>
-        <div class="row activity_buttons">
-          <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
-            <div id="edit_act_button" class="panel panel-default footer">
-                <a href="#edit_activity_modal" data-toggle="modal">
-                  <div class="panel-body">
-                    <center><font size="34"><h2>Edit</h2></font></center>
-                  </div>
-                </a>
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
-              <%= link_to(@activity, 
-                          method: :delete, 
-                          data: {confirm: "Are you sure you want to delete this activity and all the content associated with it?"}
-                          ) do %>
-                    <div class="panel-body">
-                      <center><font size="34"><h2>Delete</h2></font></center>
-                    </div>
-              <% end %>
-          </div>
-        </div>
-     </div>
-   </div>
- </div>
-
-<div class="holds_panels">
-  <div id="add_content_button" class="panel panel-default footer">
-    <a href="#add_content_modal" data-toggle="modal">
-      <div class="panel-body">
-        <center><font size="34"><h2>Add an accomplishment...</h2></font></center>
-      </div>
-    </a>
-  </div>
-</div>
-
-<div class="row act_content">
-  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 content_column">
-        <div id="content" activity-id="<%= @activity.id %>"></div>
-        </div>
-  </div>
-</div>
-
-  <div>
-    <% unless @activity.categories.empty? %>
-      Categories:<br>
-      <% @activity.categories.each do |category| %>
-        <%= category.name %><br>
-      <% end %>
+  <% unless @activity.categories.empty? %>
+      <center><% @activity.categories.each do |category| %>
+        <%= category.name %>
+      <% end %></center>
+      <br>
     <% end %>
-  <div>
+
+  <div class="row buttons">
+    <div class="col-sm-4 col-md-4 col-lg-4 wrapper_button">
+      <a href="#edit_activity_modal" data-toggle="modal">
+        <center><button>
+         Edit
+        </button class="show_button"></center>
+      </a>
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4 wrapper_button">
+      <%= link_to(@activity, 
+        method: :delete, 
+        data: {confirm: "Are you sure you want to delete this activity and all the content associated with it?"}
+        ) do %>
+        <center><button>
+          Delete
+        </button class="show_button"></center>
+      <% end %>
+    </div>
+
+    <div class="col-sm-4 col-md-4 col-lg-4 wrapper_button">
+      <a href="#add_content_modal" data-toggle="modal">
+        <button>
+          Add an accomplishment...
+        </button>
+      </a>
+    </div>
+
+  </div>
+
 </div>
+
+
+
+
+<div class="page_show">
+
+
+
+
+<div class="container activity_paper">
+
+  <div class="button_padding">
+  </div>
+
+    
+
+
+  <div class="row act_content">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+      <div id="content" activity-id="<%= @activity.id %>"></div>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+
+
+<!-- THE ORIGINAL, WORKING BUT SLOPPY EDIT FORM -->
 
 <div class="modal fade" id="edit_activity_modal" role="dialog">
   <div class="modal-dialog">
@@ -88,33 +96,79 @@
 </div> 
 
 
+
+
+
+<!-- THE EDIT FORM MADE FROM ADD FORM -->
+
+<div class="modal fade" id="edit_activity_modal" role="dialog"> 
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <form id="update_activity" class="to_hide">
+          <input id="activity_title" type="text" name="activity[title]" placeholder="<%= @activity.title %>" autofocus=true>
+            <div class="well" style="max-height: 300px;overflow: auto;">
+              <div class="list-group checked-list-box">
+                <% @categories.each do |category| %>
+                  <div id="<%= category.id %>" class="list-group-item"><%= category.name %></div>
+                <% end %>
+              </div>
+            </div>
+          <input id="activity_body" type="text" name="activity[title]" placeholder="Provide some details...">
+            <div id="submit_activity" class="btn btn-primary" style="width: 70px; height: 30px;">Submit</div>   
+          </div>   
+        </form>
+      </div>
+    </div>
+  </div>
+</div> 
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="modal fade" id="add_content_modal" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-body">
-        <div class="panel panel-default">
-          <div class="panel-body" id="content_form">
-            <form id='add_activity_content' activity-id="<%= @activity.id %>">
-              <input id='content_title'type='text' name='content[title]' placeholder="describe an accomplishment" autofocus=true/>
-              <div id="content_submit_button" class="btn btn-primary">Submit</div>
-            </form>
-          </div>
-          <div class="panel-body" id="image_form">
-              <div>
-                <%= s3_uploader_form callback_url: "/activities/#{@activity.id}/content/add_pic",
-                   id: 'content_s3_uploader',
-                   callback_param: 'profile[image]',
-                   expiration: 2.hours.from_now.utc.iso8601,
-                   callback_method: 'POST',
-                   max_file_size: 10.megabytes do %>
-                  <%= file_field_tag :file, multiple: false, class: 'file-chooser-button' %>
-                <% end %>
-              </div>
-              <button type="button" class="btn btn-primary">Submit</button>
-          </div>
-          <div id='uploads_container'>
-          </div>
-        </div>
+
+                <form id='add_activity_content' activity-id="<%= @activity.id %>">
+                  <input id='content_title'type='text' name='content[title]' placeholder="describe an accomplishment" autofocus=true/>
+                </form>
+                <div class="panel-body" id="image_form" activity-id="<%= @activity.id %>">
+                    <div>
+                      <%= s3_uploader_form callback_url: "/activities/#{@activity.id}/content/add_pic",
+                         id: 'content_s3_uploader',
+                         callback_param: 'profile[image]',
+                         expiration: 2.hours.from_now.utc.iso8601,
+                         callback_method: 'POST',
+                         max_file_size: 10.megabytes do %>
+                        <%= file_field_tag :file, multiple: false, class: 'file-chooser-button' %>
+                      <% end %>
+                    </div>
+                    <div  id="content_submit_button" class="btn btn-primary">Submit</div>
+                </div>
+                <div id='uploads_container'>
+                </div>
+
       </div>
     </div>
   </div>

@@ -1,9 +1,58 @@
-<%= render "layouts/userprofile" %>
 
-<section class="act_index_section">
+<div class="header">
+  <center><h1><%= current_user.profile.first_name || "First Name" %> <%= current_user.profile.last_name || "Last Name" %></h1></center>
+</div>
+
+
+
+<div class="detail_index">
   <div class="container">
+  <div class="row">
+    <div class="col-xs-4 student_pic">
+      <div>
+      <a href="/activities">
+        <center><%= image_tag((current_user.profile.image || "http://allthingseblog.com/wp-content/uploads/2013/06/circle-profile.jpg"), width: "250px", height:"250px", class: "profile_pic") %>
+        </center>
+      </a>
+    </div>
+    </div>
+
+    <div class="col-xs-8 student_info pull-right">        
+      <div class="col-xs-8">
+        <div>
+          <div class="school_story">
+          <h3>
+          <%= @profile.school%>
+          <br>
+          <%= @profile.expected_graduation %>
+          <%= @profile.city %>, <%= @profile.state %>
+          <br>
+          GPA: 4.0, SAT: 1600
+          <br>
+          
+        </h3>
+        </div>
+      </div>
+      </div>
+
+      <div class="col-xs-4 col-sm-4 col-lg-4 col-xl-4" style="text-align: right;">
+        <%= link_to('Logout', destroy_user_session_path, :method => :delete) %></br>
+        <a href="#edit_profile_modal" data-toggle="modal">Edit Profile</a>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+<div class="page_index">
+
+  <div class="container act_index_container user_paper">
+
     <div class="row main-content">
+
       <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 list_of_activities">
+        <br>
+        <br>
           <div id="activities">
           </div>
             <div id="add_act_button" class="panel panel-default footer">
@@ -27,7 +76,11 @@
       </div>
     </div>
   </div>
-</section>
+</div>
+
+
+
+
 
 <div class="modal fade" id="add_activity_modal" role="dialog"> 
   <div class="modal-dialog">
@@ -50,6 +103,8 @@
     </div>
   </div>
 </div> 
+
+
 
 <script>
 $(function(){
