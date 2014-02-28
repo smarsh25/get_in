@@ -8,10 +8,10 @@ $(function(){
   Content.render = function(content) {
     if (content.kind === 'text') {
       html = HandlebarsTemplates.content(content);
-      $('#content').append(html);
+      $('#content').prepend(html);
     }else if (content.kind == 'image'){
       html = HandlebarsTemplates.content_image(content);
-      $('#content').append(html);
+      $('#content').prepend(html);
     }
   };
   //gets and arrary of content objects from the server
@@ -65,7 +65,10 @@ $(function(){
         var activity_id = this.parentElement.attributes['activity-id'].value;
         var new_content = {};
         new_content.title = $('#content_title').val();
+        new_content.body = $('#content_body').val();
+        $('#content_body').val('');
         $('#content_title').val('');
+        $('#add_content_modal').modal('hide');
         Content.create(activity_id, new_content);
       });
     });

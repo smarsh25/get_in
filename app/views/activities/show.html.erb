@@ -2,9 +2,6 @@
   <center><h1><%= @activity.title %></h1></center>
 </div>
 
-
-
-
 <div class="detail_show">
 
   <% unless @activity.categories.empty? %>
@@ -58,13 +55,10 @@
   <div class="button_padding">
   </div>
 
-    
-
-
   <div class="row act_content">
-    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+    
       <div id="content" activity-id="<%= @activity.id %>"></div>
-      </div>
+      
     </div>
   </div>
 
@@ -99,9 +93,6 @@
 </div> 
 
 
-
-
-
 <!-- THE EDIT FORM MADE FROM ADD FORM -->
 
 <div class="modal fade" id="edit_activity_modal" role="dialog"> 
@@ -126,52 +117,31 @@
   </div>
 </div> 
 
-
-
-
-
-
-
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <div class="modal fade" id="add_content_modal" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-body">
-
-                <form id='add_activity_content' activity-id="<%= @activity.id %>">
-                  <input id='content_title'type='text' name='content[title]' placeholder="describe an accomplishment" autofocus=true/>
-                </form>
-                <div class="panel-body" id="image_form" activity-id="<%= @activity.id %>">
-                    <div>
-                      <%= s3_uploader_form callback_url: "/activities/#{@activity.id}/content/add_pic",
-                         id: 'content_s3_uploader',
-                         callback_param: 'profile[image]',
-                         expiration: 2.hours.from_now.utc.iso8601,
-                         callback_method: 'POST',
-                         max_file_size: 10.megabytes do %>
-                        <%= file_field_tag :file, multiple: false, class: 'file-chooser-button' %>
-                      <% end %>
-                    </div>
-                    <div  id="content_submit_button" class="btn btn-primary">Submit</div>
-                </div>
-                <div id='uploads_container'>
-                </div>
-
+          <form id='add_activity_content' activity-id="<%= @activity.id %>">
+            <input id='content_title'type='text' name='content[title]' placeholder="Accomplishment Title" autofocus=true style="border: 1px solid grey;"/>
+            <input type="text" id="content_body" placeholder="Describe accomplisment or choose a file " style="border: 1px solid grey; margin-top:5px"/>
+          </form>
+          <div class="panel-body" id="image_form" activity-id="<%= @activity.id %>">
+              <div>
+                <%= s3_uploader_form callback_url: "/activities/#{@activity.id}/content/add_pic",
+                   id: 'content_s3_uploader',
+                   callback_param: 'profile[image]',
+                   expiration: 2.hours.from_now.utc.iso8601,
+                   callback_method: 'POST',
+                   max_file_size: 10.megabytes do %>
+                  <%= file_field_tag :file, multiple: false, class: 'file-chooser-button' %>
+                <% end %>
+              </div>
+              <div id="content_submit_button" class="btn btn-primary">Submit</div>
+          </div>
+          <div id='uploads_container'>
+          </div>
       </div>
     </div>
   </div>
@@ -181,7 +151,7 @@
 <script>
   $(function() {
     var add_content_title = function(){
-      u.additional_data({title: $('#image_content_title').val()});
+      u.additional_data({title: $('#content_title').val()});
       return true;
     };
 
@@ -197,5 +167,12 @@
     $('#content_s3_uploader').bind('ajax:success', function(e, data) {
       window.location = data["url"];
     });
+
+    setTimeout(function(){
+      if($('#content').is(':empty')) {
+        $('#add_content_modal').modal();
+      }
+    }, 300);
+
   });
 </script>

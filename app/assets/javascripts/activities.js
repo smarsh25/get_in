@@ -30,10 +30,10 @@ $(function() {
     });
   };
 
-  Activities.redirect = function(id) {
+  Activities.redirect = function(id, reload) {
     if (id) {
       window.location = "/activities/" + id;
-      location.reload();
+      //location.reload();
     } else
     {
       window.location = '/activities';
@@ -125,19 +125,6 @@ $(function() {
 
     }
 });
-
-
-
-//   if ($('activity_show').length === 0) {
-//     $.get('userdetail.html.erb', function (data){
-//         $('header').append("hwll");
-//     });
-
-// }
-
-
-
-
 
 
 $(function () {
