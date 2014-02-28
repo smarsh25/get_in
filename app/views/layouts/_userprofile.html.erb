@@ -6,9 +6,7 @@
         <a href="/activities"><center><%= image_tag((current_user.profile.image || "http://allthingseblog.com/wp-content/uploads/2013/06/circle-profile.jpg"), width: "250px", height:"250px", class: "profile_pic") %></center></a>
       </div>
 
-      <div class="col-sm-8 col-md-8 col-lg-8 col-xl-8 student_info">
-
-        
+      <div class="col-sm-8 col-md-8 col-lg-8 col-xl-8 student_info">        
           <div class="col-xs-8 col-sm-8 col-lg-8 col-xl-8">
             <div class="users_name">
             <h1 style="width:100%;"><%= current_user.profile.first_name || "First Name" %> <%= current_user.profile.last_name || "Last Name" %></h1>
@@ -21,6 +19,7 @@
             <a href="#edit_profile_modal" data-toggle="modal">Edit Profile</a>
 
           </div>
+        </div>
         
 
         <div class="school_story">
