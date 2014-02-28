@@ -18,6 +18,6 @@ class Content < ActiveRecord::Base
 
   # initialize eventdate to created_at (for now, until we add ui to do add it)
   before_create do |content|
-    content.eventdate = content.created_at if content.eventdate.nil?
+    content.eventdate.nil? ? content.eventdate = content.created_at.to_s.split(" ")[0].to_date : nil
   end
 end
