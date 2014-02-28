@@ -119,6 +119,13 @@ $(function() {
   }
 });
 
+
+$(document).ready(function(){
+  $("textarea").height(90);
+});
+
+
+
 $(function () {
     $('.list-group.checked-list-box .list-group-item').each(function () {
         
